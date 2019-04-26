@@ -1,17 +1,17 @@
-package com.devarthur.kotlinapp.activity
+package com.supermatch.smplay.activity
 
 import android.os.Bundle
-import com.devarthur.kotlinapp.R
+import com.supermatch.smplay.R
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-import com.devarthur.kotlinapp.extensions.setupToolbar
-import com.devarthur.kotlinapp.extensions.toast
+import com.supermatch.smplay.extensions.setupToolbar
+import com.supermatch.smplay.extensions.toast
 import android.content.Intent
-import com.devarthur.kotlinapp.domain.tipoCarro
+import com.supermatch.smplay.domain.tipoCarro
 
 class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedListener {
 

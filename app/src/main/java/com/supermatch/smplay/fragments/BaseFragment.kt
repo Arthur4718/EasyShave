@@ -1,4 +1,4 @@
-package com.devarthur.kotlinapp.fragments
+package com.supermatch.smplay.fragments
 
 import android.support.v4.app.Fragment
 

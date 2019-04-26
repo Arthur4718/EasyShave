@@ -1,12 +1,12 @@
-package com.devarthur.kotlinapp.activity
+package com.supermatch.smplay.activity
 
 
 import android.os.Bundle
-import com.devarthur.kotlinapp.R
-import com.devarthur.kotlinapp.domain.tipoCarro
-import com.devarthur.kotlinapp.extensions.addFragment
-import com.devarthur.kotlinapp.extensions.setupToolbar
-import com.devarthur.kotlinapp.fragments.CarrosFragment
+import com.supermatch.smplay.R
+import com.supermatch.smplay.domain.tipoCarro
+import com.supermatch.smplay.extensions.addFragment
+import com.supermatch.smplay.extensions.setupToolbar
+import com.supermatch.smplay.fragments.CarrosFragment
 
 class CarrosActivity : BaseActivity() {
 

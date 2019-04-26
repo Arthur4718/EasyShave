@@ -1,4 +1,4 @@
-package com.devarthur.kotlinapp.fragments
+package com.supermatch.smplay.fragments
 
 
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.devarthur.kotlinapp.domain.tipoCarro
+import com.supermatch.smplay.domain.tipoCarro
 
-import com.devarthur.kotlinapp.R
+import com.supermatch.smplay.R
 
 private var type : tipoCarro = tipoCarro.classicos
 

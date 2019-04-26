@@ -1,6 +1,6 @@
-package com.devarthur.kotlinapp.domain
+package com.supermatch.smplay.domain
 
-import com.devarthur.kotlinapp.R
+import com.supermatch.smplay.R
 
 /*
  Class created by : Arthur Gomes da Silva @ Sportsmatch

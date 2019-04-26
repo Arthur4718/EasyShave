@@ -1,4 +1,4 @@
-package com.devarthur.kotlinapp
+package com.supermatch.smplay
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

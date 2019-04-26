@@ -1,4 +1,4 @@
-package com.devarthur.kotlinapp
+package com.supermatch.smplay
 
 import org.junit.Test
 

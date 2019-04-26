@@ -1,4 +1,4 @@
-package com.devarthur.kotlinapp.extensions
+package com.supermatch.smplay.extensions
 
 
 import android.support.v7.app.ActionBar

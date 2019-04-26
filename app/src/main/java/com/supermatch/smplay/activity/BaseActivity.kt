@@ -1,4 +1,4 @@
-package com.devarthur.kotlinapp.activity
+package com.supermatch.smplay.activity
 
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
