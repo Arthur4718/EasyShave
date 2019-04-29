@@ -10,40 +10,65 @@
 
 
     <ImageView
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:contentDescription="ImgLogo"
-            app:srcCompat="@drawable/ic_smplay_svg_logo"
-            android:id="@+id/imgLogo"
-            android:layout_marginTop="100dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-
-    <ImageView
-            android:layout_width="328dp"
-            android:layout_height="356dp"
-            android:contentDescription="ImgBlur"
-            app:srcCompat="@drawable/imgblur"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-    <TextView
-
-            android:text="@string/loading_text"
+            android:src="@drawable/img_bg_wide"
+            android:scaleType="centerCrop"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/textColor"
-            android:id="@+id/tv_loadingText"
-            android:fontFamily="@font/projectfont"
-            android:layout_marginBottom="80dp"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" />
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="0dp"/>
+
+
+        <ImageView
+                android:layout_width="182dp"
+                android:layout_height="182dp"
+                android:contentDescription="@string/imglogo"
+                app:srcCompat="@drawable/ic_smplay_svg_logo"
+                android:id="@+id/imgLogo"
+                app:layout_constraintStart_toStartOf="@+id/imageView2" app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"/>
+
+        <ImageView
+                android:layout_width="328dp"
+                android:layout_height="356dp"
+                android:contentDescription="@string/imgblur"
+                app:srcCompat="@drawable/imgblur"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:id="@+id/imageView2" android:layout_marginTop="52dp"/>
+        <TextView
+
+                android:text="@string/loading_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:id="@+id/tv_loadingText"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/helveticaneue"/>
+
+
+        <ImageView android:layout_width="20dp"
+                   android:background="@drawable/solid_bar"
+                   android:layout_height="2dp"
+                   android:layout_marginTop="8dp"
+                   android:scaleType="fitStart"
+                   android:contentDescription="Loading bar"
+                   app:layout_constraintTop_toBottomOf="@+id/tv_loadingText"
+                   app:layout_constraintStart_toStartOf="parent"
+                   android:layout_marginStart="8dp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   android:layout_marginEnd="8dp"/>
+
+
+
+
+
 </android.support.constraint.ConstraintLayout>
