@@ -1,6 +1,7 @@
 package com.supermatch.smplay.activity
 
 import android.content.Context
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 
 /*
@@ -11,6 +12,9 @@ import android.support.v7.app.AppCompatActivity
   Copyright Sportsmatch 2019. 
 */
 open class BaseActivity : AppCompatActivity() {
+
+    //SwipeRefreshLayout
+    private var refresh: SwipeRefreshLayout? = null
 
 
     //Propriety used to access context from anywhere in the project
