@@ -61,5 +61,8 @@ Versao %s<br><br>
     <string name="btnUpdateText">ATUALIZAR</string>
     <string name="btnTryAgain">TENTAR NOVAMENTE</string>
     <string name="btnSkipText">Pular</string>
+    <string name="tvEnterUsing">Entrar Usando:</string>
+    <string name="FacebookBtn">Facebook</string>
+    <string name="EmailBtn">E-mail</string>
 
 </resources>

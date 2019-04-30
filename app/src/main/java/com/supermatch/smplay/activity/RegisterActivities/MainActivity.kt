@@ -14,6 +14,7 @@ import android.content.Intent
 import com.supermatch.smplay.activity.BaseActivities.BaseActivity
 import com.supermatch.smplay.activity.BaseActivities.CarrosActivity
 import com.supermatch.smplay.domain.tipoCarro
+import org.jetbrains.anko.startActivity
 
 class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedListener {
 
@@ -50,6 +51,8 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
                 val intent = Intent(context, CarrosActivity::class.java)
                 intent.putExtra("tipo", tipoCarro.classicos)
                 startActivity(intent)
+
+
             }
             R.id.nav_item_carros_esportivos -> {
 

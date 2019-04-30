@@ -18,5 +18,6 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="logo_width">160dp</dimen>
     <dimen name="logo_height">160dp</dimen>
+    <dimen name="icon_size_btn_icon">35dp</dimen>
 
 </resources>
