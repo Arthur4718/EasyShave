@@ -59,6 +59,7 @@ Versao %s<br><br>
     <string name="imgblur">ImgBlur</string>
     <string name="newVersionText">Há uma nova versão disponível.</string>
     <string name="btnUpdateText">ATUALIZAR</string>
+    <string name="btnTryAgain">TENTAR NOVAMENTE</string>
     <string name="btnSkipText">Pular</string>
 
 </resources>

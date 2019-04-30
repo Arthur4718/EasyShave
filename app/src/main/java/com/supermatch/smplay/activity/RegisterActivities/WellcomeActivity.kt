@@ -4,6 +4,7 @@ package com.supermatch.smplay.activity.RegisterActivities
 import android.os.Bundle
 import com.supermatch.smplay.R
 import com.supermatch.smplay.activity.BaseActivities.BaseActivity
+import org.jetbrains.anko.startActivity
 
 class WellcomeActivity : BaseActivity() {
 
@@ -24,5 +25,8 @@ class WellcomeActivity : BaseActivity() {
         super.onResume()
 
         //Todo - Check connection
+
+        //Debug
+
     }
 }
