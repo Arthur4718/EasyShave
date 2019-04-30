@@ -33,6 +33,7 @@ class WellcomeActivity : BaseActivity() {
         handler.postDelayed({
             //Do something after n Seconds
             startActivity<SelectLoginActivity>()
+            finish()
 
 
         }, timer)
