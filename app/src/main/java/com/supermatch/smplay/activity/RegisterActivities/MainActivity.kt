@@ -1,4 +1,4 @@
-package com.supermatch.smplay.activity
+package com.supermatch.smplay.activity.RegisterActivities
 
 import android.os.Bundle
 import com.supermatch.smplay.R
@@ -11,10 +11,13 @@ import android.view.MenuItem
 import com.supermatch.smplay.extensions.setupToolbar
 import com.supermatch.smplay.extensions.toast
 import android.content.Intent
+import com.supermatch.smplay.activity.BaseActivities.BaseActivity
+import com.supermatch.smplay.activity.BaseActivities.CarrosActivity
 import com.supermatch.smplay.domain.tipoCarro
 
 class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedListener {
 
+    //This is only a sample class and its not in use in this project.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

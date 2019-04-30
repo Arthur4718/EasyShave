@@ -1,4 +1,4 @@
-package com.supermatch.smplay.activity
+package com.supermatch.smplay.activity.BaseActivities
 
 
 import android.os.Bundle

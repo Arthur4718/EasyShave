@@ -10,22 +10,24 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.WellcomeActivity">
+        <activity android:name=".activity.RegisterActivities.ConnectionErrorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CarrosActivity">
+        <activity android:name=".activity.RegisterActivities.WellcomeActivity">
+
+        </activity>
+        <activity android:name=".activity.BaseActivities.CarrosActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.supermatch.smplay.activity.MainActivity"/>
+                    android:value="com.supermatch.smplay.activity.RegisterActivities.MainActivity"/>
         </activity>
         <activity
-                android:name=".activity.MainActivity"
+                android:name=".activity.RegisterActivities.MainActivity"
                 android:theme="@style/AppTheme.NavDrawer">
-
         </activity>
     </application>
 

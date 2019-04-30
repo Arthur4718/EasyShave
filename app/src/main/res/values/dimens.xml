@@ -16,5 +16,7 @@
     <dimen name="img_carro_width">300dp</dimen>
     <dimen name="img_carro_height">128dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="logo_width">160dp</dimen>
+    <dimen name="logo_height">160dp</dimen>
 
 </resources>

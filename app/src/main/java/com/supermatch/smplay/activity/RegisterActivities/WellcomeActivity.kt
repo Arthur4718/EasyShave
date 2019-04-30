@@ -1,8 +1,9 @@
-package com.supermatch.smplay.activity
+package com.supermatch.smplay.activity.RegisterActivities
 
 
 import android.os.Bundle
 import com.supermatch.smplay.R
+import com.supermatch.smplay.activity.BaseActivities.BaseActivity
 
 class WellcomeActivity : BaseActivity() {
 

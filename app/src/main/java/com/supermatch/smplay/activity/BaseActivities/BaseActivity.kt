@@ -1,4 +1,4 @@
-package com.supermatch.smplay.activity
+package com.supermatch.smplay.activity.BaseActivities
 
 import android.content.Context
 import android.support.v4.widget.SwipeRefreshLayout

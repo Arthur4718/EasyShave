@@ -57,5 +57,8 @@ Versao %s<br><br>
     <string name="loading_text">Carregando</string>
     <string name="imglogo">ImgLogo</string>
     <string name="imgblur">ImgBlur</string>
+    <string name="newVersionText">Há uma nova versão disponível.</string>
+    <string name="btnUpdateText">ATUALIZAR</string>
+    <string name="btnSkipText">Pular</string>
 
 </resources>

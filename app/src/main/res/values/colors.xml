@@ -7,6 +7,14 @@
 
     <color name="textColor">#D8D8D8</color>
 
+    <!-- Project Colors -->
+    <color name="btnStandardColor">#4878FF</color>
+    <color name="btnInactive">#313848</color>
+    <color name="btnCancel">#FE5512</color>
+    <color name="btnStandardColor_orange">#F89537</color>
+
+
+
     <!-- Outras cores -->
     <color name="transparent">#0000</color>
     <color name="white">#fff</color>
