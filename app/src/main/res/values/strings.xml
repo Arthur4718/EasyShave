@@ -36,7 +36,12 @@ Versao %s<br><br>
     <string name="luxo">Luxo</string>
     <string name="latitudeLongitude">Lat / Lng</string>
 
-    <string name="textoTermos">Li e concordo com os <b><u>termos de uso</u></b> e políticas de privacidade</string>
+    <string name="textoTermos">Li e concordo com os
+        <b>
+            <u>termos de uso</u>
+        </b>
+        e políticas de privacidade
+    </string>
 
     <!-- M -->
     <string name="mapa">Mapa</string>
@@ -83,8 +88,11 @@ Versao %s<br><br>
     <string name="hintCPF">CPF</string>
     <string name="txtLoginPasswordConfirm">Confirmar Senha</string>
     <string name="txtContactPhone">Celular</string>
-    <string name="txtRegisterInformation">Ao Registrar você aceita nossos <b>Termos de Uso</b> e <b>Política de Privacidade.</b>
+    <string name="txtRegisterInformation">Ao Registrar você aceita nossos <b>Termos de Uso</b> e
+        <b>Política de Privacidade.</b>
     </string>
     <string name="register">Registrar</string>
+    <string name="brazilAreaCode">+55</string>
+    <string name="text_send">Enviar</string>
 
 </resources>

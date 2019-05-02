@@ -27,11 +27,10 @@ class LoginEmailActivity : BaseActivity() {
 
         btnLoginWithEmail.setOnClickListener {  logWithUserData() }
 
+        tvRecoverAccount.setOnClickListener { startActivity<RecoverPassword>()}
 
-        tvRecoverAccount.setOnClickListener {
-            Toast.makeText(context, "Recover Account", Toast.LENGTH_SHORT).show()
-        }
-
+        //If the user needs to login right after sign in up - Consider using Start Activity for result
+        //Then, use the e-mail and login as parameters so the Login activity can do its job. - Its saves time and code.
         tvCreateAccount.setOnClickListener { startActivity<CreateAccount>() }
 
 

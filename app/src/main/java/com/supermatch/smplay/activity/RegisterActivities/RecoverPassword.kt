@@ -4,25 +4,22 @@ package com.supermatch.smplay.activity.RegisterActivities
 import android.os.Bundle
 import com.supermatch.smplay.R
 import com.supermatch.smplay.activity.BaseActivities.BaseActivity
-import kotlinx.android.synthetic.main.activity_create_account.*
+import kotlinx.android.synthetic.main.activity_recover_password.*
 import org.jetbrains.anko.toast
 
-class CreateAccount : BaseActivity() {
+class RecoverPassword : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_account)
+        setContentView(R.layout.activity_recover_password)
+
 
         initActions()
     }
 
     private fun initActions() {
+        tvBackNavication3.setOnClickListener { finish() }
 
-        tvBackNavigation2.setOnClickListener { finish() }
-
-        btnSignUpWithEmail.setOnClickListener {
-            toast("Sign up...")
-        }
-
+        btnRecoverPassword.setOnClickListener { toast("Check your e-mail for details") }
     }
 }
