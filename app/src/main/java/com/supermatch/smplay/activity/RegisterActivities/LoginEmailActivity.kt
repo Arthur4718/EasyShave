@@ -7,6 +7,7 @@ import com.supermatch.smplay.R
 import com.supermatch.smplay.activity.BaseActivities.BaseActivity
 import com.supermatch.smplay.utils.ValidationsUtils
 import kotlinx.android.synthetic.main.activity_login_email.*
+import org.jetbrains.anko.startActivity
 
 class LoginEmailActivity : BaseActivity() {
 
@@ -31,12 +32,11 @@ class LoginEmailActivity : BaseActivity() {
             Toast.makeText(context, "Recover Account", Toast.LENGTH_SHORT).show()
         }
 
-        tvCreateAccount.setOnClickListener {
-            Toast.makeText(context, "Create Account", Toast.LENGTH_SHORT).show()
-        }
+        tvCreateAccount.setOnClickListener { startActivity<CreateAccount>() }
 
 
     }
+
 
     private fun logWithUserData() {
         if (ValidationsUtils.verifyLoginAccount(edtLoginEmail, edtLoginPassword)) {

@@ -19,5 +19,7 @@
     <dimen name="logo_width">160dp</dimen>
     <dimen name="logo_height">160dp</dimen>
     <dimen name="icon_size_btn_icon">35dp</dimen>
+    <dimen name="btn_width">151dp</dimen>
+    <dimen name="btn_height">41dp</dimen>
 
 </resources>
