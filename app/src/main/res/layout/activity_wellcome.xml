@@ -18,27 +18,29 @@
             app:layout_constraintTop_toTopOf="parent" android:id="@+id/imageView"/>
 
 
-        <ImageView
-                android:layout_width="@dimen/logo_width"
-                android:layout_height="@dimen/logo_height"
-                android:contentDescription="@string/imglogo"
-                app:srcCompat="@drawable/ic_smplay_svg_logo"
-                android:id="@+id/imgLogo"
-                app:layout_constraintStart_toStartOf="@+id/imgBgBlur" app:layout_constraintEnd_toEndOf="@+id/imgBgBlur"
-                app:layout_constraintTop_toTopOf="@+id/imgBgBlur"
-                app:layout_constraintBottom_toBottomOf="@+id/imgBgBlur"/>
+    <ImageView
+            android:layout_width="@dimen/logo_width"
+            android:layout_height="@dimen/logo_height"
+            android:contentDescription="@string/imglogo"
+            app:srcCompat="@drawable/ic_smplay_svg_logo"
+            android:id="@+id/imgLogo"
+            app:layout_constraintStart_toStartOf="@+id/imgBgBlur"
+            app:layout_constraintEnd_toEndOf="@+id/imgBgBlur"
+            app:layout_constraintTop_toTopOf="@+id/imgBgBlur"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBgBlur"
+            app:layout_constraintVertical_bias="0.35000002"/>
 
-        <ImageView
-                android:layout_width="328dp"
-                android:layout_height="356dp"
-                android:contentDescription="@string/imgblur"
-                app:srcCompat="@drawable/imgblur"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp"
-                android:id="@+id/imgBgBlur" android:layout_marginTop="52dp"/>
+    <ImageView
+            android:layout_width="328dp"
+            android:layout_height="356dp"
+            android:contentDescription="@string/imgblur"
+            app:srcCompat="@drawable/imgblur"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/imgBgBlur"/>
         <TextView
 
                 android:text="@string/loading_text"
