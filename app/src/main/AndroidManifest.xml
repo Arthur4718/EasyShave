@@ -12,29 +12,35 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.RegisterActivities.LoginEmailActivity"
-                  android:screenOrientation="portrait"
-        >
+        <activity android:name=".activity.RegisterActivities.CreateAccount">
+        </activity>
+        <activity
+                android:name=".activity.RegisterActivities.LoginEmailActivity"
+                android:screenOrientation="portrait">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.supermatch.smplay.activity.RegisterActivities.SelectLoginActivity"/>
         </activity>
-        <activity android:name=".activity.RegisterActivities.SelectLoginActivity"
-                  android:screenOrientation="portrait"
-        >
+        <activity
+                android:name=".activity.RegisterActivities.SelectLoginActivity"
+                android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.RegisterActivities.ConnectionErrorActivity"
-                  android:screenOrientation="portrait"
-        >
+        <activity
+                android:name=".activity.RegisterActivities.ConnectionErrorActivity"
+                android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.RegisterActivities.WellcomeActivity" android:screenOrientation="portrait">
+        <activity
+                android:name=".activity.RegisterActivities.WellcomeActivity"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.BaseActivities.CarrosActivity" android:screenOrientation="portrait">
+        <activity
+                android:name=".activity.BaseActivities.CarrosActivity"
+                android:screenOrientation="portrait">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.supermatch.smplay.activity.RegisterActivities.MainActivity"/>

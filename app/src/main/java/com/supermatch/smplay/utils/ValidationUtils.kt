@@ -51,6 +51,21 @@ object ValidationsUtils {
         }
     }
 
+    fun isPasswordValid(editText : EditText, errorMessage : String ) : Boolean{
+
+        val minPasswordLengh = 6
+
+        if(editText.text.length < minPasswordLengh){
+            editText.error = errorMessage
+            return false
+        } else{
+            return true
+        }
+
+
+
+    }
+
     fun isFieldObrigatory(etField: EditText): Boolean {
 
         if (etField.text.toString().trim { it <= ' ' } == "" || etField.text.toString().trim { it <= ' ' }.isEmpty()) {
@@ -97,6 +112,7 @@ object ValidationsUtils {
 
         val ok = booleanArrayOf(
             isFieldObrigatory(senhaLogin, "Preencha este campo"),
+            isPasswordValid(senhaLogin, "Senha inválida"),
             isFieldObrigatory(emailLogin, "Preencha este campo"),
             isEmailValide(emailLogin)
         )
