@@ -37,11 +37,21 @@
     <color name="facebookblue">#3E5AA7</color>
     <color name="facebookDark">#003177</color>
 
+
     <color name="bgGray">#717C90</color>
     <color name="bgGrayDark">#455062</color>
 
+    <color name="bgCardViewColor">#51313848</color>
 
+    <color name="bgStandardColor">#4878FF</color>
+    <color name="bgStandardColorDark">#004dcb</color>
 
+    <color name="bgInactiveColorButton">#313848</color>
+
+    <color name="bgCancelarButton">#FE5512</color>
+    <color name="bgCancelarButtonDark">#c31900</color>
+
+    c31900
 
     <!-- Text colors -->
 

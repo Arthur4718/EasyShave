@@ -15,6 +15,9 @@
         <activity android:name=".activity.RegisterActivities.LoginEmailActivity"
                   android:screenOrientation="portrait"
         >
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.supermatch.smplay.activity.RegisterActivities.SelectLoginActivity"/>
         </activity>
         <activity android:name=".activity.RegisterActivities.SelectLoginActivity"
                   android:screenOrientation="portrait"
