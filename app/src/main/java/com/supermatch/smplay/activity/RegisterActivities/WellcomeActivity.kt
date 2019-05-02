@@ -3,7 +3,7 @@ package com.supermatch.smplay.activity.RegisterActivities
 
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
+
 import com.supermatch.smplay.R
 import com.supermatch.smplay.activity.BaseActivities.BaseActivity
 import org.jetbrains.anko.startActivity

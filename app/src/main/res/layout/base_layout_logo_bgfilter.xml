@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary"
+        tools:context=".activity.RegisterActivities.WellcomeActivity">
+
+
+    <ImageView
+            android:src="@drawable/img_bg_wide"
+            android:scaleType="centerCrop"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:id="@+id/imageView"/>
+
+
+    <ImageView
+            android:layout_width="@dimen/logo_width"
+            android:layout_height="@dimen/logo_height"
+            android:contentDescription="@string/imglogo"
+            app:srcCompat="@drawable/ic_smplay_svg_logo"
+            android:id="@+id/imgLogo"
+            app:layout_constraintStart_toStartOf="@+id/imgBgBlur" app:layout_constraintEnd_toEndOf="@+id/imgBgBlur"
+            app:layout_constraintTop_toTopOf="@+id/imgBgBlur"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBgBlur"/>
+
+    <ImageView
+            android:layout_width="328dp"
+            android:layout_height="356dp"
+            android:contentDescription="@string/imgblur"
+            app:srcCompat="@drawable/imgblur"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/imgBgBlur" android:layout_marginTop="52dp"/>
+    <TextView
+
+            android:text="@string/loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
+            android:id="@+id/tv_loadingText"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/helveticaneue"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="99dp"
+            android:layout_height="4dp"
+            android:max="100"
+            android:progress="10"
+            android:indeterminate="true"
+            android:indeterminateBehavior="cycle"
+            android:progressTint="@color/textColor"
+            android:progressBackgroundTint="@color/textColor"
+            android:indeterminateTint="@color/textColor"
+
+            android:id="@+id/progressBar"
+            app:layout_constraintStart_toStartOf="@+id/tv_loadingText"
+            app:layout_constraintEnd_toEndOf="@+id/tv_loadingText" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_loadingText"/>
+
+
+</android.support.constraint.ConstraintLayout>
