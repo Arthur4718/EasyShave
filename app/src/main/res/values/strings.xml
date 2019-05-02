@@ -69,5 +69,8 @@ Versao %s<br><br>
     <string name="tvEnterUsing">Entrar Usando:</string>
     <string name="FacebookBtn">Facebook</string>
     <string name="EmailBtn">E-mail</string>
+    <string name="text_back">Voltar</string>
+    <string name="text_recover_account">Recuperar Senha</string>
+    <string name="text_create_account">Criar Conta</string>
 
 </resources>

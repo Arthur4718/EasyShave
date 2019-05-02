@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_select_login.*
 import com.facebook.FacebookException
 import com.facebook.login.LoginResult
 import com.facebook.FacebookCallback
+import org.jetbrains.anko.startActivity
 
 import java.util.*
 import android.content.Intent
@@ -64,9 +65,7 @@ class SelectLoginActivity : BaseActivity() {
         }
 
 
-        btnEmailLogin.setOnClickListener {
-
-        }
+        btnEmailLogin.setOnClickListener { startActivity<LoginEmailActivity>() }
     }
 
 
