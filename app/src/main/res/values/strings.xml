@@ -27,6 +27,11 @@ Versao %s<br><br>
     <string name="esportivos">Esportivos</string>
     <string name="error_conexao_indisponivel">Conexão indisponível. Verifique seu Wi-Fi ou 3G.</string>
 
+    <!-- F -->
+    <string name="facebook_app_id">1329646183855578</string>
+    <string name="fb_login_protocol_scheme">fb1329646183855578</string>
+
+
     <!-- L -->
     <string name="luxo">Luxo</string>
     <string name="latitudeLongitude">Lat / Lng</string>
