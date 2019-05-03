@@ -13,6 +13,7 @@ import android.widget.Toast
 import android.view.View.OnFocusChangeListener
 
 import android.view.View
+import com.supermatch.smplay.domain.MaskType
 import com.supermatch.smplay.utils.CPFUtil
 
 
@@ -33,6 +34,9 @@ class CreateAccount : BaseActivity() {
 
         //Mask for cpf
         edtInputCPF.addTextChangedListener(Mask.mask("###.###.###-##", edtInputCPF))
+
+        //Phone Contact mask
+        edtContactPhone.addTextChangedListener(Mask.mask("(##)#####-####", edtContactPhone))
         
         edtInputCPF.setOnFocusChangeListener { v, hasFocus ->
 
@@ -44,7 +48,7 @@ class CreateAccount : BaseActivity() {
                     edtInputCPF.error = "CPF invalido"
                 }else{
 
-                    edtInputCPF.error = ""
+                    edtInputCPF.error = null
                 }
 
             }

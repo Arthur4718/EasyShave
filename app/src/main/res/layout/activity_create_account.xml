@@ -186,11 +186,9 @@
                     android:id="@+id/textView"
                     app:layout_constraintStart_toStartOf="@+id/textinputConfirmaSenha"
                     android:textColor="@color/white"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textinputConfirmaSenha"
                     android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="@+id/textInputCelular"
-                    app:layout_constraintVertical_bias="0.6" android:layout_marginStart="16dp"/>
+                    android:layout_marginStart="16dp"/>
 
             <android.support.design.widget.TextInputLayout
                     android:layout_width="0dp"
@@ -209,7 +207,7 @@
                         style="@style/edtLoginDefault"
                         android:fontFamily="@font/avenirnextregular"
                         android:hint="@string/txtContactPhone"
-                        android:inputType="textPassword"
+                        android:inputType="number"
                         android:textSize="12sp"/>
 
             </android.support.design.widget.TextInputLayout>

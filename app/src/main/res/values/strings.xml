@@ -96,5 +96,7 @@ Versao %s<br><br>
     <string name="text_send">Enviar</string>
     <string name="complete_profile">COMPLETAR PERFIL</string>
     <string name="text_continue">CONTINUAR</string>
+    <string name="CPFMask">###.###.###-##</string>
+    <string name="PhoneContactMask">(##)#####-####</string>
 
 </resources>

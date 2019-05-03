@@ -4,9 +4,11 @@ package com.supermatch.smplay.activity.RegisterActivities
 import android.os.Bundle
 import com.supermatch.smplay.R
 import com.supermatch.smplay.activity.BaseActivities.BaseActivity
+import com.supermatch.smplay.utils.ValidationsUtils
 import kotlinx.android.synthetic.main.activity_recover_password.*
 import org.jetbrains.anko.toast
 
+//Sends e-mail for the user so he can recover his password.
 class RecoverPassword : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +22,15 @@ class RecoverPassword : BaseActivity() {
     private fun initActions() {
         tvBackNavication3.setOnClickListener { finish() }
 
-        btnRecoverPassword.setOnClickListener { toast("Check your e-mail for details") }
+        btnRecoverPassword.setOnClickListener { recoverUserPassword()}
+    }
+
+    private fun recoverUserPassword() {
+
+        if(ValidationsUtils.isEmailValide(edtRecoverEmail) && ValidationsUtils.isFieldObrigatory(edtRecoverEmail)){
+
+            toast("Verifique seu e-mail!")
+
+        }
     }
 }
