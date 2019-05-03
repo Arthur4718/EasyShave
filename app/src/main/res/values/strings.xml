@@ -95,5 +95,6 @@ Versao %s<br><br>
     <string name="brazilAreaCode">+55</string>
     <string name="text_send">Enviar</string>
     <string name="complete_profile">COMPLETAR PERFIL</string>
+    <string name="text_continue">CONTINUAR</string>
 
 </resources>

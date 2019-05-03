@@ -20,7 +20,8 @@ import android.content.Intent
 import com.facebook.login.LoginManager
 
 
-
+//This activity shows two choices for the user - Log in with e-mail details or facebook details.
+//If the user login with facebook, then we ask for some aditionar information later
 class SelectLoginActivity : BaseActivity() {
 
 
@@ -36,7 +37,16 @@ class SelectLoginActivity : BaseActivity() {
 
     }
 
+    //Callback from facebook login sdk
     private fun initActions() {
+
+        setupFacebookLogin()
+
+
+        btnEmailLogin.setOnClickListener { startActivity<LoginEmailActivity>() }
+    }
+
+    private fun setupFacebookLogin() {
 
         FacebookSdk.sdkInitialize(this.applicationContext)
 
@@ -61,11 +71,14 @@ class SelectLoginActivity : BaseActivity() {
 
         btnFacebookLogin.setOnClickListener {
 
-            LoginManager.getInstance().logInWithReadPermissions(this@SelectLoginActivity, Arrays.asList("public_profile","e-mail"));
+            //Todo - remove the comment after the debug test
+            //LoginManager.getInstance().logInWithReadPermissions(this@SelectLoginActivity, Arrays.asList("public_profile","e-mail"));
+
+            //Todo - if the login with facebook was a sucess, we shoud pass the available information to the next screen - Complete profile will ask for aditional information
+
+            startActivity<CompleteProfile>()
         }
 
-
-        btnEmailLogin.setOnClickListener { startActivity<LoginEmailActivity>() }
     }
 
 
