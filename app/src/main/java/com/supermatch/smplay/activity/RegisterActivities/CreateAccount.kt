@@ -5,9 +5,15 @@ import android.os.Bundle
 
 import com.supermatch.smplay.R
 import com.supermatch.smplay.activity.BaseActivities.BaseActivity
+import com.supermatch.smplay.utils.Mask
 import com.supermatch.smplay.utils.ValidationsUtils
 import kotlinx.android.synthetic.main.activity_create_account.*
 import org.jetbrains.anko.toast
+import android.widget.Toast
+import android.view.View.OnFocusChangeListener
+
+import android.view.View
+import com.supermatch.smplay.utils.CPFUtil
 
 
 class CreateAccount : BaseActivity() {
@@ -24,6 +30,26 @@ class CreateAccount : BaseActivity() {
         tvBackNavigation2.setOnClickListener { finish() }
 
         btnSignUpWithEmail.setOnClickListener { signUpWithUserData() }
+
+        //Mask for cpf
+        edtInputCPF.addTextChangedListener(Mask.mask("###.###.###-##", edtInputCPF))
+        
+        edtInputCPF.setOnFocusChangeListener { v, hasFocus ->
+
+            if(!hasFocus){
+                //When the user leaves the field we check if the cpf is valid
+
+
+                if(!CPFUtil.myValidateCPF(edtInputCPF.text.toString())){
+                    edtInputCPF.error = "CPF invalido"
+                }else{
+
+                    edtInputCPF.error = ""
+                }
+
+            }
+
+        }
 
 
 

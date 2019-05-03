@@ -37,9 +37,40 @@ class Mask{
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    var str = replaceChars(s.toString())
+                    var cpfWithMask = ""
+
+                    if(count == 0 ) isUpdating = true
+
+                    if(isUpdating){
+                        oldString = str
+                        isUpdating = false
+                        return
+                    }
+
+                    var i = 0
+                    for (m : Char in mask.toCharArray()){ //for each char in mask
+                        if (m != '#' && str.length > oldString.length){
+                            cpfWithMask += m
+                            continue
+                        }
+                        try {
+                            cpfWithMask += str.get(i)
+                        }catch (e : Exception){
+                            break
+                        }
+                        i++
+
+                    }
+
+                    isUpdating = true
+                    etCpf.setText(cpfWithMask)
+                    etCpf.setSelection(cpfWithMask.length)
 
                 }
                 override fun afterTextChanged(s: Editable?) {
+
+                    //
 
                 }
 
