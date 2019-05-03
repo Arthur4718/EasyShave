@@ -9,6 +9,12 @@
         <item name="colorAccent">@color/white</item>
         <!-- Cor para o efeito ripple -->
         <item name="colorControlHighlight">@color/color_accent</item>
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <item name="android:windowContentTransitions">true</item>
+
+
     </style>
     <!-- Tema do projeto -->
     <style name="AppTheme" parent="BaseAppTheme" />
@@ -40,4 +46,6 @@
         <item name="android:maxLines">1</item>
         <item name="android:singleLine">true</item>
     </style>
+
+
 </resources>
