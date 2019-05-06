@@ -3,6 +3,7 @@ package com.supermatch.smplay.activity.User
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import com.supermatch.smplay.R
 import com.supermatch.smplay.activity.BaseActivities.BaseActivity
 import com.supermatch.smplay.extensions.addFragment
@@ -21,11 +22,13 @@ class UserActivity : BaseActivity() {
         when(item.itemId){
             R.id.id_nav_item_play -> {
                 toast("play menu pressed")
+                replaceFragment(PlayFragment())
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.id_nav_item_profile -> {
                 toast("profile menu pressed")
+                replaceFragment(ProfileFragment())
                 return@OnNavigationItemSelectedListener true
             }
 
@@ -64,6 +67,13 @@ class UserActivity : BaseActivity() {
 
         //Setting up bottom navigation listener
         bottomNavBar.setOnNavigationItemSelectedListener(mNavigationItemSelectedListener)
+
+    }
+
+    private fun replaceFragment(fragment : Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.layout_container, fragment)
+        fragmentTransaction.commit()
 
     }
 }
