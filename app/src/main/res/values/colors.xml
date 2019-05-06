@@ -12,6 +12,7 @@
     <color name="btnInactive">#313848</color>
     <color name="btnCancel">#FE5512</color>
     <color name="btnStandardColor_orange">#F89537</color>
+    <color name="bgBottomNav">#313848</color>
 
 
 
@@ -51,7 +52,7 @@
     <color name="bgCancelarButton">#FE5512</color>
     <color name="bgCancelarButtonDark">#c31900</color>
 
-    c31900
+
 
     <!-- Text colors -->
 

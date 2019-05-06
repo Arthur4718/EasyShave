@@ -12,6 +12,8 @@ import org.jetbrains.anko.startActivity
 
 class LoginEmailActivity : BaseActivity() {
 
+    val standardEmail = "admin@admin.com"
+    val standardPassword = "123456"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_email)
@@ -34,6 +36,9 @@ class LoginEmailActivity : BaseActivity() {
         //Then, use the e-mail and login as parameters so the Login activity can do its job. - Its saves time and code.
         tvCreateAccount.setOnClickListener { startActivity<CreateAccount>() }
 
+        edtLoginEmail.setText(standardEmail)
+        edtLoginPassword.setText(standardPassword)
+
 
     }
 
@@ -46,7 +51,7 @@ class LoginEmailActivity : BaseActivity() {
 
             Toast.makeText(context, "Verifying Account...", Toast.LENGTH_SHORT).show()
 
-            if(userLogin == "admin@admin.com" && userPassword == "123456"){
+            if(userLogin == standardEmail && userPassword == standardPassword){
 
                 startActivity<UserActivity>()
 
