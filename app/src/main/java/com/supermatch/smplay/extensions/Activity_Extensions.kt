@@ -61,3 +61,4 @@ fun AppCompatActivity.addFragment(@IdRes layoutId : Int, fragment : Fragment){
     ft.add(layoutId, fragment)
     ft.commit()
 }
+
