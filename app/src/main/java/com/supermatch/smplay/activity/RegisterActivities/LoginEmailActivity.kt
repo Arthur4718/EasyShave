@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.supermatch.smplay.R
 import com.supermatch.smplay.activity.BaseActivities.BaseActivity
+import com.supermatch.smplay.activity.User.UserActivity
 import com.supermatch.smplay.utils.ValidationsUtils
 import kotlinx.android.synthetic.main.activity_login_email.*
 import org.jetbrains.anko.startActivity
@@ -44,6 +45,15 @@ class LoginEmailActivity : BaseActivity() {
             val userPassword = edtLoginPassword.text.toString()
 
             Toast.makeText(context, "Verifying Account...", Toast.LENGTH_SHORT).show()
+
+            if(userLogin == "admin@admin.com" && userPassword == "123456"){
+
+                startActivity<UserActivity>()
+
+                finish()
+            }
+
+
 
         }
     }

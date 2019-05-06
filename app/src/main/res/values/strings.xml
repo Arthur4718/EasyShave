@@ -98,5 +98,9 @@ Versao %s<br><br>
     <string name="text_continue">CONTINUAR</string>
     <string name="CPFMask">###.###.###-##</string>
     <string name="PhoneContactMask">(##)#####-####</string>
+    <string name="play">Jogar</string>
+    <string name="profile">Perfil</string>
+    <string name="bank">Banco</string>
+    <string name="tutorial">Tutorial</string>
 
 </resources>
