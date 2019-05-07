@@ -62,3 +62,10 @@ fun AppCompatActivity.addFragment(@IdRes layoutId : Int, fragment : Fragment){
     ft.commit()
 }
 
+
+fun AppCompatActivity.replaceFragment(@IdRes layoutId: Int, fragment: Fragment){
+    val ft = supportFragmentManager.beginTransaction()
+    ft.replace(layoutId, fragment)
+    ft.commit()
+}
+
