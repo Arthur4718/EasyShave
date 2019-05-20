@@ -32,7 +32,7 @@ class WellcomeActivity : BaseActivity() {
         val handler = Handler()
         handler.postDelayed({
             //Do something after n Seconds
-            startActivity<SelectLoginActivity>()
+            startActivity<LoginEmailActivity>()
             finish()
 
 
