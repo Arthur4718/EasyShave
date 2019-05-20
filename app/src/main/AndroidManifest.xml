@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.supermatch.smplay">
+          package="com.devarthur.easyshave">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-            android:name=".KotlinApplication"
+            android:name="com.devarthur.easyshave.KotlinApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.User.UserActivity">
+        <activity android:name="com.devarthur.easyshave.activity.User.UserActivity">
         </activity>
-        <activity android:name=".activity.RegisterActivities.CompleteProfile">
+        <activity android:name="com.devarthur.easyshave.activity.RegisterActivities.CompleteProfile">
         </activity>
-        <activity android:name=".activity.RegisterActivities.RecoverPassword">
+        <activity android:name="com.devarthur.easyshave.activity.RegisterActivities.RecoverPassword">
         </activity>
-        <activity android:name=".activity.RegisterActivities.CreateAccount">
+        <activity android:name="com.devarthur.easyshave.activity.RegisterActivities.CreateAccount">
         </activity>
         <activity
-                android:name=".activity.RegisterActivities.LoginEmailActivity"
+                android:name="com.devarthur.easyshave.activity.RegisterActivities.LoginEmailActivity"
                 android:screenOrientation="portrait">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.supermatch.smplay.activity.RegisterActivities.SelectLoginActivity"/>
+                    android:value="com.devarthur.easyshave.activity.RegisterActivities.SelectLoginActivity"/>
         </activity>
         <activity
-                android:name=".activity.RegisterActivities.SelectLoginActivity"
+                android:name="com.devarthur.easyshave.activity.RegisterActivities.SelectLoginActivity"
                 android:screenOrientation="portrait">
         </activity>
         <activity
-                android:name=".activity.RegisterActivities.ConnectionErrorActivity"
+                android:name="com.devarthur.easyshave.activity.RegisterActivities.ConnectionErrorActivity"
                 android:screenOrientation="portrait">
         </activity>
         <activity
-                android:name=".activity.RegisterActivities.WellcomeActivity"
+                android:name="com.devarthur.easyshave.activity.RegisterActivities.WellcomeActivity"
                 android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -45,14 +45,14 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.BaseActivities.CarrosActivity"
+                android:name="com.devarthur.easyshave.activity.BaseActivities.CarrosActivity"
                 android:screenOrientation="portrait">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.supermatch.smplay.activity.RegisterActivities.MainActivity"/>
+                    android:value="com.devarthur.easyshave.activity.RegisterActivities.MainActivity"/>
         </activity>
         <activity
-                android:name=".activity.RegisterActivities.MainActivity"
+                android:name="com.devarthur.easyshave.activity.RegisterActivities.MainActivity"
                 android:theme="@style/AppTheme.NavDrawer">
         </activity>
 
