@@ -102,5 +102,8 @@ Versao %s<br><br>
     <string name="profile">Perfil</string>
     <string name="bank">Banco</string>
     <string name="tutorial">Tutorial</string>
+    <string name="entrar">Entrar</string>
+    <string name="esqueciSenha">Esqueci minha senha.</string>
+    <string name="cadastro">Ainda não tem cadastro? Criar uma conta.</string>
 
 </resources>
