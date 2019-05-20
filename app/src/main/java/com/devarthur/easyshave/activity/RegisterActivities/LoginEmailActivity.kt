@@ -5,6 +5,8 @@ import android.os.Bundle
 
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
+import kotlinx.android.synthetic.main.activity_login_email.*
+import org.jetbrains.anko.startActivity
 
 
 class LoginEmailActivity : BaseActivity() {
@@ -15,15 +17,16 @@ class LoginEmailActivity : BaseActivity() {
         setContentView(R.layout.activity_login_email)
 
 
-
+        initActions()
 
 
     }
 
     private fun initActions() {
 
-
-
+        btnSignIn.setOnClickListener {
+            startActivity<CreateAccount>()
+        }
 
     }
 

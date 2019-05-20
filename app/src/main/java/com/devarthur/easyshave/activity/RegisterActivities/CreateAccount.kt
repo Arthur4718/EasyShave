@@ -26,55 +26,32 @@ class CreateAccount : BaseActivity() {
 
         tvBackNavigation2.setOnClickListener { finish() }
 
-        btnSignUpWithEmail.setOnClickListener { signUpWithUserData() }
 
-        //Mask for cpf
-        edtInputCPF.addTextChangedListener(Mask.mask("###.###.###-##", edtInputCPF))
-
-        //Phone Contact mask
-        edtContactPhone.addTextChangedListener(Mask.mask("(##)#####-####", edtContactPhone))
-        
-        edtInputCPF.setOnFocusChangeListener { v, hasFocus ->
-
-            if(!hasFocus){
-                //When the user leaves the field we check if the cpf is valid
-
-
-                if(!CPFUtil.myValidateCPF(edtInputCPF.text.toString())){
-                    edtInputCPF.error = "CPF invalido"
-                }else{
-
-                    edtInputCPF.error = null
-                }
-
-            }
-
-        }
 
 
 
     }
 
     private fun signUpWithUserData() {
-        if(ValidationsUtils.verifyCheckboxState(this, chbTerms, "Aceite os Termos")){
-
-            val validation = booleanArrayOf(
-
-
-                ValidationsUtils.isPasswordConfirmation(edtSignupPassword, edtSignupPasswordConfirmation),
-                ValidationsUtils.isFieldObrigatory(edtSignUp),
-                ValidationsUtils.isFieldObrigatory(edtInputCPF),
-                ValidationsUtils.isEmailValide(edtSignupEmail),
-                ValidationsUtils.isFieldObrigatory(edtSignupEmail),
-                ValidationsUtils.isFieldObrigatory(edtContactPhone)
-            )
-
-            if (ValidationsUtils.verifyArrayObrigatory(validation)) {
-
-                toast("Sending information.")
-            }
-
-
-        }
+//        if(ValidationsUtils.verifyCheckboxState(this, chbTerms, "Aceite os Termos")){
+//
+//            val validation = booleanArrayOf(
+//
+//
+//                ValidationsUtils.isPasswordConfirmation(edtSignupPassword, edtSignupPasswordConfirmation),
+//                ValidationsUtils.isFieldObrigatory(edtSignUp),
+//                ValidationsUtils.isFieldObrigatory(edtInputCPF),
+//                ValidationsUtils.isEmailValide(edtSignupEmail),
+//                ValidationsUtils.isFieldObrigatory(edtSignupEmail),
+//                ValidationsUtils.isFieldObrigatory(edtContactPhone)
+//            )
+//
+//            if (ValidationsUtils.verifyArrayObrigatory(validation)) {
+//
+//                toast("Sending information.")
+//            }
+//
+//
+//        }
     }
 }

@@ -5,13 +5,36 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primary"
+        android:background="@drawable/bg_gradient"
         tools:context=".activity.RegisterActivities.CreateAccount">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/circular_white"
+            android:id="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            app:srcCompat="@drawable/ic_salon"
+            android:id="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"/>
 
 
     <TextView
 
             android:text="@string/text_back"
+            android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:layout_width="wrap_content"
@@ -19,241 +42,63 @@
             android:id="@+id/tvBackNavigation2"
             android:layout_marginTop="24dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="24dp"/>
     <TextView
 
             android:text="@string/text_create_new_account"
+            android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="22sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:id="@+id/tvCreateNewAccountTitle"
-            app:layout_constraintBottom_toTopOf="@+id/cardView" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="16dp"/>
-    <ImageView
-            android:src="@drawable/img_bg_wide"
-            android:scaleType="centerCrop"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:id="@+id/imageView" tools:layout_editor_absoluteX="0dp"
-            app:layout_constraintVertical_bias="1.0" android:contentDescription="TODO"/>
-
-
-    <android.support.v7.widget.CardView
-            android:layout_width="320dp"
-            android:layout_height="465dp"
-            app:cardBackgroundColor="@color/bgCardViewColor"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="0dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            android:layout_marginStart="8dp" android:id="@+id/cardView" app:layout_constraintVertical_bias="0.59000003">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"/>
 
-        <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/edtUserNameSignUp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="20dp"
+            android:hint="Nome Completo"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvCreateNewAccountTitle"/>
 
-            <android.support.design.widget.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/gray"
-                    app:hintTextAppearance="@style/textLayout"
-                    android:layout_marginTop="30dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    android:id="@+id/textInputLayout">
-
-                <EditText
-                        android:id="@+id/edtSignUp"
-                        style="@style/edtLoginDefault"
-                        android:fontFamily="@font/avenirnextregular"
-                        android:hint="@string/hintUserName"
-                        android:inputType="textEmailAddress"
-                        android:textSize="12sp" android:autofillHints=""/>
-
-            </android.support.design.widget.TextInputLayout>
-
-
-            <android.support.design.widget.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/gray"
-                    app:hintTextAppearance="@style/textLayout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    android:id="@+id/textInputCPF" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
-
-                <EditText
-                        android:id="@+id/edtInputCPF"
-                        style="@style/edtLoginDefault"
-                        android:fontFamily="@font/avenirnextregular"
-                        android:hint="@string/hintCPF"
-                        android:inputType="number"
-                        android:textSize="12sp" android:autofillHints=""/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/gray"
-                    app:hintTextAppearance="@style/textLayout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    android:id="@+id/textInputEmail"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputCPF">
-
-                <EditText
-                        android:id="@+id/edtSignupEmail"
-                        style="@style/edtLoginDefault"
-                        android:fontFamily="@font/avenirnextregular"
-                        android:hint="@string/txtEmailLogin"
-                        android:inputType="textEmailAddress"
-                        android:textSize="12sp" android:autofillHints=""/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/gray"
-                    app:hintTextAppearance="@style/textLayout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    android:id="@+id/textInputSenha"
-                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textInputEmail">
-
-                <EditText
-                        android:id="@+id/edtSignupPassword"
-                        style="@style/edtLoginDefault"
-                        android:fontFamily="@font/avenirnextregular"
-                        android:hint="@string/txtLoginPassword"
-                        android:inputType="textPassword"
-                        android:textSize="12sp" android:autofillHints=""/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/gray"
-                    app:hintTextAppearance="@style/textLayout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    android:id="@+id/textinputConfirmaSenha"
-                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textInputSenha">
-
-                <EditText
-                        android:id="@+id/edtSignupPasswordConfirmation"
-                        style="@style/edtLoginDefault"
-                        android:fontFamily="@font/avenirnextregular"
-                        android:hint="@string/txtLoginPasswordConfirm"
-                        android:inputType="textPassword"
-                        android:textSize="12sp" android:autofillHints=""/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                    android:text="@string/brazilAreaCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView"
-                    app:layout_constraintStart_toStartOf="@+id/textinputConfirmaSenha"
-                    android:textColor="@color/white"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textInputCelular"
-                    android:layout_marginStart="16dp"/>
-
-            <android.support.design.widget.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/gray"
-                    app:hintTextAppearance="@style/textLayout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp"
-                    android:id="@+id/textInputCelular"
-                    app:layout_constraintStart_toEndOf="@+id/textView"
-                    android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textinputConfirmaSenha">
-
-                <EditText
-                        android:id="@+id/edtContactPhone"
-                        style="@style/edtLoginDefault"
-                        android:fontFamily="@font/avenirnextregular"
-                        android:hint="@string/txtContactPhone"
-                        android:inputType="number"
-                        android:textSize="12sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <CheckBox
-                    android:id="@+id/chbTerms"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/gray"
-                    app:layout_constraintTop_toTopOf="@+id/tvTermosOfUse"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvTermosOfUse"
-                    app:layout_constraintStart_toStartOf="@+id/textView"/>
-            <TextView
-                    android:text="@string/txtRegisterInformation"
-                    android:textColor="@color/white"
-                    android:maxLines="2"
-                    android:layout_width="256dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvTermosOfUse"
-                    app:layout_constraintStart_toEndOf="@+id/chbTerms"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputCelular"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/edtUserBirthDate"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="20dp"
+            android:hint="Data de Nascimento"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/edtUserNameSignUp"/>
 
 
-            <Button
-                    android:text="@string/register"
-                    android:textColor="@color/white"
-                    android:layout_width="@dimen/btn_width"
-                    android:layout_height="@dimen/btn_height"
-                    android:id="@+id/btnSignUpWithEmail"
-                    android:background="@drawable/btn_standard"
-                    android:layout_marginBottom="24dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"
-                    android:fontFamily="@font/avenirnextbold"
-                    android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTermosOfUse"/>
 
 
-        </android.support.constraint.ConstraintLayout>
 
 
-    </android.support.v7.widget.CardView>
 
 
 </android.support.constraint.ConstraintLayout>
