@@ -105,5 +105,7 @@ Versao %s<br><br>
     <string name="entrar">Entrar</string>
     <string name="esqueciSenha">Esqueci minha senha.</string>
     <string name="cadastro">Ainda não tem cadastro? Criar uma conta.</string>
+    <string name="textoCadastrrar">Cadastrar</string>
+    <string name="desenvolvidoPor">Desenvolvido por USJT</string>
 
 </resources>

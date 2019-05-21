@@ -18,7 +18,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="80dp"
             app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
@@ -109,7 +109,16 @@
             app:layout_constraintStart_toStartOf="@+id/txtEsqueciSenha"
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="@+id/btnSignIn"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="8dp"
+    />
+    <TextView
+            android:text="@string/desenvolvidoPor"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3" android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
 
 
 </android.support.constraint.ConstraintLayout>

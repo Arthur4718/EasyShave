@@ -17,7 +17,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
@@ -92,13 +92,83 @@
             android:paddingLeft="20dp"
             android:hint="Data de Nascimento"
             app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/edtUserNameSignUp"/>
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/edtUserNameSignUp"/>
 
 
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/edtUserEmailSignUp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="20dp"
+            android:hint="E-Mail"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/edtUserBirthDate"/>
+
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/edtUserSignUpPass1"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="20dp"
+            android:hint="Senha"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/edtUserEmailSignUp"/>
 
 
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/edtUserSignUpPass2"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="20dp"
+            android:hint="Confirmar Senha"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/edtUserSignUpPass1"/>
 
+    <CheckBox
+            android:text="@string/textoTermos"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/edtUserSignUpPass2"
+            app:layout_constraintEnd_toEndOf="@+id/edtUserSignUpPass2"
+            app:layout_constraintStart_toStartOf="@+id/edtUserSignUpPass2"/>
 
+    <Button
+            android:text="@string/textoCadastrrar"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSignIn"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_button"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox"
+            app:layout_constraintStart_toStartOf="@+id/checkBox"
+            app:layout_constraintEnd_toEndOf="@+id/checkBox" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </android.support.constraint.ConstraintLayout>

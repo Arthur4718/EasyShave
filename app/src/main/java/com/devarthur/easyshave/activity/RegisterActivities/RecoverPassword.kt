@@ -17,6 +17,8 @@ class RecoverPassword : BaseActivity() {
 
 
         initActions()
+
+
     }
 
     private fun initActions() {
