@@ -14,9 +14,9 @@
         android:gravity="bottom">
 
     <Button
-            android:text="Button"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:text="Carregar foto"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:id="@+id/btnSelectButton"
             android:layout_marginBottom="8dp"
             android:textColor="@color/white"

@@ -1,8 +1,7 @@
 package com.devarthur.easyshave.activity.User
 
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
+import com.devarthur.easyshave.extensions.toast
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
@@ -11,7 +10,11 @@ import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import com.devarthur.easyshave.R
+import com.google.firebase.auth.FirebaseAuth
 
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -32,6 +35,33 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        //Header to navigation drawer.
+        val headerView : View = navView.getHeaderView(0)
+        val navUserName : TextView = headerView.findViewById(R.id.txtUserNameHeader)
+        val navUserEmail : TextView = headerView.findViewById(R.id.txtUserNameEmail)
+        val selectButton : Button = headerView.findViewById(R.id.btnSelectButton)
+
+        //Pegar a informação do usuário e apresentar
+
+        val user = FirebaseAuth.getInstance().currentUser
+        val name = user?.displayName
+        val email = user?.email
+
+        navUserName.setText(name)
+        navUserEmail.setText(email)
+
+        selectButton.setOnClickListener { toast("Selecione uma nova foto.") }
+
+
+        initActions()
+    }
+
+    private fun initActions() {
+
+
+
+
     }
 
     override fun onBackPressed() {
@@ -62,22 +92,22 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_home -> {
+            R.id.nav_perfil -> {
                 // Handle the camera action
             }
-            R.id.nav_gallery -> {
+            R.id.nav_agenda -> {
 
             }
-            R.id.nav_slideshow -> {
+            R.id.nav_sugestoes -> {
 
             }
-            R.id.nav_tools -> {
+            R.id.nav_serviços_ -> {
 
             }
             R.id.nav_share -> {
 
             }
-            R.id.nav_send -> {
+            R.id.nav_sair_perfil -> {
 
             }
         }

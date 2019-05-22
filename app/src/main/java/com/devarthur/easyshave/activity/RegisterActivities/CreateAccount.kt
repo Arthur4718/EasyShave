@@ -11,11 +11,11 @@ import com.devarthur.easyshave.extensions.toast
 import com.devarthur.easyshave.fragments.DatePickerFragment
 import com.devarthur.easyshave.utils.ValidationsUtils
 import kotlinx.android.synthetic.main.activity_create_account.*
-import org.jetbrains.anko.toast
+
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_create_account.view.*
+
 import java.util.*
 
 

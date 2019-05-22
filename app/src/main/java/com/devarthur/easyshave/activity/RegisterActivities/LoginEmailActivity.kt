@@ -60,6 +60,7 @@ class LoginEmailActivity : BaseActivity() {
                 //If success
                 Log.d("Login", "User logged with uid: ${it.result?.user?.uid}")
                 startActivity<MainMenuActivity>()
+                finish()
 
             }.addOnFailureListener {
                 Log.d("Login", "Failed to log user : ${it.message}")

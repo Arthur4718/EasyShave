@@ -118,5 +118,11 @@ Versao %s<br><br>
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="meu_perfil">Meu Perfil</string>
+    <string name="minha_agenda">Agenda</string>
+    <string name="menu_sugestoes">Sugestões</string>
+    <string name="menu_gerenciar">Gerenciar Serviços.</string>
+    <string name="menu_compartilhar">Compartilhar</string>
+    <string name="menu_sair">Sair</string>
 
 </resources>
