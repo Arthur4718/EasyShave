@@ -86,7 +86,7 @@ class CreateAccount : BaseActivity() {
 
         }
 
-        if(edtUserSignUpPass1.text != edtUserSignUpPass2.text){
+        if(!edtUserSignUpPass1.text.toString().equals(edtUserSignUpPass2.text.toString())){
             toast("As senhas não batem")
             return
         }
