@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "384390159964",
-    "firebase_url": "https://easyshave-ed574.firebaseio.com",
-    "project_id": "easyshave-ed574",
-    "storage_bucket": "easyshave-ed574.appspot.com"
+    "project_number": "287048672808",
+    "firebase_url": "https://easyshavedemo.firebaseio.com",
+    "project_id": "easyshavedemo",
+    "storage_bucket": "easyshavedemo.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:384390159964:android:717661afef04c9a1",
+        "mobilesdk_app_id": "1:287048672808:android:717661afef04c9a1",
         "android_client_info": {
           "package_name": "com.devarthur.easyshave"
         }
       },
       "oauth_client": [
         {
-          "client_id": "384390159964-ocn2g1sp0gep6eno6kn424q0rjahd10j.apps.googleusercontent.com",
+          "client_id": "287048672808-lcrvon9kiinmerlr3usrn2r6jitti1iv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAw6KxIAcCcbBBc31zfBgSU0ldc88sWOy8"
+          "current_key": "AIzaSyBiLdZ7cDPgdBfT2-4GgollgUb9Dbxxhmw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "384390159964-ocn2g1sp0gep6eno6kn424q0rjahd10j.apps.googleusercontent.com",
+              "client_id": "287048672808-lcrvon9kiinmerlr3usrn2r6jitti1iv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
