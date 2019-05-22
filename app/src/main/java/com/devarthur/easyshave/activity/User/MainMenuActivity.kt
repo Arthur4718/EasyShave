@@ -8,13 +8,18 @@ import android.view.MenuItem
 import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.View
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.RegisterActivities.LoginEmailActivity
+import com.devarthur.easyshave.adapter.UserAgendamentoAdapter
+import com.devarthur.easyshave.dataModel.UserAgendamento
 import com.devarthur.easyshave.extensions.addFragment
 import com.devarthur.easyshave.extensions.replaceFragment
 import com.devarthur.easyshave.fragments.AgendaFragment
@@ -22,6 +27,7 @@ import com.devarthur.easyshave.fragments.PerfilFragment
 import com.devarthur.easyshave.fragments.ServicosFragment
 import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.toast
 
 
 //https://www.youtube.com/watch?v=67hthq6Y2J8
@@ -73,7 +79,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         //Loads the first page
         if(savedInstanceState == null){
             //Adds fragment to the layout
-            addFragment(R.id.layout_content, AgendaFragment())
+            //addFragment(R.id.layout_content, AgendaFragment())
             toolbar.setTitle("Minha Agenda")
 
         }
@@ -82,6 +88,47 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     private fun initActions() {
 
         //Lista de serviços.
+
+        val mRecyclerView = findViewById<RecyclerView>(R.id.mRecyclerView)
+
+        mRecyclerView?.layoutManager = LinearLayoutManager(applicationContext, LinearLayout.VERTICAL,false)
+
+        val agendaList = ArrayList<UserAgendamento>()
+
+
+        for (i in 1..3) {
+
+            agendaList.add(
+                UserAgendamento(
+                    "Sandy $i",
+                    "Serviço $i",
+                    "12:00 ás 13:00",
+                    "Agendado"
+                )
+            )
+
+        }
+
+
+        for (i in 1..3) {
+
+            agendaList.add(
+                UserAgendamento(
+                    "Sandy $i",
+                    "Serviço $i",
+                    "14:00 ás 15:00",
+                    "A confirmar"
+                )
+            )
+
+        }
+
+
+        val adapter = UserAgendamentoAdapter(agendaList)
+
+        mRecyclerView?.adapter = adapter
+
+        toast("Carregando")
 
 
 
@@ -119,20 +166,20 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         when (item.itemId) {
             R.id.nav_perfil -> {
 
-                replaceFragment(R.id.layout_content, PerfilFragment())
+                //replaceFragment(R.id.layout_content, PerfilFragment())
                 toolbar.setTitle("Meu Perfil")
 
             }
             R.id.nav_agenda -> {
 
-                replaceFragment(R.id.layout_content, AgendaFragment())
+                //replaceFragment(R.id.layout_content, AgendaFragment())
                 toolbar.setTitle("Minha Agenda")
             }
             R.id.nav_sugestoes -> {
 
             }
             R.id.nav_serviços_ -> {
-                replaceFragment(R.id.layout_content, ServicosFragment())
+                //replaceFragment(R.id.layout_content, ServicosFragment())
                 toolbar.setTitle("Gerenciar Serviços")
             }
             R.id.nav_share -> {
