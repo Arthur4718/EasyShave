@@ -8,7 +8,7 @@ import android.widget.Toast
 
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
-import com.devarthur.easyshave.activity.User.UserActivity
+import com.devarthur.easyshave.activity.User.MainMenuActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login_email.*
 import org.jetbrains.anko.startActivity
@@ -53,7 +53,7 @@ class LoginEmailActivity : BaseActivity() {
 
                 //If success
                 Log.d("Login", "User logged with uid: ${it.result?.user?.uid}")
-                startActivity<UserActivity>()
+                startActivity<MainMenuActivity>()
 
             }.addOnFailureListener {
                 Log.d("Login", "Failed to log user : ${it.message}")

@@ -107,5 +107,16 @@ Versao %s<br><br>
     <string name="cadastro">Ainda não tem cadastro? Criar uma conta.</string>
     <string name="textoCadastrrar">Cadastrar</string>
     <string name="desenvolvidoPor">Desenvolvido por USJT</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
 
 </resources>

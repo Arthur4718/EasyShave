@@ -40,6 +40,9 @@ dependencies {
     //Firebase Login
     implementation 'com.google.firebase:firebase-core:16.0.9'
     implementation 'com.google.firebase:firebase-auth:17.0.0'
+    //Firebase storage
+    implementation 'com.google.firebase:firebase-storage:17.0.0'
+    implementation 'com.google.firebase:firebase-database:17.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

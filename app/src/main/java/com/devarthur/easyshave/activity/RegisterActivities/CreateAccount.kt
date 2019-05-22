@@ -4,19 +4,18 @@ package com.devarthur.easyshave.activity.RegisterActivities
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
+import com.devarthur.easyshave.extensions.toast
 import com.devarthur.easyshave.fragments.DatePickerFragment
-import com.devarthur.easyshave.utils.Mask
 import com.devarthur.easyshave.utils.ValidationsUtils
 import kotlinx.android.synthetic.main.activity_create_account.*
 import org.jetbrains.anko.toast
 
-import com.devarthur.easyshave.utils.CPFUtil
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_complete_profile.*
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_create_account.view.*
 import java.util.*
 
 
@@ -119,8 +118,14 @@ class CreateAccount : BaseActivity() {
 
                         //if sucessful
                         Log.d("arthurdebug", "Usuário criado com sucesso : ")
-                        toast("Usuário criado com sucesso. ")
-                        finish()
+
+                        saveUserToFirebase(edtUserNameSignUp.text.toString(),
+                                           edtUserEmailSignUp.text.toString(),
+                                           edtUserBirthDate.text.toString()
+
+
+                            )
+
                     }
                     .addOnFailureListener {
                         toast("Falha ao conectar com o serviço : ${it.message}")
@@ -131,4 +136,42 @@ class CreateAccount : BaseActivity() {
 
         }
     }
+
+    private fun saveUserToFirebase(userName: String, userEmail: String, userBirthDate: String) {
+
+        val uid  = FirebaseAuth.getInstance().uid ?: ""
+        val databaseRef = FirebaseDatabase.getInstance().getReference("users/$uid")
+
+        //Verifica se o usuário é um estabelecimento ou usuário comum.
+
+        val tipoUsuario = switch1.isChecked
+        var userType : Int = 0
+
+        if(tipoUsuario){
+            userType = 1
+        }else{
+            userType = 0
+        }
+
+
+        //Criar um objeto user com os dados salvos neste formulario
+
+        val createdUser  = UserProfile(uid, userName, userEmail, userBirthDate, userType)
+
+        //Salva os dados no database.
+
+        databaseRef.setValue(createdUser)
+            .addOnSuccessListener {
+
+                toast("Usuário criado com sucesso. ")
+                finish()
+            }.addOnFailureListener {
+                toast("Falha ao enviar: ${it.message}")
+            }
+
+
+    }
+
 }
+
+class UserProfile(val uid: String, val username : String, val useremail : String, val userbirthdate : String, val userType : Int)
