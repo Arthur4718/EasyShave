@@ -15,7 +15,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.extensions.addFragment
-import com.devarthur.easyshave.fragments.PlayFragment
+import com.devarthur.easyshave.fragments.AgendaFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -64,7 +64,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         //Loads the first page
         if(savedInstanceState == null){
             //Adds fragment to the layout
-            addFragment(R.id.layout_content, PlayFragment())
+            addFragment(R.id.layout_content, AgendaFragment())
             toolbar.setTitle("Agenda")
 
         }
@@ -104,18 +104,26 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         when (item.itemId) {
             R.id.nav_perfil -> {
+
+                addFragment(R.id.layout_content, AgendaFragment())
+                toolbar.setTitle("Meu Perfil")
 
             }
             R.id.nav_agenda -> {
 
+                addFragment(R.id.layout_content, AgendaFragment())
+                toolbar.setTitle("Minha Agenda")
             }
             R.id.nav_sugestoes -> {
 
             }
             R.id.nav_serviços_ -> {
-
+                addFragment(R.id.layout_content, AgendaFragment())
+                toolbar.setTitle("Gerenciar Serviços")
             }
             R.id.nav_share -> {
 
