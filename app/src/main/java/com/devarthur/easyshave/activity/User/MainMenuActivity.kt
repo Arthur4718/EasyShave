@@ -14,6 +14,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.devarthur.easyshave.R
+import com.devarthur.easyshave.extensions.addFragment
+import com.devarthur.easyshave.fragments.PlayFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -36,6 +38,9 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         navView.setNavigationItemSelectedListener(this)
 
+        //Toolbar
+
+
         //Header to navigation drawer.
         val headerView : View = navView.getHeaderView(0)
         val navUserName : TextView = headerView.findViewById(R.id.txtUserNameHeader)
@@ -55,11 +60,19 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
 
         initActions()
+
+        //Loads the first page
+        if(savedInstanceState == null){
+            //Adds fragment to the layout
+            addFragment(R.id.layout_content, PlayFragment())
+            toolbar.setTitle("Agenda")
+
+        }
     }
 
     private fun initActions() {
 
-
+        //
 
 
     }
@@ -93,7 +106,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_perfil -> {
-                // Handle the camera action
+
             }
             R.id.nav_agenda -> {
 

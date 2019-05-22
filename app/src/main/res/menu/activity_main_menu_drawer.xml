@@ -15,6 +15,7 @@
         <item
                 android:id="@+id/nav_sugestoes"
                 android:icon="@drawable/ic_sms_black_24dp"
+                android:visible="false"
                 android:title="@string/menu_sugestoes"/>
         <item
                 android:id="@+id/nav_serviços."
@@ -23,16 +24,12 @@
         <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
+                android:visible="false"
                 android:title="@string/menu_compartilhar"/>
+        <item
+                android:id="@+id/nav_sair_perfil"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_sair"/>
     </group>
-
-    <item android:title="Sessão">
-        <menu>
-            <item
-                    android:id="@+id/nav_sair_perfil"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="@string/menu_sair"/>
-        </menu>
-    </item>
 
 </menu>
