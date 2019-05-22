@@ -14,9 +14,16 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.devarthur.easyshave.R
+import com.devarthur.easyshave.activity.RegisterActivities.LoginEmailActivity
 import com.devarthur.easyshave.extensions.addFragment
+import com.devarthur.easyshave.extensions.replaceFragment
 import com.devarthur.easyshave.fragments.AgendaFragment
+import com.devarthur.easyshave.fragments.PerfilFragment
+import com.devarthur.easyshave.fragments.ServicosFragment
 import com.google.firebase.auth.FirebaseAuth
+import org.jetbrains.anko.startActivity
+
+
 
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -65,14 +72,15 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         if(savedInstanceState == null){
             //Adds fragment to the layout
             addFragment(R.id.layout_content, AgendaFragment())
-            toolbar.setTitle("Agenda")
+            toolbar.setTitle("Minha Agenda")
 
         }
     }
 
     private fun initActions() {
 
-        //
+        //Lista de serviços.
+
 
 
     }
@@ -109,20 +117,20 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         when (item.itemId) {
             R.id.nav_perfil -> {
 
-                addFragment(R.id.layout_content, AgendaFragment())
+                replaceFragment(R.id.layout_content, PerfilFragment())
                 toolbar.setTitle("Meu Perfil")
 
             }
             R.id.nav_agenda -> {
 
-                addFragment(R.id.layout_content, AgendaFragment())
+                replaceFragment(R.id.layout_content, AgendaFragment())
                 toolbar.setTitle("Minha Agenda")
             }
             R.id.nav_sugestoes -> {
 
             }
             R.id.nav_serviços_ -> {
-                addFragment(R.id.layout_content, AgendaFragment())
+                replaceFragment(R.id.layout_content, ServicosFragment())
                 toolbar.setTitle("Gerenciar Serviços")
             }
             R.id.nav_share -> {
@@ -130,10 +138,19 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
             R.id.nav_sair_perfil -> {
 
+                logoutFromApplication()
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun logoutFromApplication() {
+         FirebaseAuth.getInstance().signOut()
+         startActivity<LoginEmailActivity>()
+         toast("Usuário desconectado")
+         finish()
+
     }
 }

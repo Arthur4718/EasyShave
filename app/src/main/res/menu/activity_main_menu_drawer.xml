@@ -4,10 +4,7 @@
       tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
-                android:id="@+id/nav_perfil"
-                android:icon="@drawable/ic_person_outline_black_24dp"
-                android:title="@string/meu_perfil"/>
+
         <item
                 android:id="@+id/nav_agenda"
                 android:icon="@drawable/ic_view_agenda_black_24dp"
@@ -26,6 +23,11 @@
                 android:icon="@drawable/ic_menu_share"
                 android:visible="false"
                 android:title="@string/menu_compartilhar"/>
+
+        <item
+                android:id="@+id/nav_perfil"
+                android:icon="@drawable/ic_person_outline_black_24dp"
+                android:title="@string/meu_perfil"/>
         <item
                 android:id="@+id/nav_sair_perfil"
                 android:icon="@drawable/ic_menu_send"
