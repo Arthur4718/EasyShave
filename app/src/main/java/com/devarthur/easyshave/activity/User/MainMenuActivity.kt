@@ -24,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.startActivity
 
 
+//https://www.youtube.com/watch?v=67hthq6Y2J8
+
 
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
