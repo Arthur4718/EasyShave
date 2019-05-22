@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.UserAgendamento
 import java.util.ArrayList
@@ -23,11 +24,25 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
         return userList.size
     }
 
-    override fun onBindViewHolder(p0: UserAgendamentoAdapter.ViewHolder, p1: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val userCard : UserAgendamento = userList[position]
+
+        holder.txtUserName.text = userCard.nomeUsuario
+        holder.txtCardServico.text = userCard.nomeServico
+        holder.txtCardHorario.text = userCard.horario
+        holder.txtCardStatus.text = userCard.statusAgendamento
+
+
     }
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+        //capturar as views do card
+
+        //Todo - capturar tb a imagem e construir cada card com sua imagem.
+        val txtUserName = itemView.findViewById(R.id.txtNomeUsuarioCard) as TextView
+        val txtCardServico = itemView.findViewById(R.id.txtCardServico) as TextView
+        val txtCardHorario = itemView.findViewById(R.id.txtCardHorarioAgendamento) as TextView
+        val txtCardStatus = itemView.findViewById(R.id.txtCardAgendamentoStatus) as TextView
 
     }
 }

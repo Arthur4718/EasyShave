@@ -21,7 +21,7 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/profile_image"
+                    android:id="@+id/cardProfileImage"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/sandy"
@@ -39,19 +39,22 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:id="@+id/txtNomeUsuarioCard"
-                    app:layout_constraintStart_toEndOf="@+id/profile_image" android:layout_marginStart="8dp"/>
+                    app:layout_constraintStart_toEndOf="@+id/cardProfileImage" android:layout_marginStart="8dp"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView5"
+                    android:id="@+id/txtCardServico"
                     app:layout_constraintStart_toStartOf="@+id/txtNomeUsuarioCard" android:layout_marginTop="8dp"
                     app:layout_constraintTop_toBottomOf="@+id/txtNomeUsuarioCard" android:text="Corte + Escova"/>
             <TextView
                     android:text="11:00 ás 12:00"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="16dp" android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent" android:id="@+id/textView6"/>
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/txtCardHorarioAgendamento"/>
             <TextView
                     android:text="Confirmado"
                     android:textStyle="bold"
@@ -59,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"
-                    android:id="@+id/textView7" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/txtCardAgendamentoStatus" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="16dp"/>
 
 
