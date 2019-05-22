@@ -23,6 +23,7 @@ class LoginEmailActivity : BaseActivity() {
 
 
         initActions()
+        debug()
 
 
     }
@@ -35,6 +36,11 @@ class LoginEmailActivity : BaseActivity() {
 
         txtCadastro.setOnClickListener { startActivity<CreateAccount>() }
 
+    }
+
+    private fun debug(){
+         edtUserNameSignUp.setText("arthur.gomes_4718@hotmail.com")
+         edtUserPassword.setText("123456")
     }
 
 
