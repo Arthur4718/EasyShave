@@ -13,15 +13,16 @@ import com.devarthur.easyshave.AgendaDetalhe
 import org.jetbrains.anko.startActivity
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.DataItem
+import com.devarthur.easyshave.dataModel.HorarioItem
 import com.devarthur.easyshave.dataModel.Servico
 import java.util.ArrayList
 
-class DataItemAdapter(val dataList : ArrayList<DataItem>) : RecyclerView.Adapter<DataItemAdapter.ViewHolder>()  {
+class HorarioItemAdapter(val dataList : ArrayList<HorarioItem>) : RecyclerView.Adapter<HorarioItemAdapter.ViewHolder>()  {
 
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): DataItemAdapter.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): HorarioItemAdapter.ViewHolder {
 
-        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.dataServico_item, viewGroup, false)
+        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.horarioServico_item, viewGroup, false)
         return ViewHolder(v)
 
     }
@@ -32,15 +33,14 @@ class DataItemAdapter(val dataList : ArrayList<DataItem>) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val userCard : DataItem = dataList[position]
+        val userCard : HorarioItem = dataList[position]
 
-        holder.txtData.text = userCard.mData
+        holder.txtData.text = userCard.mHorario
 
 
         holder.card.setOnClickListener {
 
             Toast.makeText(holder.itemView.context, "Item clicked", Toast.LENGTH_SHORT).show()
-
 
         }
 
