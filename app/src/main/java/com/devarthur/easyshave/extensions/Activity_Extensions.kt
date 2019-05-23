@@ -39,7 +39,7 @@ fun Activity.toast(@StringRes message: Int, length : Int = Toast.LENGTH_SHORT) =
 
 //Setup a toolbar
 fun AppCompatActivity.setupToolbar(@IdRes id: Int, title : String? = null,
-                                   upNavigation: Boolean = false) : ActionBar{
+                                   upNavigation: Boolean = true) : ActionBar{
 
     val toolbar = findViewById<android.support.v7.widget.Toolbar>(id)
     setSupportActionBar(toolbar)

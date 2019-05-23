@@ -1,19 +1,18 @@
 package com.devarthur.easyshave.adapter
 
 
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import android.widget.TextView
-import android.widget.Toast
+import com.devarthur.easyshave.AgendaDetalhe
+import org.jetbrains.anko.startActivity
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.Servico
 import java.util.ArrayList
-
-
-
 
 class ServicoAdapter(val userList : ArrayList<Servico>) : RecyclerView.Adapter<ServicoAdapter.ViewHolder>()  {
 
@@ -34,9 +33,14 @@ class ServicoAdapter(val userList : ArrayList<Servico>) : RecyclerView.Adapter<S
         val userCard : Servico = userList[position]
 
         holder.txtCardServico.text = userCard.nomeServico
+        holder.txtCodServico.text = userCard.codigoServico.toString()
 
         holder.servicoCard.setOnClickListener {
-            Toast.makeText(it.context, "item clicked $position", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(it.context, "item clicked $position", Toast.LENGTH_SHORT).show()
+
+            val title : String = holder.txtCardServico.text.toString()
+            holder.itemView.context.startActivity<AgendaDetalhe>("titulo" to title)
+
         }
 
     }
@@ -44,11 +48,9 @@ class ServicoAdapter(val userList : ArrayList<Servico>) : RecyclerView.Adapter<S
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
         //capturar as views do card
-
-
         val txtCardServico = itemView.findViewById(R.id.txtNomeServicoCard) as TextView
         val txtCodServico = itemView.findViewById(R.id.txtCod) as TextView
-        val servicoCard = itemView.findViewById(R.id.cardServico) as TextView
+        val servicoCard = itemView.findViewById(R.id.cardServico) as CardView
 
 
     }

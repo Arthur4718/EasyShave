@@ -9,18 +9,16 @@ import android.view.MenuItem
 import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.View
 import android.widget.Button
-import android.widget.LinearLayout
+
 import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.RegisterActivities.LoginEmailActivity
-import com.devarthur.easyshave.adapter.UserAgendamentoAdapter
-import com.devarthur.easyshave.dataModel.UserAgendamento
+
 import com.devarthur.easyshave.extensions.addFragment
 import com.devarthur.easyshave.extensions.replaceFragment
 import com.devarthur.easyshave.fragments.AgendaFragment
@@ -28,7 +26,7 @@ import com.devarthur.easyshave.fragments.PerfilFragment
 import com.devarthur.easyshave.fragments.ServicosFragment
 import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.support.v4.toast
+
 
 
 
