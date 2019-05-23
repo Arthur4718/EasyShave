@@ -50,8 +50,6 @@ class AgendaFragment : BaseFragment() {
         mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL,false)
 
 
-
-
         for (i in 1..3) {
 
             agendaList.add(

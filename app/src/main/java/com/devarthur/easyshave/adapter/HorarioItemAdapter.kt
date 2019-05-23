@@ -9,12 +9,8 @@ import android.view.ViewGroup
 
 import android.widget.TextView
 import android.widget.Toast
-import com.devarthur.easyshave.AgendaDetalhe
-import org.jetbrains.anko.startActivity
 import com.devarthur.easyshave.R
-import com.devarthur.easyshave.dataModel.DataItem
 import com.devarthur.easyshave.dataModel.HorarioItem
-import com.devarthur.easyshave.dataModel.Servico
 import java.util.ArrayList
 
 class HorarioItemAdapter(val dataList : ArrayList<HorarioItem>) : RecyclerView.Adapter<HorarioItemAdapter.ViewHolder>()  {
@@ -22,7 +18,7 @@ class HorarioItemAdapter(val dataList : ArrayList<HorarioItem>) : RecyclerView.A
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): HorarioItemAdapter.ViewHolder {
 
-        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.horarioServico_item, viewGroup, false)
+        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.horarioservico_item, viewGroup, false)
         return ViewHolder(v)
 
     }
@@ -40,7 +36,7 @@ class HorarioItemAdapter(val dataList : ArrayList<HorarioItem>) : RecyclerView.A
 
         holder.card.setOnClickListener {
 
-            Toast.makeText(holder.itemView.context, "Item clicked", Toast.LENGTH_SHORT).show()
+
 
         }
 
@@ -50,7 +46,7 @@ class HorarioItemAdapter(val dataList : ArrayList<HorarioItem>) : RecyclerView.A
 
         //capturar as views do card
         val txtData = itemView.findViewById(R.id.txtDataDetalheHorario) as TextView
-        val card = itemView.findViewById(R.id.cardContent) as CardView
+        val card = itemView.findViewById(R.id.CardHorarioItem) as CardView
 
 
     }

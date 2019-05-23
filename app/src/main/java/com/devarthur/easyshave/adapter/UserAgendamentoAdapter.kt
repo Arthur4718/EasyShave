@@ -54,7 +54,7 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
         val txtCardServico = itemView.findViewById(R.id.txtCardServico) as TextView
         val txtCardHorario = itemView.findViewById(R.id.txtCardHorarioAgendamento) as TextView
         val txtCardStatus = itemView.findViewById(R.id.txtCardAgendamentoStatus) as TextView
-        val cardView = itemView.findViewById(R.id.cardServico) as CardView
+        val cardView = itemView.findViewById(R.id.cardDataItem) as CardView
 
 
 

@@ -50,7 +50,7 @@ class ServicoAdapter(val userList : ArrayList<Servico>) : RecyclerView.Adapter<S
         //capturar as views do card
         val txtCardServico = itemView.findViewById(R.id.txtNomeServicoCard) as TextView
         val txtCodServico = itemView.findViewById(R.id.txtCod) as TextView
-        val servicoCard = itemView.findViewById(R.id.cardServico) as CardView
+        val servicoCard = itemView.findViewById(R.id.cardDataItem) as CardView
 
 
     }

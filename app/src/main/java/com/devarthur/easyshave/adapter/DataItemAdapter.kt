@@ -9,11 +9,8 @@ import android.view.ViewGroup
 
 import android.widget.TextView
 import android.widget.Toast
-import com.devarthur.easyshave.AgendaDetalhe
-import org.jetbrains.anko.startActivity
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.DataItem
-import com.devarthur.easyshave.dataModel.Servico
 import java.util.ArrayList
 
 class DataItemAdapter(val dataList : ArrayList<DataItem>) : RecyclerView.Adapter<DataItemAdapter.ViewHolder>()  {
@@ -21,7 +18,7 @@ class DataItemAdapter(val dataList : ArrayList<DataItem>) : RecyclerView.Adapter
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): DataItemAdapter.ViewHolder {
 
-        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.dataServico_item, viewGroup, false)
+        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.dataservico_item, viewGroup, false)
         return ViewHolder(v)
 
     }
@@ -39,7 +36,7 @@ class DataItemAdapter(val dataList : ArrayList<DataItem>) : RecyclerView.Adapter
 
         holder.card.setOnClickListener {
 
-            Toast.makeText(holder.itemView.context, "Item clicked", Toast.LENGTH_SHORT).show()
+
 
 
         }
@@ -50,7 +47,7 @@ class DataItemAdapter(val dataList : ArrayList<DataItem>) : RecyclerView.Adapter
 
         //capturar as views do card
         val txtData = itemView.findViewById(R.id.txtDataDetalheHorario) as TextView
-        val card = itemView.findViewById(R.id.cardContent) as CardView
+        val card = itemView.findViewById(R.id.cardDataItem) as CardView
 
 
     }
