@@ -1,10 +1,12 @@
 package com.devarthur.easyshave.adapter
 
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.UserAgendamento
 import java.util.ArrayList
@@ -31,6 +33,11 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
         holder.txtCardServico.text = userCard.nomeServico
         holder.txtCardHorario.text = userCard.horario
         holder.txtCardStatus.text = userCard.statusAgendamento
+        holder.cardView.setOnClickListener {
+            //Toast.makeText(it.context, "item clicked $position", Toast.LENGTH_SHORT).show()
+        }
+
+
 
 
     }
@@ -43,6 +50,10 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
         val txtCardServico = itemView.findViewById(R.id.txtCardServico) as TextView
         val txtCardHorario = itemView.findViewById(R.id.txtCardHorarioAgendamento) as TextView
         val txtCardStatus = itemView.findViewById(R.id.txtCardAgendamentoStatus) as TextView
+        val cardView = itemView.findViewById(R.id.cardAgenda) as CardView
+
+        //Card click action
+
 
     }
 }
