@@ -17,7 +17,9 @@ import com.devarthur.easyshave.dataModel.UserAgendamento
 import org.jetbrains.anko.support.v4.toast
 
 
-class AgendaFragment : BaseFragment() {
+class AgendaFragment : BaseFragment(), UserAgendamentoAdapter.OnAgendaClickListener {
+
+    val agendaList = ArrayList<UserAgendamento>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +49,7 @@ class AgendaFragment : BaseFragment() {
 
         mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL,false)
 
-        val agendaList = ArrayList<UserAgendamento>()
+
 
 
         for (i in 1..3) {
@@ -84,10 +86,10 @@ class AgendaFragment : BaseFragment() {
 
 
 
+    }
 
-
-
-
+    override fun onAgendaClick(position: Int) {
+        agendaList.get(position)
     }
 
 

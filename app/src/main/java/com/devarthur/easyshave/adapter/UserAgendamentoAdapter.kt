@@ -11,6 +11,9 @@ import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.UserAgendamento
 import java.util.ArrayList
 
+
+
+
 class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : RecyclerView.Adapter<UserAgendamentoAdapter.ViewHolder>()  {
 
 
@@ -55,5 +58,10 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
         //Card click action
 
 
+    }
+
+    interface OnAgendaClickListener {
+
+        fun onAgendaClick(position: Int)
     }
 }
