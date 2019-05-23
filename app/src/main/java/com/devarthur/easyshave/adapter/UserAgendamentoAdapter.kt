@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.UserAgendamento
 import java.util.ArrayList
@@ -46,22 +45,22 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
     }
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+
         //capturar as views do card
 
+
         //Todo - capturar tb a imagem e construir cada card com sua imagem.
-        val txtUserName = itemView.findViewById(R.id.txtNomeUsuarioCard) as TextView
+        val txtUserName = itemView.findViewById(R.id.txtNomeServicoCard) as TextView
         val txtCardServico = itemView.findViewById(R.id.txtCardServico) as TextView
         val txtCardHorario = itemView.findViewById(R.id.txtCardHorarioAgendamento) as TextView
         val txtCardStatus = itemView.findViewById(R.id.txtCardAgendamentoStatus) as TextView
         val cardView = itemView.findViewById(R.id.cardAgenda) as CardView
 
-        //Card click action
+
+
 
 
     }
 
-    interface OnAgendaClickListener {
 
-        fun onAgendaClick(position: Int)
-    }
 }

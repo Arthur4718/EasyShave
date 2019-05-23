@@ -1,8 +1,8 @@
-package com.devarthur.easyshave.activity.Agenda
+
+package com.devarthur.easyshave
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.devarthur.easyshave.R
 
 class AgendaDetalhe : AppCompatActivity() {
 

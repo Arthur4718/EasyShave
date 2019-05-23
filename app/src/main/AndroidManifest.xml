@@ -12,6 +12,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".AgendaDetalhe">
+        </activity>
+        <activity android:name=".activity.User.AgendaDetalhe">
+        </activity>
         <activity android:name=".activity.Agenda.AgendaDetalhe">
         </activity>
         <activity

@@ -17,7 +17,7 @@ import com.devarthur.easyshave.dataModel.UserAgendamento
 import org.jetbrains.anko.support.v4.toast
 
 
-class AgendaFragment : BaseFragment(), UserAgendamentoAdapter.OnAgendaClickListener {
+class AgendaFragment : BaseFragment() {
 
     val agendaList = ArrayList<UserAgendamento>()
 
@@ -33,8 +33,8 @@ class AgendaFragment : BaseFragment(), UserAgendamentoAdapter.OnAgendaClickListe
         // Inflate the layout for this fragment
         val view = inflater?.inflate(R.layout.agenda_fragment, container, false)
 
-        //val textView = view?.findViewById<TextView>(R.id.txtAgenda)
-        //textView!!.text = "Roda caralho."
+
+
         initActions(view)
 
         return view
@@ -88,9 +88,7 @@ class AgendaFragment : BaseFragment(), UserAgendamentoAdapter.OnAgendaClickListe
 
     }
 
-    override fun onAgendaClick(position: Int) {
-        agendaList.get(position)
-    }
+
 
 
 }
