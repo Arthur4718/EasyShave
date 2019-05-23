@@ -5,6 +5,7 @@ package com.devarthur.easyshave
 import android.os.Bundle
 import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
 import com.devarthur.easyshave.extensions.setupToolbar
+import kotlinx.android.synthetic.main.include_toolbar.*
 
 
 class AgendaDetalhe : BaseActivity() {
@@ -14,7 +15,15 @@ class AgendaDetalhe : BaseActivity() {
         setContentView(R.layout.activity_agenda_detalhe)
 
         val title = intent.getSerializableExtra("titulo") as String
-        setupToolbar(R.id.toolbar, title, true)
+        setupToolbar(R.id.toolbar, title, false)
+
+
+
+        initActions()
+
+    }
+
+    private fun initActions() {
 
     }
 }

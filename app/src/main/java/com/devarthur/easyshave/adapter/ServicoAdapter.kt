@@ -36,7 +36,7 @@ class ServicoAdapter(val userList : ArrayList<Servico>) : RecyclerView.Adapter<S
         holder.txtCodServico.text = userCard.codigoServico.toString()
 
         holder.servicoCard.setOnClickListener {
-            //Toast.makeText(it.context, "item clicked $position", Toast.LENGTH_SHORT).show()
+
 
             val title : String = holder.txtCardServico.text.toString()
             holder.itemView.context.startActivity<AgendaDetalhe>("titulo" to title)
