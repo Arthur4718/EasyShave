@@ -12,10 +12,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
         <activity android:name=".AgendaDetalhe">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.devarthur.easyshave.activity.User.MainMenuActivity"/>
+
         </activity>
         <activity android:name=".activity.User.AgendaDetalhe">
         </activity>
