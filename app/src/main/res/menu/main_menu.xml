@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
+          android:title="Filtro"
+          android:icon="@drawable/ic_filter"
+          android:iconTint="@color/white"
           android:orderInCategory="100"
-          app:showAsAction="never"/>
+          app:showAsAction="always"
+    >
+
+        <menu>
+
+            <item
+                android:id="@+id/item1"
+                android:checkable="true"
+                android:title="Masculino"
+                app:actionViewClass="android.widget.CheckBox"
+                app:showAsAction="ifRoom|withText" />
+
+            <item
+                    android:id="@+id/item2"
+                    android:checkable="true"
+                    android:title="Feminino"
+                    app:actionViewClass="android.widget.CheckBox"
+                    app:showAsAction="ifRoom|withText" />
+        </menu>
+
+    </item>
 </menu>

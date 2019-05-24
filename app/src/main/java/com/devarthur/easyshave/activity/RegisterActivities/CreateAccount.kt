@@ -146,12 +146,12 @@ class CreateAccount : BaseActivity() {
         //Verifica se o usuário é um estabelecimento ou usuário comum.
 
         val tipoUsuario = switch1.isChecked
-        var userType : Int = 0
+        var userType : String = ""
 
         if(tipoUsuario){
-            userType = 1
+            userType = "1"
         }else{
-            userType = 0
+            userType = "0"
         }
 
 

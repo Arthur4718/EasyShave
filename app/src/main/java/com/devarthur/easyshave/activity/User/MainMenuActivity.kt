@@ -19,6 +19,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.RegisterActivities.LoginEmailActivity
+import com.devarthur.easyshave.dataModel.UserProfile
 
 import com.devarthur.easyshave.extensions.addFragment
 import com.devarthur.easyshave.extensions.replaceFragment
@@ -37,6 +38,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     //UserToken
     var userUId : String = ""
+    val userType : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +57,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         navView.setNavigationItemSelectedListener(this)
 
-        //Toolbar
-
-
         //Header to navigation drawer.
         val headerView : View = navView.getHeaderView(0)
         val navUserName : TextView = headerView.findViewById(R.id.txtUserNameHeader)
@@ -71,9 +70,21 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         val email = user?.email
         userUId = user?.uid.toString()
 
-
         Log.d("arthurdebug", " $userUId")
 
+
+
+        if(email.equals("user1@gmail.com")){
+            //Menu itens
+            val menu = navView.menu
+
+
+            menu.removeItem(R.id.nav_serviços_)
+
+
+
+            navView.invalidate()
+        }
 
 
         navUserName.setText(name)
@@ -81,8 +92,9 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         selectButton.setOnClickListener { toast("Selecione uma nova foto.") }
 
-
+        checkUserType()
         initActions()
+        //setupBottomNavigation()
 
         //Loads the first page
         if(savedInstanceState == null){
@@ -92,6 +104,81 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         }
     }
+
+//    private fun setupBottomNavigaprivate fun setupBottomNavigation() {
+////        val mNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item->
+////
+////            when(item.itemId){
+////                R.id.id_nav_item_play -> {
+////                    toast("play menu pressed")
+////                    replaceFragment(R.id.layout_container, PlayFragment())
+////                    return@OnNavigationItemSelectedListener true
+////                }
+////
+////                R.id.id_nav_item_profile -> {
+////                    toast("profile menu pressed")
+////                    replaceFragment(R.id.layout_container, ProfileFragment())
+////                    return@OnNavigationItemSelectedListener true
+////                }
+////
+////                R.id.id_nav_item_bank -> {
+////                    toast("bank menu pressed")
+////                    replaceFragment(R.id.layout_container, BankFragment())
+////                    return@OnNavigationItemSelectedListener true
+////                }
+////                R.id.id_nav_item_tutorials -> {
+////                    toast("tutorials menu pressed")
+////                    return@OnNavigationItemSelectedListener true
+////                }
+////
+////            }
+////            false
+////        }
+////
+////        //Setting up bottom navigation listener
+////        bottomNavBar.setOnNavigationItemSelectedListener(mNavigationItemSelectedListener)
+////    }tion() {
+//        val mNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item->
+//
+//            when(item.itemId){
+//                R.id.id_nav_item_play -> {
+//                    toast("play menu pressed")
+//                    replaceFragment(R.id.layout_container, PlayFragment())
+//                    return@OnNavigationItemSelectedListener true
+//                }
+//
+//                R.id.id_nav_item_profile -> {
+//                    toast("profile menu pressed")
+//                    replaceFragment(R.id.layout_container, ProfileFragment())
+//                    return@OnNavigationItemSelectedListener true
+//                }
+//
+//                R.id.id_nav_item_bank -> {
+//                    toast("bank menu pressed")
+//                    replaceFragment(R.id.layout_container, BankFragment())
+//                    return@OnNavigationItemSelectedListener true
+//                }
+//                R.id.id_nav_item_tutorials -> {
+//                    toast("tutorials menu pressed")
+//                    return@OnNavigationItemSelectedListener true
+//                }
+//
+//            }
+//            false
+//        }
+//
+//        //Setting up bottom navigation listener
+//        bottomNavBar.setOnNavigationItemSelectedListener(mNavigationItemSelectedListener)
+//    }
+
+    private fun checkUserType() {
+        if(userType == 1){
+            //admin
+        }else{
+            // not admin
+        }
+    }
+
 
     private fun initActions() {
 
@@ -118,8 +205,23 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
 
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                p0.toString();
-                Log.d("arthurdebug", "p0 $p0")
+
+
+                //Log.d("arthurdebug", p0.toString())
+                //Log.d("arthurdebug", p0.child("userType").toString())
+                //Log.d("arthurdebug", p0.getValue(p0.key.equals("userType")).toString())
+
+
+
+                //val data = p0.getValue(UserProfile::class.java)
+                //og.d("arthurdebug", data?.userType)
+
+
+
+                //Log.d("arthurdebug",  p0.toString())
+                //Log.d("arthurdebug",   p0.key.toString())
+
+
             }
 
             override fun onChildRemoved(p0: DataSnapshot) {
@@ -138,12 +240,14 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        //menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
+    //Adicionar o filtro ao toolbar quando necessário.
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        menuInflater.inflate(R.menu.main_menu, menu)
+//        return true
+//    }
+//
+//    //Filtro quando necessario
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        // Handle action bar item clicks here. The action bar will
 //        // automatically handle clicks on the Home/Up button, so long
@@ -158,24 +262,35 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         // Handle navigation view item clicks here.
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
+
         when (item.itemId) {
             R.id.nav_perfil -> {
 
                 replaceFragment(R.id.layout_content, PerfilFragment())
                 toolbar.setTitle("Meu Perfil")
 
+
             }
             R.id.nav_agenda -> {
 
+
                 replaceFragment(R.id.layout_content, AgendaFragment())
                 toolbar.setTitle("Minha Agenda")
+
             }
             R.id.nav_sugestoes -> {
 
             }
             R.id.nav_serviços_ -> {
+
+                if(userType == 1){
+                    toolbar.setTitle("Gerenciar Serviços")
+                }
+                else{
+                    toolbar.setTitle("Buscar Serviços.")
+                }
                 replaceFragment(R.id.layout_content, ServicosFragment())
-                toolbar.setTitle("Gerenciar Serviços")
+
             }
             R.id.nav_share -> {
 
