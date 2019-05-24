@@ -26,13 +26,15 @@
             android:layout_height="wrap_content" app:layout_constraintGuide_begin="68dp" android:id="@+id/guideline"/>
 
     <android.support.v7.widget.RecyclerView android:layout_width="0dp"
-                                            android:layout_height="190dp"
+                                            android:layout_height="0dp"
                                             android:layout_marginTop="8dp"
                                             android:background="@color/gray"
                                             app:layout_constraintTop_toBottomOf="@+id/textView6"
                                             app:layout_constraintStart_toStartOf="parent"
                                             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-                                            android:layout_marginEnd="8dp" android:id="@+id/recyclerDatas">
+                                            android:layout_marginEnd="8dp" android:id="@+id/recyclerDatas"
+                                            android:layout_marginBottom="8dp"
+                                            app:layout_constraintBottom_toTopOf="@+id/btnAddData">
 
 
     </android.support.v7.widget.RecyclerView>
@@ -52,12 +54,10 @@
             android:text="Adicionar Datas"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/btnAddData"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerDatas"
-    />
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"/>
     <Button
             android:text="Editar Valor"
             android:layout_width="wrap_content"

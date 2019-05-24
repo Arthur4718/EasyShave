@@ -18,11 +18,12 @@ import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
 import com.devarthur.easyshave.adapter.DataItemAdapter
 
 import com.devarthur.easyshave.dataModel.DataItem
-import com.devarthur.easyshave.dataModel.HorarioItem
 import com.devarthur.easyshave.extensions.setupToolbar
-import com.devarthur.easyshave.extensions.toast
+
 import kotlinx.android.synthetic.main.activity_agenda_detalhe.*
+import kotlinx.android.synthetic.main.app_bar_main_menu.*
 import kotlinx.android.synthetic.main.include_toolbar.*
+import kotlinx.android.synthetic.main.include_toolbar.toolbar
 
 
 class AgendaDetalhe : BaseActivity() {
@@ -45,7 +46,11 @@ class AgendaDetalhe : BaseActivity() {
         }
 
 
+
+
+
         initActions()
+
 
     }
 

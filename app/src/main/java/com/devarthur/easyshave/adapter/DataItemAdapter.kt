@@ -9,8 +9,10 @@ import android.view.ViewGroup
 
 import android.widget.TextView
 import android.widget.Toast
+import com.devarthur.easyshave.DataDetalhe
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.DataItem
+import org.jetbrains.anko.startActivity
 import java.util.ArrayList
 
 class DataItemAdapter(val dataList : ArrayList<DataItem>) : RecyclerView.Adapter<DataItemAdapter.ViewHolder>()  {
@@ -37,6 +39,8 @@ class DataItemAdapter(val dataList : ArrayList<DataItem>) : RecyclerView.Adapter
         holder.card.setOnClickListener {
 
 
+            val data : String = holder.txtData.text.toString()
+            holder.itemView.context.startActivity<DataDetalhe>("data" to data)
 
 
         }
