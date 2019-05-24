@@ -33,6 +33,8 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
         holder.txtCardServico.text = userCard.nomeServico
         holder.txtCardHorario.text = userCard.horario
         holder.txtCardStatus.text = userCard.statusAgendamento
+        holder.txtCardData.text = userCard.data
+
 
         holder.cardView.setOnClickListener {
             //Toast.makeText(it.context, "item clicked $position", Toast.LENGTH_SHORT).show()
@@ -43,21 +45,13 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
-        //capturar as views do card
-
-
         //Todo - capturar tb a imagem e construir cada card com sua imagem.
         val txtUserName = itemView.findViewById(R.id.txtNomeServicoCard) as TextView
         val txtCardServico = itemView.findViewById(R.id.txtCardServico) as TextView
         val txtCardHorario = itemView.findViewById(R.id.txtCardHorarioAgendamento) as TextView
         val txtCardStatus = itemView.findViewById(R.id.txtCardAgendamentoStatus) as TextView
+        val txtCardData = itemView.findViewById(R.id.txtCardDataAgendamento) as TextView
         val cardView = itemView.findViewById(R.id.cardDataItem) as CardView
 
-
-
-
-
     }
-
-
 }

@@ -36,49 +36,30 @@ class AgendaDetalhe : BaseActivity() {
         val title = intent.getSerializableExtra("titulo") as String
         setupToolbar(R.id.toolbar, title, true)
 
-        toolbar.setOnClickListener {
-
-
-            finish()
-
-        }
+        toolbar.setOnClickListener {finish()}
 
         initActions()
-
-
     }
 
     private fun initActions() {
 
         val recyclerDatas = findViewById<RecyclerView>(R.id.recyclerDatas)
-
-
         recyclerDatas?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL, false)
-
-
         dataList.add(DataItem("27/05/2019"))
         dataList.add(DataItem("28/05/2019"))
 
-
-
         val adapterData = DataItemAdapter(dataList)
-
-
         recyclerDatas?.adapter = adapterData
-
 
         btnAddData.setOnClickListener {
 
             addDataDialog()
         }
 
-
         btnEditarValor.setOnClickListener {
 
             addValorDialog()
         }
-
-
     }
 
     private fun addValorDialog() {
@@ -128,26 +109,16 @@ class AgendaDetalhe : BaseActivity() {
         val txtCodeServico = TextView(this.context)
         val alertTitle = TextView(this.context)
 
-
-
         edtData.hint = "Digite uma Data"
         alertTitle.text = "Adicionar nova Data"
-
-
         txtCodeServico.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
         edtData.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-
         alertTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-
-
         edtData.setSingleLine()
-
         mLayout.orientation = LinearLayout.VERTICAL
         mLayout.addView(alertTitle)
         mLayout.addView(edtData)
-
         mLayout.setPadding(50, 40, 50, 10)
-
         mBuilder.setView(mLayout)
 
         mBuilder.setPositiveButton("Ok"){ dialog: DialogInterface?, which: Int ->
@@ -162,14 +133,7 @@ class AgendaDetalhe : BaseActivity() {
         }
 
         mBuilder.create().show()
-
-
     }
-
-
-
-
-
     private fun addItemData(data: String) {
 
         dataList.add(DataItem(data))
