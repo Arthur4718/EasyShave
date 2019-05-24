@@ -21,8 +21,6 @@ import com.devarthur.easyshave.dataModel.DataItem
 import com.devarthur.easyshave.extensions.setupToolbar
 
 import kotlinx.android.synthetic.main.activity_agenda_detalhe.*
-import kotlinx.android.synthetic.main.app_bar_main_menu.*
-import kotlinx.android.synthetic.main.include_toolbar.*
 import kotlinx.android.synthetic.main.include_toolbar.toolbar
 
 
@@ -44,10 +42,6 @@ class AgendaDetalhe : BaseActivity() {
             finish()
 
         }
-
-
-
-
 
         initActions()
 
@@ -92,7 +86,6 @@ class AgendaDetalhe : BaseActivity() {
         val mBuilder = AlertDialog.Builder(this.context)
         val mLayout = LinearLayout(this.context)
         val edtValor = EditText(this.context)
-
         val alertTitle = TextView(this.context)
 
         edtValor.hint = "Digite um novo valor"

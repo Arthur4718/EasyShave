@@ -55,7 +55,7 @@ class AgendaFragment : BaseFragment() {
             agendaList.add(
                 UserAgendamento(
                     "Sandy $i",
-                    "Serviço $i",
+                    "Cabelo Feminino",
                     "12:00 ás 13:00",
                     "Agendado"
                 )
@@ -69,7 +69,7 @@ class AgendaFragment : BaseFragment() {
             agendaList.add(
                 UserAgendamento(
                     "Sandy $i",
-                    "Serviço $i",
+                    "Cabelo Masculino",
                     "14:00 ás 15:00",
                     "A confirmar"
                 )

@@ -11,8 +11,6 @@ import com.devarthur.easyshave.dataModel.UserAgendamento
 import java.util.ArrayList
 
 
-
-
 class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : RecyclerView.Adapter<UserAgendamentoAdapter.ViewHolder>()  {
 
 
@@ -35,11 +33,10 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
         holder.txtCardServico.text = userCard.nomeServico
         holder.txtCardHorario.text = userCard.horario
         holder.txtCardStatus.text = userCard.statusAgendamento
+
         holder.cardView.setOnClickListener {
             //Toast.makeText(it.context, "item clicked $position", Toast.LENGTH_SHORT).show()
         }
-
-
 
 
     }
