@@ -11,6 +11,7 @@ import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
 
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.Button
@@ -25,15 +26,17 @@ import com.devarthur.easyshave.fragments.AgendaFragment
 import com.devarthur.easyshave.fragments.PerfilFragment
 import com.devarthur.easyshave.fragments.ServicosFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 import org.jetbrains.anko.startActivity
-
-
-
-
 
 
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    //UserToken
+    var userUId : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +69,12 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         val user = FirebaseAuth.getInstance().currentUser
         val name = user?.displayName
         val email = user?.email
+        userUId = user?.uid.toString()
+
+
+        Log.d("arthurdebug", " $userUId")
+
+
 
         navUserName.setText(name)
         navUserEmail.setText(email)
@@ -86,10 +95,38 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     private fun initActions() {
 
+        listenForDatabase()
 
 
 
+    }
 
+    private fun listenForDatabase() {
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$userUId")
+
+        ref.addChildEventListener(object : ChildEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+
+            }
+
+            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
+
+            }
+
+            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
+                p0.toString();
+                Log.d("arthurdebug", "p0 $p0")
+            }
+
+            override fun onChildRemoved(p0: DataSnapshot) {
+
+            }
+
+        })
     }
 
     override fun onBackPressed() {

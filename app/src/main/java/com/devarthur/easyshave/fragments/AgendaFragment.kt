@@ -49,7 +49,7 @@ class AgendaFragment : BaseFragment() {
                     "Sandy $i",
                     "Cabelo Feminino",
                     "29/06/2019",
-                    "12:00 ás 13:00",
+                    "13:00",
                     "Agendado"
                 )
             )
@@ -62,7 +62,7 @@ class AgendaFragment : BaseFragment() {
                     "Sandy $i",
                     "Cabelo Masculino",
                     "30/06/2019",
-                    "14:00 ás 15:00",
+                    "14:00",
                     "A confirmar"
                 )
             )
