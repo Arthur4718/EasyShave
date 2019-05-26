@@ -2,6 +2,7 @@ package com.devarthur.easyshave.activity.User
 
 //https://www.youtube.com/watch?v=67hthq6Y2J8
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView
 import com.devarthur.easyshave.extensions.toast
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -11,6 +12,7 @@ import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
 
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.Button
@@ -18,22 +20,28 @@ import android.widget.Button
 import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.RegisterActivities.LoginEmailActivity
+import com.devarthur.easyshave.dataModel.UserProfile
+import com.devarthur.easyshave.dataModel.UserSnapshot
 
 import com.devarthur.easyshave.extensions.addFragment
 import com.devarthur.easyshave.extensions.replaceFragment
-import com.devarthur.easyshave.fragments.AgendaFragment
-import com.devarthur.easyshave.fragments.PerfilFragment
-import com.devarthur.easyshave.fragments.ServicosFragment
+import com.devarthur.easyshave.fragments.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.agenda_fragment.*
 import org.jetbrains.anko.startActivity
-
-
-
-
 
 
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    //UserToken
+    var userUId : String = ""
+    var userType : Int = 0
+
+    //var datalist : MutableList<UserProfile>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +60,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         navView.setNavigationItemSelectedListener(this)
 
-        //Toolbar
-
-
         //Header to navigation drawer.
         val headerView : View = navView.getHeaderView(0)
         val navUserName : TextView = headerView.findViewById(R.id.txtUserNameHeader)
@@ -66,14 +71,33 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         val user = FirebaseAuth.getInstance().currentUser
         val name = user?.displayName
         val email = user?.email
+        userUId = user?.uid.toString()
+
+        Log.d("arthurdebug", " $userUId")
+
+
+
+        if(email.equals("user1@gmail.com")){
+            //Menu itens
+            val menu = navView.menu
+
+
+            menu.removeItem(R.id.nav_serviços_)
+
+
+
+            navView.invalidate()
+        }
+
 
         navUserName.setText(name)
         navUserEmail.setText(email)
 
         selectButton.setOnClickListener { toast("Selecione uma nova foto.") }
 
-
+        checkUserType()
         initActions()
+
 
         //Loads the first page
         if(savedInstanceState == null){
@@ -84,12 +108,52 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
     }
 
+    private fun checkUserType() {
+        if(userType == 1){
+            //admin
+        }else{
+            // not admin
+        }
+    }
+
+
     private fun initActions() {
 
+        listenForDatabase()
+
+
+
+    }
+
+    private fun listenForDatabase() {
+        val ref = FirebaseDatabase.getInstance().getReference("/users")
+
+        ref.addChildEventListener(object : ChildEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+
+            }
+
+            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
+
+            }
+
+            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
+                //Todo retrieve data from firebase
 
 
 
 
+            }
+
+            override fun onChildRemoved(p0: DataSnapshot) {
+
+            }
+
+        })
     }
 
     override fun onBackPressed() {
@@ -101,12 +165,14 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        //menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
+    //Adicionar o filtro ao toolbar quando necessário.
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        menuInflater.inflate(R.menu.main_menu, menu)
+//        return true
+//    }
+//
+//    //Filtro quando necessario
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        // Handle action bar item clicks here. The action bar will
 //        // automatically handle clicks on the Home/Up button, so long
@@ -121,24 +187,35 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         // Handle navigation view item clicks here.
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
+
         when (item.itemId) {
             R.id.nav_perfil -> {
 
                 replaceFragment(R.id.layout_content, PerfilFragment())
                 toolbar.setTitle("Meu Perfil")
 
+
             }
             R.id.nav_agenda -> {
 
+
                 replaceFragment(R.id.layout_content, AgendaFragment())
                 toolbar.setTitle("Minha Agenda")
+
             }
             R.id.nav_sugestoes -> {
 
             }
             R.id.nav_serviços_ -> {
+
+                if(userType == 1){
+                    toolbar.setTitle("Gerenciar Serviços")
+                }
+                else{
+                    toolbar.setTitle("Buscar Serviços.")
+                }
                 replaceFragment(R.id.layout_content, ServicosFragment())
-                toolbar.setTitle("Gerenciar Serviços")
+
             }
             R.id.nav_share -> {
 

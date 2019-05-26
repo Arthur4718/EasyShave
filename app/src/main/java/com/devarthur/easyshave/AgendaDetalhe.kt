@@ -18,11 +18,10 @@ import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
 import com.devarthur.easyshave.adapter.DataItemAdapter
 
 import com.devarthur.easyshave.dataModel.DataItem
-import com.devarthur.easyshave.dataModel.HorarioItem
 import com.devarthur.easyshave.extensions.setupToolbar
-import com.devarthur.easyshave.extensions.toast
+
 import kotlinx.android.synthetic.main.activity_agenda_detalhe.*
-import kotlinx.android.synthetic.main.include_toolbar.*
+import kotlinx.android.synthetic.main.include_toolbar.toolbar
 
 
 class AgendaDetalhe : BaseActivity() {
@@ -37,49 +36,30 @@ class AgendaDetalhe : BaseActivity() {
         val title = intent.getSerializableExtra("titulo") as String
         setupToolbar(R.id.toolbar, title, true)
 
-        toolbar.setOnClickListener {
-
-
-            finish()
-
-        }
-
+        toolbar.setOnClickListener {finish()}
 
         initActions()
-
     }
 
     private fun initActions() {
 
         val recyclerDatas = findViewById<RecyclerView>(R.id.recyclerDatas)
-
-
         recyclerDatas?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL, false)
-
-
         dataList.add(DataItem("27/05/2019"))
         dataList.add(DataItem("28/05/2019"))
 
-
-
         val adapterData = DataItemAdapter(dataList)
-
-
         recyclerDatas?.adapter = adapterData
-
 
         btnAddData.setOnClickListener {
 
             addDataDialog()
         }
 
-
         btnEditarValor.setOnClickListener {
 
             addValorDialog()
         }
-
-
     }
 
     private fun addValorDialog() {
@@ -87,7 +67,6 @@ class AgendaDetalhe : BaseActivity() {
         val mBuilder = AlertDialog.Builder(this.context)
         val mLayout = LinearLayout(this.context)
         val edtValor = EditText(this.context)
-
         val alertTitle = TextView(this.context)
 
         edtValor.hint = "Digite um novo valor"
@@ -130,26 +109,16 @@ class AgendaDetalhe : BaseActivity() {
         val txtCodeServico = TextView(this.context)
         val alertTitle = TextView(this.context)
 
-
-
         edtData.hint = "Digite uma Data"
         alertTitle.text = "Adicionar nova Data"
-
-
         txtCodeServico.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
         edtData.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-
         alertTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-
-
         edtData.setSingleLine()
-
         mLayout.orientation = LinearLayout.VERTICAL
         mLayout.addView(alertTitle)
         mLayout.addView(edtData)
-
         mLayout.setPadding(50, 40, 50, 10)
-
         mBuilder.setView(mLayout)
 
         mBuilder.setPositiveButton("Ok"){ dialog: DialogInterface?, which: Int ->
@@ -164,14 +133,7 @@ class AgendaDetalhe : BaseActivity() {
         }
 
         mBuilder.create().show()
-
-
     }
-
-
-
-
-
     private fun addItemData(data: String) {
 
         dataList.add(DataItem(data))

@@ -1,6 +1,13 @@
 package com.devarthur.easyshave.dataModel
 
-//* Created by Arthur Gomes at 2019-05-23 22:10 - contact me at devarthur4718@gmail.com.br
+data class UserProfile(var uid: String,
+                       var username : String,
+                       var useremail : String,
+                       var userbirthdate : String,
+                       var userType : String){
 
 
-data class UserProfile(val uid: String, val username : String, val useremail : String, val userbirthdate : String, val userType : Int)
+
+
+    constructor() : this("", "", "", "", "")
+}

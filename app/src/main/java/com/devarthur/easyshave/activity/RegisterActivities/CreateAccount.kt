@@ -7,6 +7,7 @@ import android.util.Log
 
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
+import com.devarthur.easyshave.dataModel.UserProfile
 import com.devarthur.easyshave.extensions.toast
 import com.devarthur.easyshave.fragments.DatePickerFragment
 import com.devarthur.easyshave.utils.ValidationsUtils
@@ -145,12 +146,12 @@ class CreateAccount : BaseActivity() {
         //Verifica se o usuário é um estabelecimento ou usuário comum.
 
         val tipoUsuario = switch1.isChecked
-        var userType : Int = 0
+        var userType : String = ""
 
         if(tipoUsuario){
-            userType = 1
+            userType = "1"
         }else{
-            userType = 0
+            userType = "0"
         }
 
 
@@ -174,4 +175,4 @@ class CreateAccount : BaseActivity() {
 
 }
 
-class UserProfile(val uid: String, val username : String, val useremail : String, val userbirthdate : String, val userType : Int)
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/id_nav_cabelo"
+            android:icon="@drawable/ic_hairstyle_icon"
+            android:title="Cabelo"
+    >
+
+    </item>
+
+    <item
+            android:id="@+id/id_nav_barba"
+            android:icon="@drawable/ic_hairstyle"
+            android:title="Barba"
+    >
+    </item>
+
+    <item
+            android:id="@+id/id_nav_manicure"
+            android:icon="@drawable/ic_nails"
+            android:title="Manicure"
+    >
+    </item>
+
+    <item
+            android:id="@+id/id_nav_pedicure"
+            android:icon="@drawable/ic_file"
+            android:title="Pedicure"
+    >
+    </item>
+
+    <item
+            android:id="@+id/id_nav_sobrancelha"
+            android:icon="@drawable/ic_cosmetics"
+            android:title="Sobrancelha"
+    >
+    </item>
+
+
+</menu>
