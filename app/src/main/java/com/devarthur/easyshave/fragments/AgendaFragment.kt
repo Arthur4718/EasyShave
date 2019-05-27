@@ -15,8 +15,7 @@ import android.widget.LinearLayout
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.UserAgendamentoAdapter
 import com.devarthur.easyshave.dataModel.UserAgendamento
-import kotlinx.android.synthetic.main.agenda_fragment.*
-import org.jetbrains.anko.support.v4.toast
+
 
 
 class AgendaFragment : BaseFragment() {
@@ -50,13 +49,13 @@ class AgendaFragment : BaseFragment() {
             when(item.itemId){
                 R.id.id_nav_cabelo -> {
                     //carregar apenas cabelo masculino
-
+                    createListCabelo()
                     return@OnNavigationItemSelectedListener true
                 }
 
                 R.id.id_nav_barba -> {
                     //carregar apenas barba
-
+                    createListBarba()
                     return@OnNavigationItemSelectedListener true
                 }
 
@@ -71,7 +70,7 @@ class AgendaFragment : BaseFragment() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.id_nav_sobrancelha -> {
-                    toast("tutorials menu pressed")
+
                     return@OnNavigationItemSelectedListener true
                 }
 
@@ -81,6 +80,16 @@ class AgendaFragment : BaseFragment() {
 
         //Setting up bottom navigation listener
         bottomNavBar.setOnNavigationItemSelectedListener(mNavigationItemSelectedListener)
+    }
+
+    private fun createListBarba() {
+
+
+
+    }
+
+    private fun createListCabelo() {
+
     }
 
     private fun initActions(view: View) {
