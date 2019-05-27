@@ -16,7 +16,7 @@ import android.widget.LinearLayout
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.UserAgendamentoAdapter
 import com.devarthur.easyshave.dataModel.UserAgendamento
-
+import com.google.firebase.auth.FirebaseAuth
 
 
 class AgendaFragment : BaseFragment() {
@@ -44,6 +44,15 @@ class AgendaFragment : BaseFragment() {
     private fun setupBottomNavBar(view: View) {
 
         val bottomNavBar = view?.findViewById<BottomNavigationView>(R.id.bottomNavBar)
+
+        val user = FirebaseAuth.getInstance().currentUser
+        val name = user?.displayName
+        val email = user?.email
+
+        if(email.equals("user1@gmail.com")){
+
+        }
+
 
         //Setting up bottom navigation with fragments. - functions that handles fragment are from kotlin extensions
         val mNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item->

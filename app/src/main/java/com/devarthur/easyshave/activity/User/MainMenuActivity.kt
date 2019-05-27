@@ -1,6 +1,6 @@
 package com.devarthur.easyshave.activity.User
 
-//https://www.youtube.com/watch?v=67hthq6Y2J8
+
 import android.Manifest
 import android.content.pm.PackageManager
 import android.location.LocationManager
@@ -92,11 +92,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             //Menu itens
             val menu = navView.menu
 
-
             menu.removeItem(R.id.nav_serviços_)
-
-
-
             navView.invalidate()
         }
 
@@ -125,7 +121,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             Manifest.permission.ACCESS_FINE_LOCATION)
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
-            Log.d("arthurdebug", "Permission to local denied")
+
             makeRequest()
         }
     }
@@ -171,7 +167,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 //Todo retrieve data from firebase
-
 
 
 
@@ -266,6 +261,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     }
 
+    //Verifica se o usuário deu permissão pra acessar localização.
     override fun onRequestPermissionsResult(requestCode: Int,
                                             permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {
@@ -274,6 +270,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
 
                     Log.d("arthurdebug", "Permission has been denied by user")
+                    toast("Sem as devidas permissões o app pode não funcionar completamente.")
                 } else {
                     Log.d("arthurdebug", "Permission has been granted by user")
                 }
