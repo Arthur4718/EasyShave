@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.devarthur.easyshave.R
+import com.devarthur.easyshave.ServicoDetalhe
 import com.devarthur.easyshave.dataModel.UserAgendamento
 import java.util.ArrayList
+import org.jetbrains.anko.startActivity
 
 
 class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : RecyclerView.Adapter<UserAgendamentoAdapter.ViewHolder>()  {
@@ -38,6 +40,7 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
 
         holder.cardView.setOnClickListener {
             //Todo abrir detalhes do serviço
+            holder.itemView.context.startActivity<ServicoDetalhe>()
         }
 
 
