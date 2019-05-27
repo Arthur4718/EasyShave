@@ -24,6 +24,8 @@ import kotlinx.android.synthetic.main.agenda_fragment.*
 
 class AgendaFragment : BaseFragment() {
 
+    private var nomeUsuario: String = ""
+    private var email: String? = ""
     val agendaList = ArrayList<UserAgendamento>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +38,16 @@ class AgendaFragment : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater?.inflate(R.layout.agenda_fragment, container, false)
+
+        val user = FirebaseAuth.getInstance().currentUser
+        val name = user?.displayName
+        email = user?.email
+
+        if(email.equals("user1@gmail.com")){
+            nomeUsuario = "Salão"
+        }else{
+            nomeUsuario = "Usuario"
+        }
 
         initActions(view)
         setupBottomNavBar(view)
@@ -50,9 +62,10 @@ class AgendaFragment : BaseFragment() {
 
         val user = FirebaseAuth.getInstance().currentUser
         val name = user?.displayName
-        val email = user?.email
+        email = user?.email
 
         if(email.equals("user1@gmail.com")){
+
             //Setting up bottom navigation with fragments. - functions that handles fragment are from kotlin extensions
             val mNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item->
 
@@ -96,6 +109,7 @@ class AgendaFragment : BaseFragment() {
             //Setting up bottom navigation listener
             bottomNavBar.setOnNavigationItemSelectedListener(mNavigationItemSelectedListener)
         }else{
+
             bottomNavBar.visibility = View.GONE
         }
 
@@ -111,10 +125,10 @@ class AgendaFragment : BaseFragment() {
 
         for (i in 1..3) {
 
-            val distancia = i * 2
+            
             agendaList.add(
                 UserAgendamento(
-                    "Sandy $i",
+                    "$nomeUsuario $i",
                     "Sobrancelha",
                     "29/06/2019",
                     "13:00",
@@ -136,10 +150,10 @@ class AgendaFragment : BaseFragment() {
 
 
         for (i in 1..3) {
-            val distancia = i * 2
+            
             agendaList.add(
                 UserAgendamento(
-                    "Sandy $i",
+                    "$nomeUsuario $i",
                     "Manicure",
                     "29/06/2019",
                     "13:00",
@@ -164,7 +178,7 @@ class AgendaFragment : BaseFragment() {
             val distancia = i * 2
             agendaList.add(
                 UserAgendamento(
-                    "Sandy $i",
+                    "$nomeUsuario $i",
                     "Manicure",
                     "29/06/2019",
                     "13:00",
@@ -192,7 +206,7 @@ class AgendaFragment : BaseFragment() {
 
             agendaList.add(
                 UserAgendamento(
-                    "Sandy $i",
+                    "$nomeUsuario $i",
                     "Barba",
                     "29/06/2019",
                     "13:00",
@@ -215,10 +229,10 @@ class AgendaFragment : BaseFragment() {
         mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL,false)
         agendaList.clear()
 
-
+        
             agendaList.add(
                 UserAgendamento(
-                    "Sandy",
+                    "$nomeUsuario",
                     "Cabelo Feminino",
                     "29/06/2019",
                     "13:00",
@@ -234,7 +248,7 @@ class AgendaFragment : BaseFragment() {
             val distancia = i * 2
             agendaList.add(
                 UserAgendamento(
-                    "Sandy $i",
+                    "$nomeUsuario $i",
                     "Cabelo Masculino",
                     "30/06/2019",
                     "14:00",
@@ -260,7 +274,7 @@ class AgendaFragment : BaseFragment() {
             var distancia = i * 2
             agendaList.add(
                 UserAgendamento(
-                    "Sandy $i",
+                    "$nomeUsuario $i",
                     "Cabelo Feminino",
                     "29/06/2019",
                     "13:00",
@@ -276,7 +290,7 @@ class AgendaFragment : BaseFragment() {
             var distancia = i * 2
             agendaList.add(
                 UserAgendamento(
-                    "Sandy $i",
+                    "$nomeUsuario $i",
                     "Cabelo Masculino",
                     "30/06/2019",
                     "14:00",
@@ -320,7 +334,7 @@ class AgendaFragment : BaseFragment() {
         for (i in 1..3) {
             agendaList.add(
                 UserAgendamento(
-                    "Sandy",
+                    "$nomeUsuario",
                     "Cabelo Feminino",
                     "29/06/2019",
                     "13:00",
@@ -345,7 +359,7 @@ class AgendaFragment : BaseFragment() {
             var distancia = i * 2
             agendaList.add(
                 UserAgendamento(
-                    "Sandy $i",
+                    "$nomeUsuario $i",
                     "Cabelo Masculino",
                     "30/06/2019",
                     "14:00",
