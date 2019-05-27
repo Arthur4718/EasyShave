@@ -37,7 +37,7 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
 
 
         holder.cardView.setOnClickListener {
-            //Toast.makeText(it.context, "item clicked $position", Toast.LENGTH_SHORT).show()
+            //Todo abrir detalhes do serviço
         }
 
 
