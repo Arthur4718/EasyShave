@@ -11,12 +11,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.RadioButton
 
 
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.UserAgendamentoAdapter
 import com.devarthur.easyshave.dataModel.UserAgendamento
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.agenda_fragment.*
+
 
 
 class AgendaFragment : BaseFragment() {
@@ -50,47 +53,54 @@ class AgendaFragment : BaseFragment() {
         val email = user?.email
 
         if(email.equals("user1@gmail.com")){
+            //Setting up bottom navigation with fragments. - functions that handles fragment are from kotlin extensions
+            val mNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item->
 
-        }
+                when(item.itemId){
+                    R.id.id_nav_cabelo -> {
+                        //carregar apenas cabelo masculino
+                        toolbarFiltro.visibility = View.VISIBLE
+                        createListCabelo()
+                        return@OnNavigationItemSelectedListener true
+                    }
 
+                    R.id.id_nav_barba -> {
+                        //carregar apenas barba
+                        toolbarFiltro.visibility = View.GONE
+                        createListBarba()
+                        return@OnNavigationItemSelectedListener true
+                    }
 
-        //Setting up bottom navigation with fragments. - functions that handles fragment are from kotlin extensions
-        val mNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item->
+                    R.id.id_nav_manicure -> {
+                        //carregar apenas manicure
+                        toolbarFiltro.visibility = View.GONE
+                        createListManicure()
+                        return@OnNavigationItemSelectedListener true
+                    }
+                    R.id.id_nav_pedicure -> {
+                        //carregar apenas pedicure
+                        toolbarFiltro.visibility = View.GONE
+                        createListPedicure()
+                        return@OnNavigationItemSelectedListener true
+                    }
+                    R.id.id_nav_sobrancelha -> {
+                        toolbarFiltro.visibility = View.GONE
+                        createListSobrancelha()
+                        return@OnNavigationItemSelectedListener true
+                    }
 
-            when(item.itemId){
-                R.id.id_nav_cabelo -> {
-                    //carregar apenas cabelo masculino
-                    createListCabelo()
-                    return@OnNavigationItemSelectedListener true
                 }
-
-                R.id.id_nav_barba -> {
-                    //carregar apenas barba
-                    createListBarba()
-                    return@OnNavigationItemSelectedListener true
-                }
-
-                R.id.id_nav_manicure -> {
-                    //carregar apenas manicure
-                    createListManicure()
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.id_nav_pedicure -> {
-                    //carregar apenas pedicure
-                    createListPedicure()
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.id_nav_sobrancelha -> {
-                    createListSobrancelha()
-                    return@OnNavigationItemSelectedListener true
-                }
-
+                false
             }
-            false
+
+            //Setting up bottom navigation listener
+            bottomNavBar.setOnNavigationItemSelectedListener(mNavigationItemSelectedListener)
+        }else{
+            bottomNavBar.visibility = View.GONE
         }
 
-        //Setting up bottom navigation listener
-        bottomNavBar.setOnNavigationItemSelectedListener(mNavigationItemSelectedListener)
+
+
     }
 
     private fun createListSobrancelha() {
@@ -206,8 +216,6 @@ class AgendaFragment : BaseFragment() {
         agendaList.clear()
 
 
-
-
             agendaList.add(
                 UserAgendamento(
                     "Sandy",
@@ -261,7 +269,7 @@ class AgendaFragment : BaseFragment() {
                     "Km: $i"
                 )
             )
-            Log.d("arthurdebug", "distancia: $distancia")
+
         }
         for (i in 1..3) {
 
@@ -277,10 +285,78 @@ class AgendaFragment : BaseFragment() {
                     "Km: $i"
                 )
             )
-            Log.d("arthurdebug", "distancia: $distancia")
+
         }
         val adapter = UserAgendamentoAdapter(agendaList)
         mRecyclerView?.adapter = adapter
+
+
+        val rbFiltroMasculino = view?.findViewById<RadioButton>(R.id.rbFiltroMasculino)
+        //Filtro com radiobutton
+
+        rbFiltroMasculino.setOnClickListener {
+            if(rbFiltroMasculino.isChecked){
+                createListMasculino()
+            }
+        }
+
+        val rbFiltroFeminino = view?.findViewById<RadioButton>(R.id.rbFiltroFeminino)
+        rbFiltroFeminino.setOnClickListener {
+            if(rbFiltroFeminino.isChecked){
+                createListFeminino()
+            }
+        }
+
+
+    }
+
+    private fun createListFeminino() {
+
+        val mRecyclerView = view?.findViewById<RecyclerView>(R.id.mRecyclerView)
+        mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL,false)
+        agendaList.clear()
+
+
+        for (i in 1..3) {
+            agendaList.add(
+                UserAgendamento(
+                    "Sandy",
+                    "Cabelo Feminino",
+                    "29/06/2019",
+                    "13:00",
+                    "Agendado",
+                    "R$ 190,00",
+                    "Km: 2"
+                )
+            )
+
+        }
+
+    }
+
+    private fun createListMasculino() {
+
+        val mRecyclerView = view?.findViewById<RecyclerView>(R.id.mRecyclerView)
+        mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL,false)
+        agendaList.clear()
+
+        for (i in 1..3) {
+
+            var distancia = i * 2
+            agendaList.add(
+                UserAgendamento(
+                    "Sandy $i",
+                    "Cabelo Masculino",
+                    "30/06/2019",
+                    "14:00",
+                    "A confirmar",
+                    "R$ 250,00",
+                    "Km: $i"
+                )
+            )
+
+        }
+
 
 
     }

@@ -28,8 +28,6 @@ import com.google.firebase.auth.FirebaseAuth
 class ServicosFragment : Fragment() {
 
     val servicoList = ArrayList<Servico>()
-
-    //Todo remove after debug
     var userType : Int = -1
 
     override fun onCreateView(
@@ -41,13 +39,11 @@ class ServicosFragment : Fragment() {
 
         val user = FirebaseAuth.getInstance().currentUser
 
-//        if(user?.email.equals("user1@gmail.com")){
-//            userType = 0
-//        }else{
-//            userType = 1
-//        }
-
-        userType = 0
+        if(user?.email.equals("user1@gmail.com")){
+            userType = 0
+        }else{
+            userType = 1
+        }
 
 
         if(userType == 1){
@@ -56,9 +52,6 @@ class ServicosFragment : Fragment() {
 
             initActionUser(view)
         }
-
-
-
 
         return view
     }

@@ -91,9 +91,11 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         if(email.equals("user1@gmail.com")){
             //Menu itens
             val menu = navView.menu
-
+            userType = 0
             menu.removeItem(R.id.nav_serviços_)
             navView.invalidate()
+        }else{
+            userType = 1
         }
 
 
@@ -102,7 +104,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         selectButton.setOnClickListener { toast("Selecione uma nova foto.") }
 
-        checkUserType()
+
         initActions()
         setupPermissions()
 
