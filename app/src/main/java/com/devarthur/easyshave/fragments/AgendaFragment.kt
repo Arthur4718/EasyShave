@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 
 import android.view.LayoutInflater
 import android.view.View
@@ -91,13 +92,16 @@ class AgendaFragment : BaseFragment() {
 
         for (i in 1..3) {
 
+            val distancia = i * 2
             agendaList.add(
                 UserAgendamento(
                     "Sandy $i",
                     "Sobrancelha",
                     "29/06/2019",
                     "13:00",
-                    "Agendar"
+                    "Agendar",
+                    "R$ 80,00",
+                    "Km: $i"
                 )
             )
 
@@ -113,14 +117,16 @@ class AgendaFragment : BaseFragment() {
 
 
         for (i in 1..3) {
-
+            val distancia = i * 2
             agendaList.add(
                 UserAgendamento(
                     "Sandy $i",
                     "Manicure",
                     "29/06/2019",
                     "13:00",
-                    "Agendar"
+                    "Agendar",
+                    "R$ 50,00",
+                    "Km: $i"
                 )
             )
 
@@ -136,14 +142,16 @@ class AgendaFragment : BaseFragment() {
 
 
         for (i in 1..3) {
-
+            val distancia = i * 2
             agendaList.add(
                 UserAgendamento(
                     "Sandy $i",
                     "Manicure",
                     "29/06/2019",
                     "13:00",
-                    "Agendar"
+                    "Agendar",
+                    "R$ 50,00",
+                    "Km: $i"
                 )
             )
 
@@ -161,13 +169,17 @@ class AgendaFragment : BaseFragment() {
 
         for (i in 1..3) {
 
+            val distancia = i * 2
+
             agendaList.add(
                 UserAgendamento(
                     "Sandy $i",
                     "Barba",
                     "29/06/2019",
                     "13:00",
-                    "Agendar"
+                    "Agendar",
+                    "R$ 70,00",
+                    "Km: $i"
                 )
             )
 
@@ -184,28 +196,34 @@ class AgendaFragment : BaseFragment() {
         mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL,false)
         agendaList.clear()
 
-        for (i in 1..3) {
+
+
 
             agendaList.add(
                 UserAgendamento(
-                    "Sandy $i",
+                    "Sandy",
                     "Cabelo Feminino",
                     "29/06/2019",
                     "13:00",
-                    "Agendado"
+                    "Agendado",
+                    "R$ 190,00",
+                    "Km: 2"
                 )
             )
 
-        }
+
         for (i in 1..3) {
 
+            val distancia = i * 2
             agendaList.add(
                 UserAgendamento(
                     "Sandy $i",
                     "Cabelo Masculino",
                     "30/06/2019",
                     "14:00",
-                    "A confirmar"
+                    "A confirmar",
+                    "R$ 80,00",
+                    "Km: $i"
                 )
             )
 
@@ -222,29 +240,35 @@ class AgendaFragment : BaseFragment() {
 
         for (i in 1..3) {
 
+            var distancia = i * 2
             agendaList.add(
                 UserAgendamento(
                     "Sandy $i",
                     "Cabelo Feminino",
                     "29/06/2019",
                     "13:00",
-                    "Agendado"
+                    "Agendado",
+                    "R$ 150,00",
+                    "Km: $i"
                 )
             )
-
+            Log.d("arthurdebug", "distancia: $distancia")
         }
         for (i in 1..3) {
 
+            var distancia = i * 2
             agendaList.add(
                 UserAgendamento(
                     "Sandy $i",
                     "Cabelo Masculino",
                     "30/06/2019",
                     "14:00",
-                    "A confirmar"
+                    "A confirmar",
+                    "R$ 250,00",
+                    "Km: $i"
                 )
             )
-
+            Log.d("arthurdebug", "distancia: $distancia")
         }
         val adapter = UserAgendamentoAdapter(agendaList)
         mRecyclerView?.adapter = adapter

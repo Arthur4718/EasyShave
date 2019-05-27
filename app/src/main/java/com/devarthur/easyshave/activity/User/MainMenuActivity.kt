@@ -1,6 +1,9 @@
 package com.devarthur.easyshave.activity.User
 
 //https://www.youtube.com/watch?v=67hthq6Y2J8
+import android.Manifest
+import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import com.devarthur.easyshave.extensions.toast
@@ -9,6 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 
 import android.support.v7.widget.Toolbar
@@ -37,11 +42,17 @@ import org.jetbrains.anko.startActivity
 
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    private val RECORD_REQUEST_CODE: Int = 1
     //UserToken
     var userUId : String = ""
     var userType : Int = 0
 
     //var datalist : MutableList<UserProfile>
+
+    //Localização.
+    lateinit var locationManager : LocationManager
+    private var hasGps = false
+    private var hasNetwork = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,6 +108,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         checkUserType()
         initActions()
+        setupPermissions()
 
 
         //Loads the first page
@@ -106,6 +118,22 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             toolbar.setTitle("Minha Agenda")
 
         }
+    }
+
+    private fun setupPermissions() {
+        val permission = ContextCompat.checkSelfPermission(this,
+            Manifest.permission.ACCESS_FINE_LOCATION)
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            Log.d("arthurdebug", "Permission to local denied")
+            makeRequest()
+        }
+    }
+
+    private fun makeRequest() {
+        ActivityCompat.requestPermissions(this,
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+            RECORD_REQUEST_CODE)
     }
 
     private fun checkUserType() {
@@ -236,5 +264,20 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
          toast("Usuário desconectado")
          finish()
 
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            RECORD_REQUEST_CODE -> {
+
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+
+                    Log.d("arthurdebug", "Permission has been denied by user")
+                } else {
+                    Log.d("arthurdebug", "Permission has been granted by user")
+                }
+            }
+        }
     }
 }

@@ -37,16 +37,34 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
         holder.txtCardHorario.text = userCard.horario
         holder.txtCardStatus.text = userCard.statusAgendamento
         holder.txtCardData.text = userCard.data
+        holder.txtValorHora.text = userCard.preco
+        holder.txtDistancia.text = userCard.distancia
 
 
         holder.cardView.setOnClickListener {
             //Todo abrir detalhes do serviço
             val servico = userCard.nomeServico
             val nomeUsuario = userCard.nomeUsuario
+            val horario = userCard.horario
+            val status = userCard.statusAgendamento
+            val data = userCard.data
+            val valor = userCard.preco
+            val distancia = userCard.distancia
+
+            if(status.equals("Agendado")){
+                return@setOnClickListener
+            }
 
 
-
-            holder.itemView.context.startActivity<ServicoDetalhe>("servico" to servico, "nome" to nomeUsuario)
+            holder.itemView.context.startActivity<ServicoDetalhe>(
+                "servico" to servico,
+                "nome" to nomeUsuario,
+                "horario" to horario,
+                "status" to status,
+                "data" to data,
+                "preco" to valor,
+                "distancia" to distancia
+                )
         }
 
 
@@ -60,6 +78,8 @@ class UserAgendamentoAdapter(val userList : ArrayList<UserAgendamento>) : Recycl
         val txtCardHorario = itemView.findViewById(R.id.txtCardHorarioAgendamento) as TextView
         val txtCardStatus = itemView.findViewById(R.id.txtCardAgendamentoStatus) as TextView
         val txtCardData = itemView.findViewById(R.id.txtCardDataAgendamento) as TextView
+        val txtValorHora = itemView.findViewById(R.id.txtValorHora) as TextView
+        val txtDistancia = itemView.findViewById(R.id.txtDistanciaAgenda) as TextView
         val cardView = itemView.findViewById(R.id.cardDataItem) as CardView
 
     }
