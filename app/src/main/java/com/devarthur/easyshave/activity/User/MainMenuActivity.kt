@@ -145,42 +145,12 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     private fun initActions() {
 
-        listenForDatabase()
 
 
 
     }
 
-    private fun listenForDatabase() {
-        val ref = FirebaseDatabase.getInstance().getReference("/users")
 
-        ref.addChildEventListener(object : ChildEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-
-            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-
-            }
-
-            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-
-            }
-
-            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                //Todo retrieve data from firebase
-                val data = p0.getValue(UserProfile::class.java)
-                Log.d("firebasedebug", data?.userType)
-
-
-            }
-
-            override fun onChildRemoved(p0: DataSnapshot) {
-
-            }
-
-        })
-    }
 
     override fun onBackPressed() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
