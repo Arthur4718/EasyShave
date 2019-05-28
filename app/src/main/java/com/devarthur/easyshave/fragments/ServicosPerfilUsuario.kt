@@ -25,7 +25,7 @@ import com.devarthur.easyshave.dataModel.Servico
 import com.google.firebase.auth.FirebaseAuth
 
 
-class ServicosFragment : Fragment() {
+class ServicosPerfilUsuario : Fragment() {
 
     val servicoList = ArrayList<Servico>()
     var userType : Int = -1

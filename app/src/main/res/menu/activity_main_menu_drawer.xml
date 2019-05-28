@@ -20,7 +20,7 @@
                 android:title="Gerenciar Serviços"/>
 
         <item
-                android:id="@+id/nav_buscar_servicos."
+                android:id="@+id/nav_buscar_servicos_perfil_usuario"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="@string/BuscarServico"/>
 

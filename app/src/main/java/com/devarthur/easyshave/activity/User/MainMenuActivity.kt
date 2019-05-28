@@ -88,25 +88,25 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         val navUserName : TextView = headerView.findViewById(R.id.txtUserNameHeader)
         val navUserEmail : TextView = headerView.findViewById(R.id.txtUserNameEmail)
-        //Retrieve user info
 
+        //Dados da sessão do usuario
         FireStoreUtil.getCurrentUser { user ->
 
             navUserName.setText(user.username)
             navUserEmail.setText(user.useremail)
             databaseUserType = user.userType
 
-            if(databaseUserType.equals("1")){
-                //Estabelecimento - Mostra todos os itens do menu.
-
-
-            }
-            if(databaseUserType.equals("0")){
-                //Usuário comum - remove o menu que adiciona novos serviços, datas e horários.
-                val menu = navView.menu
-                menu.removeItem(R.id.nav_buscar_servicos_)
-                navView.invalidate()
-            }
+//            if(databaseUserType.equals("1")){
+//                //Estabelecimento - Mostra todos os itens do menu.
+//
+//
+//            }
+//            if(databaseUserType.equals("0")){
+//                //Usuário comum - remove o menu que adiciona novos serviços, datas e horários.
+//                val menu = navView.menu
+//                menu.removeItem(R.id.nav_buscar_servicos_)
+//                navView.invalidate()
+//            }
         }
     }
 
@@ -174,22 +174,33 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
             R.id.nav_agenda_perfil_usuario -> {
                 //Somente visivel para o perfil usuario
-                replaceFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
+                //Mostra os agendamentos que foram confirmados pelo usuários.
+                replaceFragment(R.id.layout_content, AgendaPerfilUsuario())
                 toolbar.setTitle("Minha Agenda")
-
             }
 
             R.id.nav_agenda_perfil_estabelecimento -> {
                 //Somente visivel para o perfil estabelecimento
+                //Mostra os usuários que já agendaram serviço no estebelecimento
+                replaceFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
+                toolbar.setTitle("Minha Agenda")
+            }
+
+            R.id.nav_buscar_servicos_perfil_usuario -> {
+
+                //Somente visível para o perfil usuário
+                //Busca os estabelecimentos mais próximos
+                replaceFragment(R.id.layout_content, ServicosPerfilUsuario())
+                toolbar.setTitle("Buscar Serviços")
 
             }
 
-            R.id.nav_buscar_servicos_ -> {
-
-                //Somente visiel para o perfil usuário
-
-                replaceFragment(R.id.layout_content, ServicosFragment())
+            R.id.nav_serviços_perfil_estabelecimento -> {
+                //Somente visível para o perfil estabelecimento
+                //Adiciona ou remove serviços, datas e horários que estão disponíveis para o usuario.
+                replaceFragment(R.id.layout_content, ServicosPerfilEstabelecimento())
                 toolbar.setTitle("Gerenciar Serviços")
+
 
             }
             R.id.nav_sair_perfil -> {
