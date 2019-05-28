@@ -105,20 +105,19 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             navUserEmail.setText(user.useremail)
             databaseUserType = user.userType
 
-        }
-
-        if(databaseUserType.equals("1")){
-            //Estabelecimento - Mostra todos os itens do menu.
+            if(databaseUserType.equals("1")){
+                //Estabelecimento - Mostra todos os itens do menu.
 
 
 
-        }
 
-        if(databaseUserType.equals("0")){
-            //Se for usuario comum, remove a capacidade de adicionar serviço.
-            val menu = navView.menu
-            menu.removeItem(R.id.nav_serviços_)
-            navView.invalidate()
+            }
+            if(databaseUserType.equals("0")){
+                //Usuário comum - remove o menu que adiciona novos serviços, datas e horários.
+                val menu = navView.menu
+                menu.removeItem(R.id.nav_serviços_)
+                navView.invalidate()
+            }
         }
 
     }
@@ -179,6 +178,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
 
