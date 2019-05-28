@@ -166,21 +166,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         val toolbar: Toolbar = findViewById(R.id.toolbar)
 
         when (item.itemId) {
-            R.id.nav_perfil -> {
-                //Todos os perfils veem
-
-                replaceFragment(R.id.layout_content, PerfilFragment())
-                toolbar.setTitle("Meu Perfil")
-
-            }
-            R.id.nav_agenda_perfil_estabelecimento -> {
-                //Somente visivel para o perfil estabelecimento
-                //Mostra os agendamentos que foram confirmados pelo usuários.
-
-                replaceFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
-                toolbar.setTitle("Minha Agenda")
-            }
-
             R.id.nav_agenda_perfil_usuario -> {
                 //Somente visivel para o perfil usuário
                 //Mostra os serviços agendados pelo usuário.
@@ -189,6 +174,24 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 toolbar.setTitle("Minha Agenda")
             }
 
+            R.id.nav_agenda_perfil_estabelecimento -> {
+                //Somente visivel para o perfil estabelecimento
+                //Mostra os agendamentos que foram confirmados pelo usuários.
+
+                replaceFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
+                toolbar.setTitle("Minha Agenda")
+            }
+
+
+            R.id.nav_serviços_perfil_estabelecimento -> {
+                //Somente visível para o perfil estabelecimento
+                //Adiciona ou remove serviços, datas e horários que estão disponíveis para o usuario.
+
+                replaceFragment(R.id.layout_content, ServicosPerfilEstabelecimento())
+                toolbar.setTitle("Gerenciar Serviços")
+
+
+            }
             R.id.nav_buscar_servicos_perfil_usuario -> {
 
                 //Somente visível para o perfil usuário
@@ -198,14 +201,11 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 toolbar.setTitle("Buscar Serviços")
 
             }
+            R.id.nav_perfil -> {
+                //Todos os perfils veem
 
-            R.id.nav_serviços_perfil_estabelecimento -> {
-                //Somente visível para o perfil estabelecimento
-                //Adiciona ou remove serviços, datas e horários que estão disponíveis para o usuario.
-
-                replaceFragment(R.id.layout_content, ServicosPerfilEstabelecimento())
-                toolbar.setTitle("Gerenciar Serviços")
-
+                replaceFragment(R.id.layout_content, PerfilFragment())
+                toolbar.setTitle("Meu Perfil")
 
             }
             R.id.nav_sair_perfil -> {

@@ -6,56 +6,6 @@
              android:background="@color/transparent"
              tools:context=".fragments.AgendaPerfilUsuario">
 
-    <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
-                  android:layout_height="55dp"
-                  android:orientation="vertical"
-                  android:background="@color/primary_dark"
-                  app:layout_constraintTop_toTopOf="parent"
-                  android:id="@+id/toolbarFiltro">
-
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Filtros"
-                  android:textColor="@color/white"
-                  android:textStyle="bold"
-                  app:layout_constraintStart_toStartOf="parent"
-                  android:layout_marginStart="16dp"
-                  android:id="@+id/textView11" android:layout_marginTop="8dp"
-                  app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-                  app:layout_constraintBottom_toBottomOf="parent"/>
-        <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="16dp"
-                android:orientation="horizontal"
-        >
-            <RadioButton
-                    android:text="Masculino"
-                    android:textColor="@color/white"
-                    android:buttonTint="@color/white"
-                    android:checked="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rbFiltroMasculino"
-                    android:layout_weight="1"/>
-            <RadioButton
-                    android:text="Feminino"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:buttonTint="@color/white"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rbFiltroFeminino"
-                    android:layout_weight="1"/>
-        </RadioGroup>
-
-
-    </android.support.constraint.ConstraintLayout>
-
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/mRecyclerView"
@@ -64,27 +14,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/gray"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavBar"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarFiltro">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
     </android.support.v7.widget.RecyclerView>
 
-    <android.support.design.widget.BottomNavigationView
-            android:id="@+id/bottomNavBar"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/primary_dark"
-            app:itemTextColor="@color/white"
-            app:itemIconTint="@color/white"
-
-            app:menu="@menu/navigation"
-            android:layout_gravity="bottom"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
 
 
 
