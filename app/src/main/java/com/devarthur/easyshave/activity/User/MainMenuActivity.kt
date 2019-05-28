@@ -76,7 +76,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         //Loads the first page
         if(savedInstanceState == null){
             //Adds fragment to the layout
-            addFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
+            addFragment(R.id.layout_content, AgendaPerfilUsuario())
             toolbar.setTitle("Minha Agenda")
 
         }
@@ -168,21 +168,24 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         when (item.itemId) {
             R.id.nav_perfil -> {
                 //Todos os perfils veem
+
                 replaceFragment(R.id.layout_content, PerfilFragment())
                 toolbar.setTitle("Meu Perfil")
 
             }
-            R.id.nav_agenda_perfil_usuario -> {
-                //Somente visivel para o perfil usuario
+            R.id.nav_agenda_perfil_estabelecimento -> {
+                //Somente visivel para o perfil estabelecimento
                 //Mostra os agendamentos que foram confirmados pelo usuários.
-                replaceFragment(R.id.layout_content, AgendaPerfilUsuario())
+
+                replaceFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
                 toolbar.setTitle("Minha Agenda")
             }
 
-            R.id.nav_agenda_perfil_estabelecimento -> {
-                //Somente visivel para o perfil estabelecimento
-                //Mostra os usuários que já agendaram serviço no estebelecimento
-                replaceFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
+            R.id.nav_agenda_perfil_usuario -> {
+                //Somente visivel para o perfil usuário
+                //Mostra os serviços agendados pelo usuário.
+
+                replaceFragment(R.id.layout_content, AgendaPerfilUsuario())
                 toolbar.setTitle("Minha Agenda")
             }
 
@@ -190,6 +193,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
                 //Somente visível para o perfil usuário
                 //Busca os estabelecimentos mais próximos
+
                 replaceFragment(R.id.layout_content, ServicosPerfilUsuario())
                 toolbar.setTitle("Buscar Serviços")
 
@@ -198,6 +202,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             R.id.nav_serviços_perfil_estabelecimento -> {
                 //Somente visível para o perfil estabelecimento
                 //Adiciona ou remove serviços, datas e horários que estão disponíveis para o usuario.
+
                 replaceFragment(R.id.layout_content, ServicosPerfilEstabelecimento())
                 toolbar.setTitle("Gerenciar Serviços")
 
