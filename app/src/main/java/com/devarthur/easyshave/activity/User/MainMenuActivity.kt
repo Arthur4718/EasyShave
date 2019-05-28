@@ -152,8 +152,11 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
     private fun listenForDatabase() {
-        val ref = FirebaseDatabase.getInstance().getReference("/users")
 
+        val ref = FirebaseDatabase.getInstance().getReference().child("users")
+
+
+        val userData : MutableList<UserProfile>
         ref.addChildEventListener(object : ChildEventListener{
             override fun onCancelled(p0: DatabaseError) {
 
@@ -168,9 +171,26 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
 
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                //Todo retrieve data from firebase
 
 
+                p0.children.forEach{
+
+                    for(p0 in it.children){
+
+                        val data = p0.getValue(UserProfile::class.java)
+                        Log.d("firebasedebug", data?.userType)
+                    }
+
+                }
+//                if(p0.child("users").exists() && p0.child(userUId).exists() && p0.child("userType").exists()){
+//                    var data = p0.getValue(UserProfile::class.java)
+//                    Log.d("firebasedebug", data?.userType)
+//                }
+
+
+
+
+//                Log.d("firebasedebug", p0.toString())
 
             }
 

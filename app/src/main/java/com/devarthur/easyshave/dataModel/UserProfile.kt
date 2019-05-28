@@ -8,6 +8,4 @@ data class UserProfile(var uid: String,
 
 
 
-
-    constructor() : this("", "", "", "", "")
 }
