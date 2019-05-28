@@ -6,6 +6,6 @@ data class UserProfile(var uid: String,
                        var userbirthdate : String,
                        var userType : String){
 
-
+    constructor() : this("", "", "", "", "")
 
 }

@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.devarthur.easyshave.R
+import com.devarthur.easyshave.utils.FireStoreUtil
+import kotlinx.android.synthetic.main.fragment_perfil.*
 
 
 
@@ -18,8 +20,43 @@ class PerfilFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false)
+        val view = inflater.inflate(R.layout.fragment_perfil, container, false)
+
+        view.apply {
+            btnUpdateProfile.setOnClickListener {
+                FireStoreUtil.updateCurrentUser(editText_username.text.toString(),
+                                                editText_email.text.toString(),
+                                                editText_userbirthdate.toString(),
+                                                editText_usertype.text.toString()
+                    )
+            }
+        }
+
+
+        return view
     }
 
+    override fun onStart() {
+        super.onStart()
+        FireStoreUtil.getCurrentUser { user ->
+            if (this@PerfilFragment.isVisible) {
+                editText_username.setText(user.username)
+                editText_email.setText(user.useremail)
+                editText_userbirthdate.setText(user.userbirthdate)
+                if(user.userType.equals("1")){
+                    editText_usertype.setText("Estabelecimento")
+                }else{
+                    editText_usertype.setText("Loja")
+                }
+
+                //Todo update image for the user later...
+
+                // if(!pictureJustChaged && user.profilePath != null)
+
+
+            }
+        }
+    }
 
 }
+
