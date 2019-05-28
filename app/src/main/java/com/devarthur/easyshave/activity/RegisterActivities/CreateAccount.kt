@@ -147,8 +147,10 @@ class CreateAccount : BaseActivity() {
         var userType : String = ""
 
         if(tipoUsuario){
+            //Estabelecimento
             userType = "1"
         }else{
+            //Usuário comum
             userType = "0"
         }
 

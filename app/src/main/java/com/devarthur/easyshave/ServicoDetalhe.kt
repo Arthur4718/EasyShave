@@ -30,6 +30,7 @@ class ServicoDetalhe : AppCompatActivity() {
 
 
 
+
         val title = "Detalhes do serviço"
         setupToolbar(R.id.toolbar, title, true)
         toolbar.setOnClickListener {finish()}
@@ -96,4 +97,15 @@ class ServicoDetalhe : AppCompatActivity() {
 
         mBuilder.create().show()
     }
+
+    override fun onNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
 }

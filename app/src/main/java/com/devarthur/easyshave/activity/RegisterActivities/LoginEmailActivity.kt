@@ -39,7 +39,7 @@ class LoginEmailActivity : BaseActivity() {
     }
 
     private fun debug(){
-         edtUserNameSignUp.setText("user1@gmail.com")
+         edtUserNameSignUp.setText("arthur.gomes_4718@hotmail.com")
          edtUserPassword.setText("123456")
     }
 

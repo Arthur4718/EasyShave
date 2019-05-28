@@ -139,6 +139,15 @@ class AgendaDetalhe : BaseActivity() {
         dataList.add(DataItem(data))
     }
 
+    override fun onNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
 
 
 }

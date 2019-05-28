@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.utils.FireStoreUtil
@@ -22,15 +23,27 @@ class PerfilFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
-        view.apply {
-            btnUpdateProfile.setOnClickListener {
-                FireStoreUtil.updateCurrentUser(editText_username.text.toString(),
-                                                editText_email.text.toString(),
-                                                editText_userbirthdate.toString(),
-                                                editText_usertype.text.toString()
-                    )
-            }
+        val btnUpdateProfile = view.findViewById<Button>(R.id.btnUpdateProfile)
+
+        btnUpdateProfile.setOnClickListener {
+            FireStoreUtil.updateCurrentUser(
+                editText_username.text.toString(),
+                editText_email.text.toString(),
+                editText_userbirthdate.toString(),
+                editText_usertype.text.toString()
+            )
         }
+
+
+//        view.apply {
+//            btnUpdateProfile.setOnClickListener {
+//                FireStoreUtil.updateCurrentUser(editText_username.text.toString(),
+//                                                editText_email.text.toString(),
+//                                                editText_userbirthdate.toString(),
+//                                                editText_usertype.text.toString()
+//                    )
+//            }
+//        }
 
 
         return view
@@ -46,7 +59,7 @@ class PerfilFragment : Fragment() {
                 if(user.userType.equals("1")){
                     editText_usertype.setText("Estabelecimento")
                 }else{
-                    editText_usertype.setText("Loja")
+                    editText_usertype.setText("Usuário comum")
                 }
 
                 //Todo update image for the user later...

@@ -31,6 +31,7 @@ import com.devarthur.easyshave.dataModel.UserSnapshot
 import com.devarthur.easyshave.extensions.addFragment
 import com.devarthur.easyshave.extensions.replaceFragment
 import com.devarthur.easyshave.fragments.*
+import com.devarthur.easyshave.utils.FireStoreUtil
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -49,6 +50,9 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     //var datalist : MutableList<UserProfile>
 
+    //User data
+    private var databaseUserType : String = ""
+
     //Localização.
     lateinit var locationManager : LocationManager
     private var hasGps = false
@@ -59,7 +63,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         setContentView(R.layout.activity_main_menu)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -72,42 +75,11 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         navView.setNavigationItemSelectedListener(this)
 
         //Header to navigation drawer.
-        val headerView : View = navView.getHeaderView(0)
-        val navUserName : TextView = headerView.findViewById(R.id.txtUserNameHeader)
-        val navUserEmail : TextView = headerView.findViewById(R.id.txtUserNameEmail)
-        val selectButton : Button = headerView.findViewById(R.id.btnSelectButton)
-
-        //Pegar a informação do usuário e apresentar
-
-        val user = FirebaseAuth.getInstance().currentUser
-        val name = user?.displayName
-        val email = user?.email
-        userUId = user?.uid.toString()
-
-        Log.d("arthurdebug", " $userUId")
-
-
-
-        if(email.equals("user1@gmail.com")){
-            //Menu itens
-            val menu = navView.menu
-            userType = 0
-            menu.removeItem(R.id.nav_serviços_)
-            navView.invalidate()
-        }else{
-            userType = 1
-        }
-
-
-        navUserName.setText(name)
-        navUserEmail.setText(email)
-
-        selectButton.setOnClickListener { toast("Selecione uma nova foto.") }
-
+        //val selectButton : Button = headerView.findViewById(R.id.btnSelectButton)
+        //selectButton.setOnClickListener { toast("Selecione uma nova foto.") }
 
         initActions()
         setupPermissions()
-
 
         //Loads the first page
         if(savedInstanceState == null){
@@ -116,6 +88,39 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             toolbar.setTitle("Minha Agenda")
 
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val navView: NavigationView = findViewById(R.id.nav_view)
+        val headerView : View = navView.getHeaderView(0)
+
+        val navUserName : TextView = headerView.findViewById(R.id.txtUserNameHeader)
+        val navUserEmail : TextView = headerView.findViewById(R.id.txtUserNameEmail)
+        //Retrieve user info
+
+        FireStoreUtil.getCurrentUser { user ->
+
+            navUserName.setText(user.username)
+            navUserEmail.setText(user.useremail)
+            databaseUserType = user.userType
+
+        }
+
+        if(databaseUserType.equals("1")){
+            //Estabelecimento - Mostra todos os itens do menu.
+
+
+
+        }
+
+        if(databaseUserType.equals("0")){
+            //Se for usuario comum, remove a capacidade de adicionar serviço.
+            val menu = navView.menu
+            menu.removeItem(R.id.nav_serviços_)
+            navView.invalidate()
+        }
+
     }
 
     private fun setupPermissions() {
@@ -134,13 +139,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             RECORD_REQUEST_CODE)
     }
 
-    private fun checkUserType() {
-        if(userType == 1){
-            //admin
-        }else{
-            // not admin
-        }
-    }
 
 
     private fun initActions() {
@@ -204,6 +202,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
             R.id.nav_serviços_ -> {
 
+                //Todo checar pelo user type do banco
                 if(userType == 1){
                     toolbar.setTitle("Gerenciar Serviços")
                 }
