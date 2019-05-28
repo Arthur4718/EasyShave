@@ -5,7 +5,6 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
 import com.devarthur.easyshave.extensions.toast
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -18,26 +17,17 @@ import android.support.v7.app.AppCompatActivity
 
 import android.support.v7.widget.Toolbar
 import android.util.Log
-import android.view.Menu
 import android.view.View
-import android.widget.Button
 
 import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.RegisterActivities.LoginEmailActivity
-import com.devarthur.easyshave.dataModel.UserProfile
-import com.devarthur.easyshave.dataModel.UserSnapshot
 
 import com.devarthur.easyshave.extensions.addFragment
 import com.devarthur.easyshave.extensions.replaceFragment
 import com.devarthur.easyshave.fragments.*
 import com.devarthur.easyshave.utils.FireStoreUtil
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.agenda_fragment.*
 import org.jetbrains.anko.startActivity
 
 
@@ -74,9 +64,11 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         navView.setNavigationItemSelectedListener(this)
 
+        //Todo upload user photo
         //Header to navigation drawer.
         //val selectButton : Button = headerView.findViewById(R.id.btnSelectButton)
         //selectButton.setOnClickListener { toast("Selecione uma nova foto.") }
+
 
         initActions()
         setupPermissions()
@@ -84,14 +76,13 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         //Loads the first page
         if(savedInstanceState == null){
             //Adds fragment to the layout
-            addFragment(R.id.layout_content, AgendaFragment())
+            addFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
             toolbar.setTitle("Minha Agenda")
 
         }
     }
 
-    override fun onStart() {
-        super.onStart()
+    private fun initActions() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         val headerView : View = navView.getHeaderView(0)
 
@@ -109,16 +100,19 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 //Estabelecimento - Mostra todos os itens do menu.
 
 
-
-
             }
             if(databaseUserType.equals("0")){
                 //Usuário comum - remove o menu que adiciona novos serviços, datas e horários.
                 val menu = navView.menu
-                menu.removeItem(R.id.nav_serviços_)
+                menu.removeItem(R.id.nav_buscar_servicos_)
                 navView.invalidate()
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
 
     }
 
@@ -137,16 +131,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
             RECORD_REQUEST_CODE)
     }
-
-
-
-    private fun initActions() {
-
-
-
-
-    }
-
 
 
     override fun onBackPressed() {
@@ -179,40 +163,33 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
 
-
         val toolbar: Toolbar = findViewById(R.id.toolbar)
 
         when (item.itemId) {
             R.id.nav_perfil -> {
-
+                //Todos os perfils veem
                 replaceFragment(R.id.layout_content, PerfilFragment())
                 toolbar.setTitle("Meu Perfil")
 
-
             }
-            R.id.nav_agenda -> {
-
-
-                replaceFragment(R.id.layout_content, AgendaFragment())
+            R.id.nav_agenda_perfil_usuario -> {
+                //Somente visivel para o perfil usuario
+                replaceFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
                 toolbar.setTitle("Minha Agenda")
 
             }
-            R.id.nav_sugestoes -> {
+
+            R.id.nav_agenda_perfil_estabelecimento -> {
+                //Somente visivel para o perfil estabelecimento
 
             }
-            R.id.nav_serviços_ -> {
 
-                //Todo checar pelo user type do banco
-                if(userType == 1){
-                    toolbar.setTitle("Gerenciar Serviços")
-                }
-                else{
-                    toolbar.setTitle("Buscar Serviços.")
-                }
+            R.id.nav_buscar_servicos_ -> {
+
+                //Somente visiel para o perfil usuário
+
                 replaceFragment(R.id.layout_content, ServicosFragment())
-
-            }
-            R.id.nav_share -> {
+                toolbar.setTitle("Gerenciar Serviços")
 
             }
             R.id.nav_sair_perfil -> {

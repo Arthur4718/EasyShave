@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
+
 
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.agenda_fragment.*
 
 
 
-class AgendaFragment : BaseFragment() {
+class AgendaPerfilEstabelecimento : BaseFragment() {
 
     private var nomeUsuario: String = ""
     private var email: String? = ""

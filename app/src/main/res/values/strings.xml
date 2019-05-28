@@ -124,5 +124,6 @@ Versao %s<br><br>
     <string name="menu_gerenciar">Meus Serviços.</string>
     <string name="menu_compartilhar">Compartilhar</string>
     <string name="menu_sair">Sair</string>
+    <string name="BuscarServico">Buscar Serviços.</string>
 
 </resources>

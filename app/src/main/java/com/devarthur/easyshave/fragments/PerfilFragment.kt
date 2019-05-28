@@ -1,6 +1,5 @@
 package com.devarthur.easyshave.fragments
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -29,21 +28,10 @@ class PerfilFragment : Fragment() {
             FireStoreUtil.updateCurrentUser(
                 editText_username.text.toString(),
                 editText_email.text.toString(),
-                editText_userbirthdate.toString(),
+                editText_userbirthdate.text.toString(),
                 editText_usertype.text.toString()
             )
         }
-
-
-//        view.apply {
-//            btnUpdateProfile.setOnClickListener {
-//                FireStoreUtil.updateCurrentUser(editText_username.text.toString(),
-//                                                editText_email.text.toString(),
-//                                                editText_userbirthdate.toString(),
-//                                                editText_usertype.text.toString()
-//                    )
-//            }
-//        }
 
 
         return view
