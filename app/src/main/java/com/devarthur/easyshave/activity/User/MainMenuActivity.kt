@@ -169,7 +169,8 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 //Todo retrieve data from firebase
-
+                val data = p0.getValue(UserProfile::class.java)
+                Log.d("firebasedebug", data?.userType)
 
 
             }
