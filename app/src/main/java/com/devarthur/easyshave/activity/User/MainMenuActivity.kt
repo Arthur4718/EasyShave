@@ -184,21 +184,19 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
 
             R.id.nav_serviços_perfil_estabelecimento -> {
-                //Somente visível para o perfil estabelecimento
-                //Adiciona ou remove serviços, datas e horários que estão disponíveis para o usuario.
 
-                replaceFragment(R.id.layout_content, ServicosPerfilEstabelecimento())
+
+                replaceFragment(R.id.layout_content, ServicosPerfilUsuario())
                 toolbar.setTitle("Gerenciar Serviços")
 
 
             }
             R.id.nav_buscar_servicos_perfil_usuario -> {
 
-                //Somente visível para o perfil usuário
-                //Busca os estabelecimentos mais próximos
-
-                replaceFragment(R.id.layout_content, ServicosPerfilUsuario())
+                replaceFragment(R.id.layout_content, ServicosPerfilEstabelecimento())
                 toolbar.setTitle("Buscar Serviços")
+
+
 
             }
             R.id.nav_perfil -> {
