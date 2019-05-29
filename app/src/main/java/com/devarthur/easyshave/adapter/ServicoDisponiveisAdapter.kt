@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.devarthur.easyshave.activity.Agenda.AgendaDetalhe
 import org.jetbrains.anko.startActivity
 import com.devarthur.easyshave.R
+import com.devarthur.easyshave.activity.Estabelecimento.DetalheDatasEstabelecimento
 import com.devarthur.easyshave.dataModel.Servico
 import com.devarthur.easyshave.dataModel.ServicoDataMotel
 import java.util.ArrayList
@@ -40,9 +41,9 @@ class ServicoDisponiveisAdapter(val userList : ArrayList<ServicoDataMotel>) : Re
 
         holder.servicoCard.setOnClickListener {
 
-              Toast.makeText(holder.itemView.context, "item clicked", Toast.LENGTH_SHORT).show()
-//            val title : String = holder.txtCardServico.text.toString()
-//            holder.itemView.context.startActivity<AgendaDetalhe>("titulo" to title)
+
+            val title : String = holder.txtServicoDisponivel.text.toString()
+            holder.itemView.context.startActivity<DetalheDatasEstabelecimento>("titulo" to title)
 
         }
 

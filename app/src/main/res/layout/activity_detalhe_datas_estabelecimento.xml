@@ -7,4 +7,26 @@
         android:layout_height="match_parent"
         tools:context=".activity.Estabelecimento.DetalheDatasEstabelecimento">
 
+    <include layout="@layout/include_toolbar" ></include>
+
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_begin="63dp" android:id="@+id/guideline"/>
+
+
+    <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:background="@color/gray"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            android:layout_marginBottom="0dp"
+                                            android:layout_marginTop="8dp"
+                                            android:id="@+id/recycler_view_datas_servico_disponiveis"
+                                            app:layout_constraintTop_toTopOf="@+id/guideline">
+
+
+    </android.support.v7.widget.RecyclerView>
+
 </android.support.constraint.ConstraintLayout>
