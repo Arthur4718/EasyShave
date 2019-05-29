@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import com.devarthur.easyshave.R
 
 
-class ServicosPerfilEstabelecimento : Fragment() {
+class BuscarServicos : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -22,13 +22,14 @@ import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.ServicoAdapter
 import com.devarthur.easyshave.dataModel.Servico
-import com.google.firebase.auth.FirebaseAuth
 
 
-class ServicosPerfilUsuario : Fragment() {
+
+//Add ou remove horários para os serviços do salão.
+class EditarServicos : Fragment() {
 
     val servicoList = ArrayList<Servico>()
-    var userType : Int = -1
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,28 +38,12 @@ class ServicosPerfilUsuario : Fragment() {
 
         val view = inflater?.inflate(R.layout.fragment_servicos, container, false)
 
-        val user = FirebaseAuth.getInstance().currentUser
 
-        if(user?.email.equals("user1@gmail.com")){
-            userType = 0
-        }else{
-            userType = 1
-        }
-
-
-        if(userType == 1){
-            initActionsAdmin(view)
-        }else{
-
-            initActionUser(view)
-        }
-
+        initActionsAdmin(view)
         return view
     }
 
-    private fun initActionUser(view: View?) {
 
-    }
     private fun initActionsAdmin(view: View?) {
 
         val mRecyclerView = view?.findViewById<RecyclerView>(R.id.mRecyclerViewServicos)

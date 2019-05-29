@@ -101,4 +101,14 @@ class DataDetalhe : AppCompatActivity() {
     private fun addItemHora(hora: String) {
         horaList.add(HorarioItem(hora))
     }
+
+    override fun onNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
 }

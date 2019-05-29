@@ -184,16 +184,19 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
 
             R.id.nav_serviços_perfil_estabelecimento -> {
+                //Somente visível para o perfil estabelecimento
+                //Add ou remove horários para os serviços do salão.
 
-
-                replaceFragment(R.id.layout_content, ServicosPerfilUsuario())
+                replaceFragment(R.id.layout_content, EditarServicos())
                 toolbar.setTitle("Gerenciar Serviços")
 
 
             }
             R.id.nav_buscar_servicos_perfil_usuario -> {
+                //Somente visível para o perfil usuário.
+                //Busca os estabelecimentos próximos.
 
-                replaceFragment(R.id.layout_content, ServicosPerfilEstabelecimento())
+                replaceFragment(R.id.layout_content, BuscarServicos())
                 toolbar.setTitle("Buscar Serviços")
 
 
@@ -201,7 +204,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
             R.id.nav_perfil -> {
                 //Todos os perfils veem
-
+                //Edita detalhes do perfil
                 replaceFragment(R.id.layout_content, PerfilFragment())
                 toolbar.setTitle("Meu Perfil")
 
