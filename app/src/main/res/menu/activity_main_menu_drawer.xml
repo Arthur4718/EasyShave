@@ -8,11 +8,11 @@
         <item
                 android:id="@+id/nav_agenda_perfil_usuario"
                 android:icon="@drawable/ic_view_agenda_black_24dp"
-                android:title="Agenda - Usuários agendados"/>
+                android:title="Agenda - Usuário"/>
         <item
                 android:id="@+id/nav_agenda_perfil_estabelecimento"
                 android:icon="@drawable/ic_view_agenda_black_24dp"
-                android:title="Agenda - Serviços Agendados"/>
+                android:title="Agenda - Estabelecimento"/>
 
         <item
                 android:id="@+id/nav_serviços_perfil_estabelecimento"

@@ -34,9 +34,6 @@ class AgendaPerfilUsuario : BaseFragment() {
         // Inflate the layout for this fragment
         val view = inflater?.inflate(R.layout.agenda_fragment, container, false)
 
-
-
-
         createListAgendamento(view)
 
         return view
