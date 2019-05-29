@@ -28,7 +28,6 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
 
 
 
-
     }
 
     private fun setupBottomNavBar() {

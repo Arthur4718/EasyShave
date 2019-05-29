@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+            android:id="@+id/cardDataItem"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp">
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/cardContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardServicoImage"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_launcher_foreground"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#FF000000"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                    android:text="Nome do Serviço."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:id="@+id/txtNomeServicoCard"
+                    app:layout_constraintTop_toTopOf="@+id/cardServicoImage"
+                    app:layout_constraintStart_toEndOf="@+id/cardServicoImage"
+                    android:layout_marginStart="8dp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="R$"
+                      app:layout_constraintStart_toStartOf="@+id/txtNomeServicoCard"
+                      app:layout_constraintBottom_toBottomOf="@+id/cardServicoImage" android:id="@+id/textView11"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="0dp"
+                      android:id="@+id/txtPrecoServicoDisponivel"
+                      android:text="100,00"
+                      app:layout_constraintStart_toEndOf="@+id/textView11"
+                      android:layout_marginStart="8dp"
+                      app:layout_constraintBaseline_toBaselineOf="@+id/textView11"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
