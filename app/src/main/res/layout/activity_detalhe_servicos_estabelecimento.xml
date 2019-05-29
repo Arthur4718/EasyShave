@@ -10,7 +10,7 @@
     <include layout="@layout/include_toolbar"></include>
 
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/mRecyclerView"
+            android:id="@+id/recyler_view_servicos_disponiveis"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
