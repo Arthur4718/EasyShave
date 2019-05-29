@@ -3,8 +3,8 @@
           package="com.devarthur.easyshave">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
             android:name=".KotlinApplication"
@@ -14,11 +14,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ServicoDetalhe">
+        <activity android:name=".activity.Estabelecimento.DetalheServicosEstabelecimento">
         </activity>
-        <activity android:name=".DataDetalhe">
+        <activity android:name=".activity.Agenda.ServicoDetalhe">
         </activity>
-        <activity android:name=".AgendaDetalhe">
+        <activity android:name=".activity.Agenda.DataDetalhe">
+        </activity>
+        <activity android:name=".activity.Agenda.AgendaDetalhe">
         </activity>
         <activity android:name=".activity.User.AgendaDetalhe">
         </activity>

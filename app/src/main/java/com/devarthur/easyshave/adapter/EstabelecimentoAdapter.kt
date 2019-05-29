@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.devarthur.easyshave.R
-import com.devarthur.easyshave.dataModel.AgendamentoEstModel
+import com.devarthur.easyshave.activity.Estabelecimento.DetalheServicosEstabelecimento
 import com.devarthur.easyshave.dataModel.EstabelecimentoModel
+import org.jetbrains.anko.startActivity
 import java.util.ArrayList
 
 
@@ -32,35 +34,14 @@ class EstabelecimentoAdapter(val userList : ArrayList<EstabelecimentoModel>) : R
 
         holder.txtNomeEstabelecimento.text = userCard.nomeEstabelecimento
         holder.txtLocalEstabelecimento.text = userCard.localEstabelecimento
-        holder.txtDistancia.text = userCard.distancia
+        holder.txtDistancia.text = userCard.distancia + "m"
 
 
         holder.cardView.setOnClickListener {
+                //Ao clicar no salão, abre uma tela de detalhe com todos serviços deste salão.
 
-//            toast("Click")
+                holder.itemView.context.startActivity<DetalheServicosEstabelecimento>()
 
-//            val servico = userCard.nomeServico
-//            val nomeUsuario = userCard.nomeUsuario
-//            val horario = userCard.horario
-//            val status = userCard.statusAgendamento
-//            val data = userCard.data
-//            val valor = userCard.preco
-//            val distancia = userCard.distancia
-//
-//            if(status.equals("Agendado")){
-//                return@setOnClickListener
-//            }
-//
-//
-//            holder.itemView.context.startActivity<ServicoDetalhe>(
-//                "servico" to servico,
-//                "nome" to nomeUsuario,
-//                "horario" to horario,
-//                "status" to status,
-//                "data" to data,
-//                "preco" to valor,
-//                "distancia" to distancia
-//                )
         }
 
 

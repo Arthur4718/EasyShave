@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.devarthur.easyshave.R
-import com.devarthur.easyshave.ServicoDetalhe
-import com.devarthur.easyshave.dataModel.ServicoModel
+import com.devarthur.easyshave.activity.Agenda.ServicoDetalhe
 import com.devarthur.easyshave.dataModel.UserAgendamento
 import java.util.ArrayList
 import org.jetbrains.anko.startActivity

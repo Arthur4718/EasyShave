@@ -1,14 +1,13 @@
-package com.devarthur.easyshave
+package com.devarthur.easyshave.activity.Agenda
 
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.InputType
 import android.util.TypedValue
-import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.devarthur.easyshave.R
 import com.devarthur.easyshave.extensions.setupToolbar
 import com.devarthur.easyshave.extensions.toast
 import kotlinx.android.synthetic.main.activity_servido_detalhe.*

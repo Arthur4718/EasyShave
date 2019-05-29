@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import android.widget.TextView
-import com.devarthur.easyshave.AgendaDetalhe
+import com.devarthur.easyshave.activity.Agenda.AgendaDetalhe
 import org.jetbrains.anko.startActivity
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.Servico

@@ -1,5 +1,5 @@
 
-package com.devarthur.easyshave
+package com.devarthur.easyshave.activity.Agenda
 
 
 import android.app.AlertDialog
@@ -14,6 +14,7 @@ import android.util.TypedValue
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
 import com.devarthur.easyshave.adapter.DataItemAdapter
 

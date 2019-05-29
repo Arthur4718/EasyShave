@@ -60,7 +60,7 @@ class AgendaPerfilUsuario : BaseFragment() {
         var adapter = AgendamentoAdapter(agendamentoList)
 
         mRecyclerView?.adapter = adapter
-        adapter.itemCount
+
 
 
 
