@@ -8,16 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 
 import android.widget.TextView
+import android.widget.Toast
 import com.devarthur.easyshave.activity.Agenda.DataDetalhe
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.dataModel.DataItemModel
+import com.devarthur.easyshave.dataModel.DetalheDataModel
 import org.jetbrains.anko.startActivity
 import java.util.ArrayList
 
-class DataItemAdapter(val dataList : ArrayList<DataItemModel>) : RecyclerView.Adapter<DataItemAdapter.ViewHolder>()  {
+class DetalheDataAdapter(val dataList : ArrayList<DetalheDataModel>) : RecyclerView.Adapter<DetalheDataAdapter.ViewHolder>()  {
 
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): DataItemAdapter.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): DetalheDataAdapter.ViewHolder {
 
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.dataservico_item, viewGroup, false)
         return ViewHolder(v)
@@ -30,17 +32,13 @@ class DataItemAdapter(val dataList : ArrayList<DataItemModel>) : RecyclerView.Ad
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val userCard : DataItemModel = dataList[position]
+        val userCard : DetalheDataModel = dataList[position]
 
         holder.txtData.text = userCard.mData
 
-
         holder.card.setOnClickListener {
 
-
-            val data : String = holder.txtData.text.toString()
-            holder.itemView.context.startActivity<DataDetalhe>("data" to data)
-
+            Toast.makeText(holder.itemView.context, "item clicked", Toast.LENGTH_SHORT).show()
 
         }
 

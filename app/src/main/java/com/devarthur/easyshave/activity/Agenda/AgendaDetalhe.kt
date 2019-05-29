@@ -18,7 +18,7 @@ import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
 import com.devarthur.easyshave.adapter.DataItemAdapter
 
-import com.devarthur.easyshave.dataModel.DataItem
+import com.devarthur.easyshave.dataModel.DataItemModel
 import com.devarthur.easyshave.extensions.setupToolbar
 
 import kotlinx.android.synthetic.main.activity_agenda_detalhe.*
@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.include_toolbar.toolbar
 
 class AgendaDetalhe : BaseActivity() {
 
-    val dataList = ArrayList<DataItem>()
+    val dataList = ArrayList<DataItemModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,8 +46,8 @@ class AgendaDetalhe : BaseActivity() {
 
         val recyclerDatas = findViewById<RecyclerView>(R.id.recyclerDatas)
         recyclerDatas?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL, false)
-        dataList.add(DataItem("27/05/2019"))
-        dataList.add(DataItem("28/05/2019"))
+        dataList.add(DataItemModel("27/05/2019"))
+        dataList.add(DataItemModel("28/05/2019"))
 
         val adapterData = DataItemAdapter(dataList)
         recyclerDatas?.adapter = adapterData
@@ -137,7 +137,7 @@ class AgendaDetalhe : BaseActivity() {
     }
     private fun addItemData(data: String) {
 
-        dataList.add(DataItem(data))
+        dataList.add(DataItemModel(data))
     }
 
     override fun onNavigateUp(): Boolean {

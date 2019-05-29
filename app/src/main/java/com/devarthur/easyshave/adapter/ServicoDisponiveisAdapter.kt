@@ -6,14 +6,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import android.widget.TextView
-import android.widget.Toast
-import com.devarthur.easyshave.activity.Agenda.AgendaDetalhe
 import org.jetbrains.anko.startActivity
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.Estabelecimento.DetalheDatasEstabelecimento
-import com.devarthur.easyshave.dataModel.Servico
 import com.devarthur.easyshave.dataModel.ServicoDataMotel
 import java.util.ArrayList
 
