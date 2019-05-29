@@ -91,6 +91,7 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
                 //carregar apenas barba
 
 
+
             }
 
             R.id.id_nav_manicure -> {
