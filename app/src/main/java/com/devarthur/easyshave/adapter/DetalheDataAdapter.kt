@@ -1,23 +1,19 @@
 package com.devarthur.easyshave.adapter
 
-
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import android.widget.TextView
 import android.widget.Toast
-import com.devarthur.easyshave.activity.Agenda.DataDetalhe
 import com.devarthur.easyshave.R
-import com.devarthur.easyshave.dataModel.DataItemModel
+import com.devarthur.easyshave.activity.Estabelecimento.DetalheHorariosEstabelecimento
 import com.devarthur.easyshave.dataModel.DetalheDataModel
 import org.jetbrains.anko.startActivity
 import java.util.ArrayList
 
 class DetalheDataAdapter(val dataList : ArrayList<DetalheDataModel>) : RecyclerView.Adapter<DetalheDataAdapter.ViewHolder>()  {
-
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): DetalheDataAdapter.ViewHolder {
 
@@ -37,9 +33,9 @@ class DetalheDataAdapter(val dataList : ArrayList<DetalheDataModel>) : RecyclerV
         holder.txtData.text = userCard.mData
 
         holder.card.setOnClickListener {
-
-            Toast.makeText(holder.itemView.context, "item clicked", Toast.LENGTH_SHORT).show()
-
+            //Abre os horários disponíveis para este serviço.
+//            Toast.makeText(holder.itemView.context, "item clicked", Toast.LENGTH_SHORT).show()
+            holder.itemView.context.startActivity<DetalheHorariosEstabelecimento>()
         }
 
     }

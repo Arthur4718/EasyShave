@@ -13,7 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.HorarioItemAdapter
-import com.devarthur.easyshave.dataModel.HorarioItem
+import com.devarthur.easyshave.dataModel.HorarioItemModel
 import com.devarthur.easyshave.extensions.setupToolbar
 import kotlinx.android.synthetic.main.activity_data_detalhe.*
 import kotlinx.android.synthetic.main.include_toolbar.*
@@ -21,7 +21,7 @@ import java.util.ArrayList
 
 class DataDetalhe : AppCompatActivity() {
 
-    val horaList = ArrayList<HorarioItem>()
+    val horaList = ArrayList<HorarioItemModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,8 +46,8 @@ class DataDetalhe : AppCompatActivity() {
 
         recyclerHora?.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
-        horaList.add(HorarioItem("12:00"))
-        horaList.add(HorarioItem("13:00"))
+        horaList.add(HorarioItemModel("12:00"))
+        horaList.add(HorarioItemModel("13:00"))
 
         val adapterHora = HorarioItemAdapter(horaList)
 
@@ -100,7 +100,7 @@ class DataDetalhe : AppCompatActivity() {
     }
 
     private fun addItemHora(hora: String) {
-        horaList.add(HorarioItem(hora))
+        horaList.add(HorarioItemModel(hora))
     }
 
     override fun onNavigateUp(): Boolean {

@@ -9,13 +9,14 @@ import android.view.ViewGroup
 
 import android.widget.TextView
 import com.devarthur.easyshave.R
-import com.devarthur.easyshave.dataModel.HorarioItemModel
+import com.devarthur.easyshave.dataModel.DetalheHorarioModel
+
 import java.util.ArrayList
 
-class HorarioItemAdapter(val dataList : ArrayList<HorarioItemModel>) : RecyclerView.Adapter<HorarioItemAdapter.ViewHolder>()  {
+class DetalheHorarioAdapter(val dataList : ArrayList<DetalheHorarioModel>) : RecyclerView.Adapter<DetalheHorarioAdapter.ViewHolder>()  {
 
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): HorarioItemAdapter.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): DetalheHorarioAdapter.ViewHolder {
 
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.horarioservico_item, viewGroup, false)
         return ViewHolder(v)
@@ -28,13 +29,13 @@ class HorarioItemAdapter(val dataList : ArrayList<HorarioItemModel>) : RecyclerV
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val userCard : HorarioItemModel = dataList[position]
+        val userCard : DetalheHorarioModel = dataList[position]
 
         holder.txtData.text = userCard.mHorario
 
 
         holder.card.setOnClickListener {
-
+            //Abrir detalhes pagamento com hora, dia e servico.
 
 
         }
