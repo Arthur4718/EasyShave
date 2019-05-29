@@ -34,11 +34,6 @@ import org.jetbrains.anko.startActivity
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val RECORD_REQUEST_CODE: Int = 1
-    //UserToken
-    var userUId : String = ""
-    var userType : Int = 0
-
-    //var datalist : MutableList<UserProfile>
 
     //User data
     private var databaseUserType : String = ""
@@ -96,17 +91,26 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             navUserEmail.setText(user.useremail)
             databaseUserType = user.userType
 
-//            if(databaseUserType.equals("1")){
-//                //Estabelecimento - Mostra todos os itens do menu.
-//
-//
-//            }
-//            if(databaseUserType.equals("0")){
-//                //Usuário comum - remove o menu que adiciona novos serviços, datas e horários.
-//                val menu = navView.menu
-//                menu.removeItem(R.id.nav_buscar_servicos_)
-//                navView.invalidate()
-//            }
+            if(databaseUserType.equals("1")){
+                //Estabelecimento - Mostra os itens que pertencem a este usuário
+                //Agenda - Usuário
+                // Busca - Serviço
+
+                val menu = navView.menu
+                menu.removeItem(R.id.nav_agenda_perfil_usuario)
+                menu.removeItem(R.id.nav_buscar_servicos_perfil_usuario)
+                navView.invalidate()
+
+
+            }
+
+            if(databaseUserType.equals("0")){
+                val menu = navView.menu
+                menu.removeItem(R.id.nav_agenda_perfil_estabelecimento)
+                menu.removeItem(R.id.nav_serviços_perfil_estabelecimento)
+                navView.invalidate()
+
+            }
         }
     }
 

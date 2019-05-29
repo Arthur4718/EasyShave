@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.fragment_perfil.*
 
 class PerfilFragment : Fragment() {
 
+
+    var userType : String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,7 +32,7 @@ class PerfilFragment : Fragment() {
                 editText_username.text.toString(),
                 editText_email.text.toString(),
                 editText_userbirthdate.text.toString(),
-                editText_usertype.text.toString()
+                userType
             )
         }
 
@@ -39,14 +42,18 @@ class PerfilFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        editText_usertype.isEnabled = false
+
         FireStoreUtil.getCurrentUser { user ->
             if (this@PerfilFragment.isVisible) {
                 editText_username.setText(user.username)
                 editText_email.setText(user.useremail)
                 editText_userbirthdate.setText(user.userbirthdate)
                 if(user.userType.equals("1")){
+                    userType = user.userType
                     editText_usertype.setText("Estabelecimento")
                 }else{
+                    userType = user.userType
                     editText_usertype.setText("Usuário comum")
                 }
 
