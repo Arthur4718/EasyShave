@@ -176,7 +176,7 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
             R.id.nav_agenda_perfil_estabelecimento -> {
                 //Somente visivel para o perfil estabelecimento
-                //Mostra os agendamentos que foram confirmados pelo usuários.
+                //Mostra os agendamentos que foram confirmados pelos usuários para este estabelecimento
 
                 replaceFragment(R.id.layout_content, AgendaPerfilEstabelecimento())
                 toolbar.setTitle("Minha Agenda")

@@ -8,7 +8,7 @@
 
 
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/mRecyclerView"
+            android:id="@+id/recylerAgendamento"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -19,9 +19,4 @@
 
 
     </android.support.v7.widget.RecyclerView>
-
-
-
-
-
 </android.support.constraint.ConstraintLayout>
