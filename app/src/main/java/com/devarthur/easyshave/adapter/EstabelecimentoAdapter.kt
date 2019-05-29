@@ -39,8 +39,8 @@ class EstabelecimentoAdapter(val userList : ArrayList<EstabelecimentoModel>) : R
 
         holder.cardView.setOnClickListener {
                 //Ao clicar no salão, abre uma tela de detalhe com todos serviços deste salão.
-
-                holder.itemView.context.startActivity<DetalheServicosEstabelecimento>()
+                val nomeEstabelecimento = userCard.nomeEstabelecimento // Dado a ser enviado para proxima tela
+                holder.itemView.context.startActivity<DetalheServicosEstabelecimento>("estabelecimento" to nomeEstabelecimento)
 
         }
 

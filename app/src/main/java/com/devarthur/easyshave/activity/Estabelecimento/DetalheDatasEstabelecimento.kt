@@ -23,7 +23,9 @@ class DetalheDatasEstabelecimento : AppCompatActivity() {
         setContentView(R.layout.activity_detalhe_datas_estabelecimento)
 
         var title = "Datas"
-        setupToolbar(R.id.toolbar, title, true)
+        val toolbarTitle = intent.getSerializableExtra("servico") as String
+
+        setupToolbar(R.id.toolbar, toolbarTitle, true)
         initActions()
     }
 

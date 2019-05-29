@@ -35,7 +35,8 @@ class DetalheDataAdapter(val dataList : ArrayList<DetalheDataModel>) : RecyclerV
         holder.card.setOnClickListener {
             //Abre os horários disponíveis para este serviço.
 //            Toast.makeText(holder.itemView.context, "item clicked", Toast.LENGTH_SHORT).show()
-            holder.itemView.context.startActivity<DetalheHorariosEstabelecimento>()
+            val data = userCard.mData
+            holder.itemView.context.startActivity<DetalheHorariosEstabelecimento>("data" to data)
         }
 
     }

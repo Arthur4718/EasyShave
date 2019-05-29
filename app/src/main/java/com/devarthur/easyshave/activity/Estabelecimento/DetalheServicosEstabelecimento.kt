@@ -23,9 +23,9 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhe_servicos_estabelecimento)
 
-        var title = "Serviços"
+        val toolbarTitle = intent.getSerializableExtra("estabelecimento") as String
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavBar)
-        setupToolbar(R.id.toolbar, title, true)
+        setupToolbar(R.id.toolbar, toolbarTitle, true)
 
         setupBottomNavBar()
 

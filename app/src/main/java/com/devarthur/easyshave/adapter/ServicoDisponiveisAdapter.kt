@@ -38,8 +38,8 @@ class ServicoDisponiveisAdapter(val userList : ArrayList<ServicoDataMotel>) : Re
         holder.servicoCard.setOnClickListener {
 
 
-            val title : String = holder.txtServicoDisponivel.text.toString()
-            holder.itemView.context.startActivity<DetalheDatasEstabelecimento>("titulo" to title)
+            val servico : String = holder.txtServicoDisponivel.text.toString()
+            holder.itemView.context.startActivity<DetalheDatasEstabelecimento>("servico" to servico)
 
         }
 

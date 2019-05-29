@@ -19,8 +19,8 @@ class DetalheHorariosEstabelecimento : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhe_horarios_estabelecimento)
 
-        var title = "Horários"
-        setupToolbar(R.id.toolbar, title, true)
+        val toolbarTitle = intent.getSerializableExtra("data") as String
+        setupToolbar(R.id.toolbar, toolbarTitle, true)
         initActions()
     }
 
