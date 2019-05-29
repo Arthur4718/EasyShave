@@ -5,12 +5,17 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.view.View
 import com.devarthur.easyshave.R
+import com.devarthur.easyshave.dataModel.ServicoDataMotel
 import com.devarthur.easyshave.extensions.setupToolbar
 import com.devarthur.easyshave.extensions.toast
+import java.util.ArrayList
 
 //Exibe uma navegação dos serviços de um salão, com o bottom navigation.
 //Ao clicar em um serviço, mostrar os horários disponíveis daquele serviço.
 class DetalheServicosEstabelecimento : AppCompatActivity() {
+
+
+    val dataList = ArrayList<ServicoDataMotel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +25,7 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
         setupToolbar(R.id.toolbar, title, true)
 
         setupBottomNavBar()
+
 
 
 
@@ -33,29 +39,29 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
 
             when(item.itemId){
                 R.id.id_nav_cabelo -> {
-                    //carregar apenas cabelo masculino
-                    toast("Item clicked")
+                    //carregar apenas todos serviços de cabelo
+
                     return@OnNavigationItemSelectedListener true
                 }
 
                 R.id.id_nav_barba -> {
                     //carregar apenas barba
-                    toast("Item clicked")
+
                     return@OnNavigationItemSelectedListener true
                 }
 
                 R.id.id_nav_manicure -> {
                     //carregar apenas manicure
-                    toast("Item clicked")
+
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.id_nav_pedicure -> {
                     //carregar apenas pedicure
-                    toast("Item clicked")
+
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.id_nav_sobrancelha -> {
-                    toast("Item clicked")
+
                     return@OnNavigationItemSelectedListener true
                 }
 
