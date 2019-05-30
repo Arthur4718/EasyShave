@@ -54,6 +54,10 @@ dependencies {
     //PagSeguro
     implementation 'br.com.uol.pslibs:checkout-in-app:0.0.9'
 
+    //Butter knife
+    implementation "com.jakewharton:butterknife:8.5.1"
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.5.1"
+
 }
 
 apply plugin: 'com.google.gms.google-services'
