@@ -51,6 +51,9 @@ dependencies {
     //Circular ImageView
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
+    //PagSeguro
+    implementation 'br.com.uol.pslibs:checkout-in-app:0.0.9'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
