@@ -14,10 +14,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.CheckOut.CheckoutMercadoPago">
-        </activity>
-        <activity android:name=".activity.CheckOut.CheckoutPagamento">
-        </activity>
+
         <activity android:name=".activity.Estabelecimento.DetalheHorariosEstabelecimento">
         </activity>
         <activity android:name=".activity.Estabelecimento.DetalheDatasEstabelecimento">

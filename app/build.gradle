@@ -51,9 +51,6 @@ dependencies {
     //Circular ImageView
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
-    //Mercado pago
-    implementation 'com.mercadopago.android.px:checkout:4.0.+'
-
 }
 
 apply plugin: 'com.google.gms.google-services'

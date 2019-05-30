@@ -9,7 +9,6 @@ import android.view.ViewGroup
 
 import android.widget.TextView
 import com.devarthur.easyshave.R
-import com.devarthur.easyshave.activity.CheckOut.CheckoutMercadoPago
 import com.devarthur.easyshave.dataModel.DetalheHorarioModel
 import org.jetbrains.anko.startActivity
 
@@ -38,7 +37,7 @@ class DetalheHorarioAdapter(val dataList : ArrayList<DetalheHorarioModel>) : Rec
 
         holder.card.setOnClickListener {
             //Abrir detalhes pagamento com hora, dia e servico.
-            holder.itemView.context.startActivity<CheckoutMercadoPago>()
+            //holder.itemView.context.startActivity<CheckoutMercadoPago>()
 
         }
 
