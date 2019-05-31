@@ -51,11 +51,7 @@ class AgendaPerfilUsuario : BaseFragment() {
         // Inflate the layout for this fragment
         val view = inflater?.inflate(R.layout.agenda_fragment, container, false)
 
-        var mRecyclerView = view?.findViewById<RecyclerView>(R.id.recylerAgendamento)
-        mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL, false)
-
-
-
+        //Database data
         db.collection("userAgendamento")
             .get()
             .addOnSuccessListener { result ->
@@ -71,39 +67,11 @@ class AgendaPerfilUsuario : BaseFragment() {
 
                     createListAgendamento(view, nome,servico, valor, data, hora, status)
 
-//                    agendamentoList.add(
-//                        AgendamentoModel(
-//                            nome,
-//                            "Cabelo Masculino",
-//                            "$00:00",
-//                            "01/06/2019",
-//                            "Confirmar",
-//                            "R$ 100,00"
-//                        )
-//                    )
                 }
             }
             .addOnFailureListener { exception ->
                 Log.d(TAG, "Error getting documents: ", exception)
             }
-
-//        agendamentoList.add(
-//            AgendamentoModel(
-//                "$nome",
-//                "Cabelo Masculino",
-//                "$00:00",
-//                "01/06/2019",
-//                "Confirmar",
-//                "R$ 100,00"
-//            )
-//        )
-
-        adapter = AgendamentoAdapter(agendamentoList)
-        mRecyclerView?.adapter = adapter
-
-        //Database data
-
-
         //Debug data
         //createListAgendamento(view)
 
