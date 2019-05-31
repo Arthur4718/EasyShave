@@ -29,9 +29,9 @@ import com.devarthur.easyshave.R;
 
 public class PaymentFragment extends Fragment {
 
-    private static final String SELLER_EMAIL = "v24991207376531171647@sandbox.pagseguro.com.br";
+    private static final String SELLER_EMAIL = "devarthur4718@gmail.com";
     private static final String SELLER_TOKEN = "31C3F3E9281D4781A468722B0B9EFD19";
-    private final String NOTIFICATION_URL_PAYMENT = "https://pagseguro.uol.com.br";
+    private final String NOTIFICATION_URL_PAYMENT = "https://pagseguro.uol.com.br/lojamodelo-qa/RetornoAutomatico-OK.jsp";
 
 
     @BindView(R.id.wallet_payment_button)

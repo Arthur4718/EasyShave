@@ -12,6 +12,7 @@ object FireStoreUtil {
         get() = firestoreInstance.document("users/${FirebaseAuth.getInstance().uid
             ?: throw  NullPointerException("Uid is null")}")
 
+    //Armazenar um usuário na tabela users.
     fun initCurrentUserIfFirstTime( username : String, useremail : String, userbirth : String, usertype : String, onComplete: () -> Unit ){
 
         currentUserDocRef.get().addOnSuccessListener {documentSnapshot ->
@@ -35,6 +36,7 @@ object FireStoreUtil {
 
     }
 
+    //Atualizar um usuário na tabela users
     fun updateCurrentUser(username : String = "", useremail : String = "", userbirthdate : String, userType : String){
         val userFieldMap = mutableMapOf<String, Any>()
         if(username.isNotBlank()) userFieldMap["username"] = username
@@ -45,6 +47,7 @@ object FireStoreUtil {
         currentUserDocRef.update(userFieldMap)
 
     }
+
 
     fun getCurrentUser(onComplete: (UserProfile) -> Unit){
         currentUserDocRef.get()
