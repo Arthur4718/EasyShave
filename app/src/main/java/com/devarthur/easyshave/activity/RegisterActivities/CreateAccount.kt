@@ -12,6 +12,8 @@ import com.devarthur.easyshave.utils.FireStoreUtil
 import com.devarthur.easyshave.utils.ValidationsUtils
 import kotlinx.android.synthetic.main.activity_create_account.*
 import com.google.firebase.auth.FirebaseAuth
+import org.jetbrains.anko.indeterminateProgressDialog
+
 
 
 import java.util.*
@@ -24,6 +26,8 @@ class CreateAccount : BaseActivity() {
         setContentView(R.layout.activity_create_account)
 
         initActions()
+
+
 
 
     }
@@ -104,6 +108,7 @@ class CreateAccount : BaseActivity() {
             if (ValidationsUtils.verifyArrayObrigatory(validation)) {
 
                 toast("Sending information.")
+                val progressDialog = indeterminateProgressDialog ("Carregando...")
 
                 val email = edtUserEmailSignUp.text.toString()
                 val password = edtUserSignUpPass1.text.toString()
@@ -129,15 +134,15 @@ class CreateAccount : BaseActivity() {
                         toast("Falha ao conectar com o serviço : ${it.message}")
                         Log.d("Login", "Failed to log user : ${it.message}")
                     }
+                progressDialog.dismiss()
             }
-
-
         }
     }
 
     private fun saveUserToFirebase(userName: String, userEmail: String, userBirthDate: String) {
 
-             //Verifica se o usuário é um estabelecimento ou usuário comum.
+        //Verifica se o usuário é um estabelecimento ou usuário comum.
+        //Se for um estabelecimento, vamos add a tabela estabelecimentos no firebase
 
         val tipoUsuario = switch1.isChecked
         var userType : String = ""
@@ -145,6 +150,7 @@ class CreateAccount : BaseActivity() {
         if(tipoUsuario){
             //Estabelecimento
             userType = "1"
+
         }else{
             //Usuário comum
             userType = "0"
@@ -156,7 +162,6 @@ class CreateAccount : BaseActivity() {
             finish()
 
         }
-
 
 //        val uid  = FirebaseAuth.getInstance().uid ?: ""
 //        val databaseRef = FirebaseDatabase.getInstance().getReference("users/$uid")

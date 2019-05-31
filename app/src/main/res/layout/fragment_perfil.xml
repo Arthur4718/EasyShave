@@ -27,6 +27,20 @@
             app:layout_constraintHorizontal_bias="1.0"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/editText_userbirthdate"/>
     <android.support.design.widget.TextInputEditText
+            android:id="@+id/editText_endereco"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Endereco"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/editText_usertype"/>
+
+
+    <android.support.design.widget.TextInputEditText
             android:id="@+id/editText_userbirthdate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,7 +64,31 @@
             android:text="Salvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnUpdateProfile" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+            android:id="@+id/btnUpdateProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+            android:text="Atualizar o cadastro do local. "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/editText_endereco"
+            android:id="@+id/btnUpdateLocal"/>
+    <TextView
+            android:text="* Salões somente são listados após salvar o endereço."
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView12"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnUpdateLocal"
+            app:layout_constraintHorizontal_bias="0.0"/>
 
 </android.support.constraint.ConstraintLayout>
