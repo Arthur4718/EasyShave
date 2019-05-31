@@ -2,6 +2,7 @@ package com.devarthur.easyshave.adapter
 
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,11 +37,13 @@ class EstabelecimentoAdapter(val userList : ArrayList<EstabelecimentoModel>) : R
         holder.txtLocalEstabelecimento.text = userCard.localEstabelecimento
         holder.txtDistancia.text = userCard.distancia + "m"
 
-
+        val salaoUid = userCard.salaoUid
+        Log.d("arthurdebug", userCard.salaoUid)
         holder.cardView.setOnClickListener {
                 //Ao clicar no salão, abre uma tela de detalhe com todos serviços deste salão.
                 val nomeEstabelecimento = userCard.nomeEstabelecimento // Dado a ser enviado para proxima tela
-                holder.itemView.context.startActivity<DetalheServicosEstabelecimento>("estabelecimento" to nomeEstabelecimento)
+                holder.itemView.context.startActivity<DetalheServicosEstabelecimento>("estabelecimento" to nomeEstabelecimento
+                    , "salaoUid" to salaoUid)
 
         }
 

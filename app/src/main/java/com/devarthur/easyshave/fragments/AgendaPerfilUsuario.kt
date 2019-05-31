@@ -39,11 +39,6 @@ class AgendaPerfilUsuario : BaseFragment() {
     private var data = ""
     private var hora = ""
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,7 +51,7 @@ class AgendaPerfilUsuario : BaseFragment() {
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
+
 
                     nome = document.getString("username").toString()
                     servico = document.getString("servico").toString()
@@ -70,10 +65,8 @@ class AgendaPerfilUsuario : BaseFragment() {
                 }
             }
             .addOnFailureListener { exception ->
-                Log.d(TAG, "Error getting documents: ", exception)
+
             }
-        //Debug data
-        //createListAgendamento(view)
 
         return view
 

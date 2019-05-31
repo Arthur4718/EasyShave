@@ -1,6 +1,5 @@
 package com.devarthur.easyshave.activity.User
 
-
 import android.Manifest
 import android.content.pm.PackageManager
 import android.location.LocationManager
@@ -14,15 +13,12 @@ import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.View
-
 import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.RegisterActivities.LoginEmailActivity
-
 import com.devarthur.easyshave.extensions.addFragment
 import com.devarthur.easyshave.extensions.replaceFragment
 import com.devarthur.easyshave.fragments.*
@@ -114,12 +110,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-
-
-    }
-
     private fun setupPermissions() {
         val permission = ContextCompat.checkSelfPermission(this,
             Manifest.permission.ACCESS_FINE_LOCATION)
@@ -145,24 +135,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             super.onBackPressed()
         }
     }
-
-    //Adicionar o filtro ao toolbar quando necessário.
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.main_menu, menu)
-//        return true
-//    }
-//
-//    //Filtro quando necessario
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        return when (item.itemId) {
-//            R.id.action_settings -> true
-//            else -> super.onOptionsItemSelected(item)
-//        }
-//    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.

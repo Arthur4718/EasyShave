@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import android.widget.LinearLayout
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.EstabelecimentoAdapter
 import com.devarthur.easyshave.dataModel.EstabelecimentoModel
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 //Busca os estabelecimentos próximos.
@@ -20,8 +22,18 @@ import com.devarthur.easyshave.dataModel.EstabelecimentoModel
 //Ao click do serviço do estabelecimento,mostra os horários disponíveis.
 class BuscarServicos : Fragment() {
 
+    private val TAG: String? = "arthurdebug"
+
+    //Database
+    val db = FirebaseFirestore.getInstance()
+
 
     val dataList = ArrayList<EstabelecimentoModel>()
+
+
+    private var nome = ""
+    private var local = ""
+    private var salaoUid = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,23 +41,47 @@ class BuscarServicos : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_servicos_perfil_estabelecimento, container, false)
+        //Database data
+        db.collection("estabelecimento")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                    nome = document.getString("nome").toString()
+                    local = document.getString("local").toString()
+                    salaoUid = document.id
 
-        createListData(view)
+                    createListData(view, nome, local, salaoUid)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting documents: ", exception)
+            }
+
+
+        //createListData(view, nome, local)
         return view
     }
 
-    private fun createListData(view: View?) {
+    private fun createListData(
+
+        view: View?,
+        nome: String,
+        local: String,
+        salaoUid: String
+    ) {
 
         var mRecyclerView = view?.findViewById<RecyclerView>(R.id.recylerViewEstabelecimentosProximos)
         mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL,false)
 
-        for(i in 1..10){
+
             dataList.add(
                 EstabelecimentoModel(
-                "Salão $i",
-                  "Rua, avenida, local , n $i",
-                    "1$i" + "00"))
-        }
+                nome,
+                  local,
+                    "10" + "00",
+                    salaoUid))
+
 
         val adapter = EstabelecimentoAdapter(dataList)
 
