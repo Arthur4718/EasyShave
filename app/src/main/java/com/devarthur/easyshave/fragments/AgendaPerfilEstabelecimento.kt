@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,13 +14,20 @@ import android.widget.LinearLayout
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.AgendamentoEstAdapter
 import com.devarthur.easyshave.dataModel.AgendamentoEstModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 //Mostra os agendamentos que foram confirmados pelos usuários para este estabelecimento
 class AgendaPerfilEstabelecimento : Fragment() {
 
+    private val TAG: String? = "admindebug"
+
     //Data model que define os dados do agendamento.
     val agendamentoEstList = ArrayList<AgendamentoEstModel>()
+
+    //Database
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +36,20 @@ class AgendaPerfilEstabelecimento : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_agenda_perfil_usuario, container, false)
         //createListAgendamento(view)
+
+
+        //Recuperar os dados deste estabelecimento na tabela estabelecimento.
+        db.collection("estabelecimento")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents.", exception)
+            }
+
         return view
     }
 
