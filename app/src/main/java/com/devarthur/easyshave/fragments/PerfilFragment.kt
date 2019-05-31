@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.utils.FireStoreUtil
 import kotlinx.android.synthetic.main.fragment_perfil.*
@@ -33,7 +34,7 @@ class PerfilFragment : Fragment() {
 
         val btnUpdateProfile = view.findViewById<Button>(R.id.btnUpdateProfile)
         val btnUpdateLocal = view.findViewById<Button>(R.id.btnUpdateLocal)
-
+        val txthint = view.findViewById<TextView>(R.id.textView12)
 
 
         btnUpdateProfile.setOnClickListener {
@@ -76,6 +77,8 @@ class PerfilFragment : Fragment() {
         super.onStart()
         editText_usertype.isEnabled = false
 
+
+
         FireStoreUtil.getCurrentUser { user ->
             if (this@PerfilFragment.isVisible) {
                 editText_username.setText(user.username)
@@ -84,10 +87,19 @@ class PerfilFragment : Fragment() {
                 if(user.userType.equals("1")){
                     userType = user.userType
                     editText_usertype.setText("Estabelecimento")
-                }else{
+                    editText_endereco.visibility = View.VISIBLE
+                    btnUpdateLocal.visibility = View.VISIBLE
+                    textView12.visibility =  View.VISIBLE
+                 }else{
                     userType = user.userType
                     editText_usertype.setText("Usuário comum")
+
+                    editText_endereco.visibility = View.GONE
+                    btnUpdateLocal.visibility = View.GONE
+                    textView12.visibility =  View.GONE
                 }
+
+
 
                 //Todo update image for the user later...
 

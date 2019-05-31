@@ -18,9 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import android.widget.Toast
 import com.google.type.LatLng
 import android.location.Geocoder
-
-
-
+import org.jetbrains.anko.support.v4.toast
 
 
 //Busca os estabelecimentos próximos.
@@ -51,11 +49,15 @@ class BuscarServicos : Fragment() {
         db.collection("estabelecimento")
             .get()
             .addOnSuccessListener { result ->
+
                 for (document in result) {
                     Log.d(TAG, "${document.id} => ${document.data}")
                     nome = document.getString("nome").toString()
                     local = document.getString("local").toString()
                     salaoUid = document.id
+
+                    //Se não houverem resultados, avise o usuário
+                    if(document.data.size <= 0 ){  toast("Não há resultado para serem exibidos.") }
 
                     createListData(view, nome, local, salaoUid)
                 }
