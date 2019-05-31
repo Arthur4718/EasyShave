@@ -1,12 +1,7 @@
 package com.devarthur.easyshave.activity.RegisterActivities
 
-
-import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-
-
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
 import com.devarthur.easyshave.activity.User.MainMenuActivity
@@ -21,7 +16,6 @@ class LoginEmailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_email)
-
 
         initActions()
         debug()
@@ -44,15 +38,12 @@ class LoginEmailActivity : BaseActivity() {
          edtUserPassword.setText("123456")
     }
 
-
     private fun logWithUserData() {
 
-        val progressDialog = indeterminateProgressDialog ("Setting up acccount")
-
+        val progressDialog = indeterminateProgressDialog ("Verificando conta")
 
         val email = edtUserNameSignUp.text.toString()
         val pw = edtUserPassword.text.toString()
-
 
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, pw)
             .addOnCompleteListener {

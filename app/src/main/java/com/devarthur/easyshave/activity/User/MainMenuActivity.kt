@@ -97,7 +97,6 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 menu.removeItem(R.id.nav_buscar_servicos_perfil_usuario)
                 navView.invalidate()
 
-
             }
 
             if(databaseUserType.equals("0")){

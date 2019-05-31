@@ -4,19 +4,15 @@ package com.devarthur.easyshave.activity.RegisterActivities
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.util.Log
-
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.activity.BaseActivities.BaseActivity
-import com.devarthur.easyshave.dataModel.UserProfile
 import com.devarthur.easyshave.extensions.toast
 import com.devarthur.easyshave.fragments.DatePickerFragment
 import com.devarthur.easyshave.utils.FireStoreUtil
 import com.devarthur.easyshave.utils.ValidationsUtils
 import kotlinx.android.synthetic.main.activity_create_account.*
-
-
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+
 
 import java.util.*
 

@@ -15,6 +15,12 @@ import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.EstabelecimentoAdapter
 import com.devarthur.easyshave.dataModel.EstabelecimentoModel
 import com.google.firebase.firestore.FirebaseFirestore
+import android.widget.Toast
+import com.google.type.LatLng
+import android.location.Geocoder
+
+
+
 
 
 //Busca os estabelecimentos próximos.
@@ -89,6 +95,38 @@ class BuscarServicos : Fragment() {
 
 
     }
+
+//    fun getLocationFromAddress(context: Context, inputtedAddress: String): LatLng? {
+//
+//        val coder = Geocoder(context)
+//        val address: List<Address>?
+//        var resLatLng: LatLng? = null
+//
+//        try {
+//            // May throw an IOException
+//            address = coder.getFromLocationName(inputtedAddress, 5)
+//            if (address == null) {
+//                return null
+//            }
+//
+//            if (address.size == 0) {
+//                return null
+//            }
+//
+//            val location = address[0]
+//            location.getLatitude()
+//            location.getLongitude()
+//
+//            resLatLng = LatLng(location.getLatitude(), location.getLongitude())
+//
+//        } catch (ex: IOException) {
+//
+//            ex.printStackTrace()
+//            Toast.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show()
+//        }
+//
+//        return resLatLng
+//    }
 
 
 }
