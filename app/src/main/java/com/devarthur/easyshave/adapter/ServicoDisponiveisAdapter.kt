@@ -35,11 +35,14 @@ class ServicoDisponiveisAdapter(val userList : ArrayList<ServicoDataMotel>) : Re
         holder.txtServicoDisponivel.text = userCard.tituloServico
         holder.txtValorServicoDisponivel.text = userCard.precoServico
 
+
+
         holder.servicoCard.setOnClickListener {
 
 
             val servico : String = holder.txtServicoDisponivel.text.toString()
-            holder.itemView.context.startActivity<DetalheDatasEstabelecimento>("servico" to servico)
+            val servicoUid = userCard.servicoUid
+            holder.itemView.context.startActivity<DetalheDatasEstabelecimento>("servico" to servico, "servicoUid" to servicoUid)
 
         }
 

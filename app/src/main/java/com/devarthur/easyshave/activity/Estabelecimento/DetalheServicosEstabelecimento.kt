@@ -31,7 +31,7 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
 
         val toolbarTitle = intent.getSerializableExtra("estabelecimento") as String
         salaoUid = intent.getSerializableExtra("salaoUid") as String
-        Log.d(TAG, "intent id : " + salaoUid)
+
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavBar)
         setupToolbar(R.id.toolbar, toolbarTitle, true)
 
@@ -41,22 +41,6 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
         if(savedInstanceState == null){
             bottomNavBar.selectedItemId = R.id.id_nav_cabelo
         }
-
-        //Database data.
-        db.collection("servicos")
-            .whereEqualTo("salaoUid", salaoUid)
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-                    var servico = document.getString("servico").toString()
-                    var valor = document.getString("valor").toString()
-                    loadFirebaseData(servico, valor)
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents: ", exception)
-            }
 
 
     }
@@ -70,12 +54,48 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
             when(item.itemId){
                 R.id.id_nav_cabelo -> {
                     //carregar apenas todos serviços de cabelo
-                    loadDataList(item.itemId)
+
+                    dataList.clear()
+                    db.collection("servicos")
+                        .whereEqualTo("salaoUid", salaoUid)
+                        .whereEqualTo("tipo", 1)
+                        .get()
+                        .addOnSuccessListener { documents ->
+                            for (document in documents) {
+                                Log.d(TAG, "${document.id} => ${document.data}")
+                                var servico = document.getString("servico").toString()
+                                var valor = document.getString("valor").toString()
+                                var servicoUid = document.id
+                                loadFirebaseData(servico, valor, servicoUid)
+                            }
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.w(TAG, "Error getting documents: ", exception)
+                        }
+
                     return@OnNavigationItemSelectedListener true
                 }
 
                 R.id.id_nav_barba -> {
                     //carregar apenas barba
+                    dataList.clear()
+
+                    db.collection("servicos")
+                        .whereEqualTo("salaoUid", salaoUid)
+                        .whereEqualTo("tipo", 2)
+                        .get()
+                        .addOnSuccessListener { documents ->
+                            for (document in documents) {
+                                Log.d(TAG, "${document.id} => ${document.data}")
+                                var servico = document.getString("servico").toString()
+                                var valor = document.getString("valor").toString()
+                                var servicoUid = document.id
+                                loadFirebaseData(servico, valor, servicoUid)
+                            }
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.w(TAG, "Error getting documents: ", exception)
+                        }
 
                     return@OnNavigationItemSelectedListener true
                 }
@@ -142,14 +162,16 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
 
     }
 
-    private fun loadFirebaseData(servico: String, valor: String) {
+    private fun loadFirebaseData(servico: String, valor: String, servicoUid: String) {
         recyler_view_servicos_disponiveis.layoutManager = LinearLayoutManager(applicationContext, LinearLayout.VERTICAL,false)
 
+            //Passe o uid do servico pela intent
 
             dataList.add(
                 ServicoDataMotel(
                     servico,
-                    valor
+                    valor,
+                    servicoUid
                 ))
 
 
@@ -158,20 +180,20 @@ class DetalheServicosEstabelecimento : AppCompatActivity() {
     }
 
     //Debug data
-    private fun loadStaticData() {
-        recyler_view_servicos_disponiveis.layoutManager = LinearLayoutManager(applicationContext, LinearLayout.VERTICAL,false)
-
-        for(i in 1..10){
-            dataList.add(
-                ServicoDataMotel(
-                    "Cabelo $i",
-                    "$i"+"00" + ",00"
-                    ))
-        }
-
-        val adapter = ServicoDisponiveisAdapter(dataList)
-        recyler_view_servicos_disponiveis.adapter = adapter
-    }
+//    private fun loadStaticData() {
+//        recyler_view_servicos_disponiveis.layoutManager = LinearLayoutManager(applicationContext, LinearLayout.VERTICAL,false)
+//
+//        for(i in 1..10){
+//            dataList.add(
+//                ServicoDataMotel(
+//                    "Cabelo $i",
+//                    "$i"+"00" + ",00"
+//                    ))
+//        }
+//
+//        val adapter = ServicoDisponiveisAdapter(dataList)
+//        recyler_view_servicos_disponiveis.adapter = adapter
+//    }
 
     override fun onNavigateUp(): Boolean {
         finish()
