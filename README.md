@@ -8,7 +8,7 @@ Mostrar duas detas.
 
 
 
-![alt text](https://i.imgur.com/4OmoBc6.jpg)
+![](https://i.imgur.com/4OmoBc6.jpg =640x960)
 
 
 # Tela inicial e login. 
