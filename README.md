@@ -172,10 +172,12 @@ private fun updateFireStore() {
         db.collection("estabelecimento")
             .add(estabelecimento)
             .addOnSuccessListener { documentReference ->
+                //Ações caso a operação funcione
                 Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
                 toast("data updated")
             }
             .addOnFailureListener { e ->
+                //Ações caso a operação não funcione
                 Log.w(TAG, "Error adding document", e)
 
                 toast("Failure when updating... $e")
@@ -183,14 +185,58 @@ private fun updateFireStore() {
     }
 ```
 
-# Lendo informações do banco. 
+O método toast() é um alerta de sistema, caso algo de errado, o toast avisa e envia a mensagem de erro para o usuário. 
+
+# Lendo informações do banco.
+
+A referência permite a leitura do bd através do meto get(), onde é preciso informar o nome da tabela e os filtros da busca se necessário. 
+
+```kotlin
+//Database data
+        db.collection("userAgendamento")
+            .whereEqualTo("uid", querryUid) //Condição de busca - encontre os agendamentos que possuem o meu ID.
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    //Log.d("agendadebug" , "document: ${document.data}")
+
+
+                    nome = document.getString("username").toString()
+                    servico = document.getString("servico").toString()
+                    valor = document.getString("valor").toString()
+                    data = document.getString("data").toString()
+                    hora = document.getString("hora").toString()
+                    status = ""
+                    //Carrega os dados na tela. 
+                    createListAgendamento(view, nome,servico, valor, data, hora, status) 
+
+                }
+            }
+            .addOnFailureListener { exception ->
+                //Informao usuário caso aconteça algum erro de conexão. 
+                toast("Erro ao conectar ao banco $exception")
+
+            } 
+            
+```            
 
 
 # PagSeguro. 
 
+Implementar a api de pagamentos do pag seguro é preciso acessar o sdk do desenvolvedor. No nosso arquivo de configuração e ele adicionado dessa forma: 
 
+```kotlin
+    implementation 'br.com.uol.pslibs:checkout-in-app:0.0.9'
 
- 
+``` 
+
+Os tokens de acesso para teste são fornecidos no painel administrativo na área do desenvolvedor pag seguro. Sem estas informações as requisições com o pagseguro não funcionam. No modo sandbox(modo de teste), ele costuma apresentar um erro com o vendedor quando você não possui um cadastro. 
+
+```kotlin
+    private static final String SELLER_EMAIL = "devarthur4718@gmail.com";
+    private static final String SELLER_TOKEN = "31C3F3E9281D4781A468722B0B9EFD19";
+    private final String NOTIFICATION_URL_PAYMENT = "https://pagseguro.uol.com.br/lojamodelo-qa/RetornoAutomatico-OK.jsp";
+ ``` 
 
 
 
