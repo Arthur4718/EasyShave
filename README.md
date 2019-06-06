@@ -6,7 +6,12 @@ Mostrar duas detas.
 
 # Estrutura do projeto
 
-Login e cadatro de usuários. 
+
+
+
+# Tela inicial e login. 
+
+A primeira tela a ser carregada no app é a WellcomeActivity. Ela possui um timer par 
 
 ```kotlin
 package com.devarthur.easyshave.activity.RegisterActivities
