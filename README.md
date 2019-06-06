@@ -8,7 +8,7 @@ Mostrar duas detas.
 
 
 
-![alt text](https://imgur.com/a/RhfIbc5)
+![alt text](https://i.imgur.com/4OmoBc6.jpg)
 
 
 # Tela inicial e login. 
