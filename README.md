@@ -126,10 +126,71 @@ class LoginEmailActivity : BaseActivity() {
 ```
 
 
-# Libraries utilzadas
+# Enviando informações para o banco. 
+
+Todo chamada com o banco precisa do ID do usuário e de uma referência a base de dados. 
+
+```kotlin
+    //User Info 
+    private val currentFirebaseUser = FirebaseAuth.getInstance().currentUser
+    //Database
+    private val db = FirebaseFirestore.getInstance()
+
+```
+
+Para gravar informações no firebase, criamos um objeto no mesmo formato que o banco de dados possui. Por exemplo, a tabela
+estabelecimento contem: 
+
+* nome
+* local
+* userUid
+* email
+
+Se formos cadastrar um novo estabelecimento, criamos um objeto com características idênticas, e armazenamos esses novos valores no objeto. 
+
+```kotlin
+val novoEstabelecimento = HashMap<String, Any>()
+        novoEstabelecimento["local"] = editText_endereco.text.toString()
+        novoEstabelecimento["nome"] =  editText_username.text.toString()
+        novoEstabelecimento["email"] =  editText_email.text.toString()
+        novoEstabelecimento["userUid"] = FirebaseAuth.getInstance().uid.toString()
+
+```
+
+Em seguida, usando a referencia ao banco de dados, chamamos o metodo db.collection.add para passar os novos dados, o método nos informa se a operação foi concluida ou se houve erro. 
+
+```kotlin
+private fun updateFireStore() {
+
+       val novoEstabelecimento = HashMap<String, Any>()
+        novoEstabelecimento["local"] = editText_endereco.text.toString()
+        novoEstabelecimento["nome"] =  editText_username.text.toString()
+        novoEstabelecimento["email"] =  editText_email.text.toString()
+        novoEstabelecimento["userUid"] = FirebaseAuth.getInstance().uid.toString()
+
+        //Salva na tabela estabelecimento - desse modo aparece na listagem para o usuário comum
+        db.collection("estabelecimento")
+            .add(estabelecimento)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                toast("data updated")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error adding document", e)
+
+                toast("Failure when updating... $e")
+            }
+    }
+```
+
+# Lendo informações do banco. 
 
 
-# Banco 
+# PagSeguro. 
+
+
+
+ 
 
 
 
