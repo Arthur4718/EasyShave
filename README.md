@@ -238,5 +238,21 @@ Os tokens de acesso para teste são fornecidos no painel administrativo na área
     private final String NOTIFICATION_URL_PAYMENT = "https://pagseguro.uol.com.br/lojamodelo-qa/RetornoAutomatico-OK.jsp";
  ``` 
 
+Quando o clicamos em pagar, iniciamos a caixa de dialogo do pagSeguro, ela vai buscar informações adicionais sobre pagamento e valor do produto. 
 
+```kotlin
+private void initWallet(){
+        //Inicialização a lib com parametros necessarios
+        PSCheckoutConfig psCheckoutConfig = new PSCheckoutConfig();
+        psCheckoutConfig.setSellerEmail(SELLER_EMAIL);
+        psCheckoutConfig.setSellerToken(SELLER_TOKEN);
+        //Informe o fragment container
+        psCheckoutConfig.setContainer(R.id.fragment_container);
 
+        //Inicializa apenas os recursos da carteira
+        PSCheckout.initWallet(getActivity(), psCheckoutConfig);
+    }
+
+ ``` 
+
+Alguns recursos como parcelamento e algumas bandeiras de crédito são limitados na versão sandbox. 
