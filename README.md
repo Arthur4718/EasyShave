@@ -1,12 +1,6 @@
 # EasyShave
 
-Sobre o projeto. 
-
-Mostrar duas detas. 
-
-# Estrutura do projeto
-
-
+App desenvolvido para busca e gestão de serviços. 
 
 ![](https://i.imgur.com/4OmoBc6.jpg)
 
@@ -86,7 +80,8 @@ class LoginEmailActivity : BaseActivity() {
     private fun initActions() {
 
         btnSignIn.setOnClickListener { logWithUserData()}
-
+        
+        //Entre {} a ação que deve ser excutada ao click. StartActivity inicia uma nova tela, a partir desta. 
         txtEsqueciSenha.setOnClickListener {startActivity<RecoverPassword>() }
 
         txtCadastro.setOnClickListener { startActivity<CreateAccount>() }
@@ -128,10 +123,10 @@ class LoginEmailActivity : BaseActivity() {
     }
 }
 
-
 ```
 
-# Library utilzadas
+
+# Libraries utilzadas
 
 
 # Banco 
