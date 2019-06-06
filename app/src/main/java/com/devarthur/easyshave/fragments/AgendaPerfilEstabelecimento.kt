@@ -1,6 +1,5 @@
 package com.devarthur.easyshave.fragments
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -10,13 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.AgendamentoEstAdapter
 import com.devarthur.easyshave.dataModel.AgendamentoEstModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
 
 //Mostra os agendamentos que foram confirmados pelos usuários para este estabelecimento
 class AgendaPerfilEstabelecimento : Fragment() {
@@ -29,21 +26,40 @@ class AgendaPerfilEstabelecimento : Fragment() {
     //Database
     val db = FirebaseFirestore.getInstance()
 
+    private var nome = ""
+    private var servico = ""
+    private var valor = ""
+    private var status = ""
+    private var data = ""
+    private var hora = ""
+
+    //MyID
+    private var querryUid = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_agenda_perfil_usuario, container, false)
-        //createListAgendamento(view)
+
+        val currentFirebaseUser = FirebaseAuth.getInstance().currentUser
+        querryUid = currentFirebaseUser?.uid ?: "blank"
 
 
-        //Recuperar os dados deste estabelecimento na tabela estabelecimento.
-        db.collection("estabelecimento")
+        //Busca quais clientes na base estão agendados para o seu salão.
+        db.collection("userAgendamento")
+            .whereEqualTo("salaoUid", querryUid)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
+                    nome = document.getString("username").toString()
+                    servico = document.getString("servico").toString()
+                    valor = document.getString("valor").toString()
+                    data = document.getString("data").toString()
+                    hora = document.getString("hora").toString()
+
+                    createListAgendamento(view, nome,servico, valor, data, hora, status)
                 }
             }
             .addOnFailureListener { exception ->
@@ -70,8 +86,35 @@ class AgendaPerfilEstabelecimento : Fragment() {
         var adapter = AgendamentoEstAdapter(agendamentoEstList)
 
         mRecyclerView?.adapter = adapter
-        adapter.itemCount
+
     }
+
+    private fun createListAgendamento(
+        view: View?,
+        nome: String,
+        servico: String,
+        valor: String,
+        data: String,
+        status: String,
+        status1: String
+    ){
+        var mRecyclerView = view?.findViewById<RecyclerView>(R.id.recyclerAgendaEstabelecimento)
+        mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL, false)
+
+        agendamentoEstList.add(AgendamentoEstModel(
+            nome,
+            servico,
+            data,
+            hora,
+            status,
+            valor))
+        var adapter = AgendamentoEstAdapter(agendamentoEstList)
+
+        mRecyclerView?.adapter = adapter
+
+    }
+
+
 
 
 }

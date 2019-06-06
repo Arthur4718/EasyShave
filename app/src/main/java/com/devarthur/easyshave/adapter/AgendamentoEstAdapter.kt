@@ -35,6 +35,7 @@ class AgendamentoEstAdapter(val userList : ArrayList<AgendamentoEstModel>) : Rec
         holder.txtCardData.text = userCard.data
         holder.txtValorHora.text = userCard.preco
 
+        holder.txtDistancia.visibility = View.GONE
 
 
         holder.cardView.setOnClickListener {
@@ -76,6 +77,7 @@ class AgendamentoEstAdapter(val userList : ArrayList<AgendamentoEstModel>) : Rec
         val txtCardHorario = itemView.findViewById(R.id.txtCardHorarioAgendamento) as TextView
         val txtCardData = itemView.findViewById(R.id.txtCardDataAgendamento) as TextView
         val txtValorHora = itemView.findViewById(R.id.txtValorHora) as TextView
+        val txtDistancia = itemView.findViewById(R.id.txtDistanciaAgenda) as TextView
 
         val cardView = itemView.findViewById(R.id.cardDataItem) as CardView
 

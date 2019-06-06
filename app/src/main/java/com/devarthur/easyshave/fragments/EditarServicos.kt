@@ -1,7 +1,5 @@
 package com.devarthur.easyshave.fragments
 
-
-
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
@@ -17,17 +15,17 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
-
-
 import com.devarthur.easyshave.R
 import com.devarthur.easyshave.adapter.ServicoAdapter
 import com.devarthur.easyshave.dataModel.Servico
-
-
+import com.google.firebase.auth.FirebaseAuth
 
 //Add ou remove horários para os serviços do salão.
+//Servicos são salvos com um uid na tabela servicos. Seus horários e datas são cadastrados em
+//tabelas indepentes, sendo identificados pelo uid do servico.
 class EditarServicos : Fragment() {
 
+    private var querryUid: String = ""
     val servicoList = ArrayList<Servico>()
 
 
@@ -37,6 +35,8 @@ class EditarServicos : Fragment() {
     ): View? {
 
         val view = inflater?.inflate(R.layout.fragment_servicos, container, false)
+        val currentFirebaseUser = FirebaseAuth.getInstance().currentUser
+        querryUid = currentFirebaseUser?.uid ?: "blank"
 
 
         initActionsAdmin(view)
@@ -49,29 +49,35 @@ class EditarServicos : Fragment() {
         val mRecyclerView = view?.findViewById<RecyclerView>(R.id.mRecyclerViewServicos)
         mRecyclerView?.layoutManager = LinearLayoutManager(this.context, LinearLayout.VERTICAL,false)
 
-        servicoList.add(Servico("Cabelo Masculino", 0))
-        servicoList.add(Servico("Barba", 1))
-        servicoList.add(Servico("Cabelo Feminino", 2 ))
-        servicoList.add(Servico("Manicure e Pedicure", 3))
-        servicoList.add(Servico("Sobrancelha", 4))
+        servicoList.add(Servico("Cabelo Masculino", 1))
+        servicoList.add(Servico("Barba", 2))
+        servicoList.add(Servico("Cabelo Feminino", 3 ))
+        servicoList.add(Servico("Manicure e Pedicure", 4))
+        servicoList.add(Servico("Sobrancelha", 5))
+
+        //Backlog
+        //Todo add uma tela em que eu possa visualizar todos os serviços de um tipo
+        //Exemplo : Ver todos os tipos de serviço para cabelo masculino, todos filtrando da tabela servicos
+
+
 
         val adapter = ServicoAdapter(servicoList)
 
         mRecyclerView?.adapter = adapter
 
-        val addServico = view?.findViewById<FloatingActionButton>(R.id.fabAddServico)
+//        val addServico = view?.findViewById<FloatingActionButton>(R.id.fabAddServico)
+//
+//        addServico?.setOnClickListener {
+//            //Toast.makeText(it.context, "Add item", Toast.LENGTH_SHORT).show()
+//            addServicoDialog()
+//        }
 
-        addServico?.setOnClickListener {
-            //Toast.makeText(it.context, "Add item", Toast.LENGTH_SHORT).show()
-            addServicoDialog()
-        }
-
-        val removeServico = view?.findViewById<FloatingActionButton>(R.id.fabRemoveServico)
-
-        removeServico?.setOnClickListener {
-            //Toast.makeText(it.context, "Remove item", Toast.LENGTH_SHORT).show()
-            removeServicoDialog()
-        }
+//        val removeServico = view?.findViewById<FloatingActionButton>(R.id.fabRemoveServico)
+//
+//        removeServico?.setOnClickListener {
+//            //Toast.makeText(it.context, "Remove item", Toast.LENGTH_SHORT).show()
+//            removeServicoDialog()
+//        }
 
     }
 

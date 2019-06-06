@@ -17,6 +17,7 @@
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="8dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"/>
 
     <android.support.design.widget.FloatingActionButton
@@ -24,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:visibility="gone"
             android:id="@+id/fabRemoveServico"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/fabAddServico" android:layout_marginEnd="8dp"

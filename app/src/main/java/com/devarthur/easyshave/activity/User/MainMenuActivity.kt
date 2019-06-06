@@ -218,4 +218,8 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
         }
     }
+
+    //Backlog
+    //Todo no agendamento do usuário, informar se ele deseja efetuar pagamento neste momento ou posteriormente.
+    // Todo Add agendamento na tabela agendamentos com Uid do usuario e salaoUid
 }

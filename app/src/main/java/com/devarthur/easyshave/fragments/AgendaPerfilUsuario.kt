@@ -46,7 +46,7 @@ class AgendaPerfilUsuario : BaseFragment() {
 
         val currentFirebaseUser = FirebaseAuth.getInstance().currentUser
         querryUid = currentFirebaseUser?.uid ?: "blank"
-        Log.d("agendadebug" , "uid : ${currentFirebaseUser?.uid}")
+
 
         //Database data
         db.collection("userAgendamento")
@@ -54,7 +54,7 @@ class AgendaPerfilUsuario : BaseFragment() {
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    Log.d("agendadebug" , "document: ${document.data}")
+                    //Log.d("agendadebug" , "document: ${document.data}")
 
 
                     nome = document.getString("username").toString()

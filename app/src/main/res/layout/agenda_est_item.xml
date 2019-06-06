@@ -88,8 +88,10 @@
                     android:text="2 Km"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"
-                    android:id="@+id/txtDistanciaAgenda" app:layout_constraintStart_toStartOf="@+id/txtValorHora"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="16dp"
+                    android:id="@+id/txtDistanciaAgenda"
+                    app:layout_constraintStart_toStartOf="@+id/txtValorHora"
             />
 
 

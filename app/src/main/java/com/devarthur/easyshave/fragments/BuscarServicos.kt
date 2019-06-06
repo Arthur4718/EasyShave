@@ -54,7 +54,7 @@ class BuscarServicos : Fragment() {
                     Log.d(TAG, "${document.id} => ${document.data}")
                     nome = document.getString("nome").toString()
                     local = document.getString("local").toString()
-                    salaoUid = document.id
+                    salaoUid = document.getString("userUid").toString()
 
                     //Se não houverem resultados, avise o usuário
                     if(document.data.size <= 0 ){  toast("Não há resultado para serem exibidos.") }
@@ -64,6 +64,7 @@ class BuscarServicos : Fragment() {
             }
             .addOnFailureListener { exception ->
                 Log.d(TAG, "Error getting documents: ", exception)
+                toast("Não há resultado para serem exibidos.")
             }
 
 

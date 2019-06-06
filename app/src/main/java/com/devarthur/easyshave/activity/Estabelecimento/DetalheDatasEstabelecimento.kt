@@ -41,7 +41,7 @@ class DetalheDatasEstabelecimento : AppCompatActivity() {
                 for (document in documents) {
                     Log.d(TAG, "${document.id} => ${document.data}")
                     var data = document.getString("data").toString()
-                    var id = document.id
+                    var id = document.getString("servicoUid").toString()
                     loadDataIntoRecylerView(data, id)
 
                 }
