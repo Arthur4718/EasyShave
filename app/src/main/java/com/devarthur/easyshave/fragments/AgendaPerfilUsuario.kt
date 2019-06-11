@@ -14,6 +14,7 @@ import com.devarthur.easyshave.dataModel.AgendamentoModel
 import com.google.firebase.firestore.FirebaseFirestore
 import org.jetbrains.anko.support.v4.indeterminateProgressDialog
 import com.google.firebase.auth.FirebaseAuth
+import org.jetbrains.anko.support.v4.toast
 
 //Mostra para o usuário que serviços ele agendou
 class AgendaPerfilUsuario : BaseFragment() {
@@ -69,6 +70,7 @@ class AgendaPerfilUsuario : BaseFragment() {
                 }
             }
             .addOnFailureListener { exception ->
+                toast("Erro ao conectar ao banco $exception")
 
             }
 

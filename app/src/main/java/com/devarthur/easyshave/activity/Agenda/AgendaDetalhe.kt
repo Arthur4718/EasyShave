@@ -27,8 +27,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 import kotlinx.android.synthetic.main.activity_agenda_detalhe.*
 import kotlinx.android.synthetic.main.include_toolbar.toolbar
-import org.jetbrains.anko.support.v4.toast
-
 
 //Add uma data para um servico, usando seu uid como Chave.
 class AgendaDetalhe : BaseActivity() {

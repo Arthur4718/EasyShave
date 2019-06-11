@@ -26,9 +26,10 @@ import com.devarthur.easyshave.utils.FireStoreUtil
 import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.startActivity
 
-
+//Carregada após o login - É a tela responsável por carregar o menu lateral para os dois tipos de usuário
 class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    //Codigo para solicitar gps do user.
     private val RECORD_REQUEST_CODE: Int = 1
 
     //User data
@@ -218,8 +219,4 @@ class MainMenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
         }
     }
-
-    //Backlog
-    //Todo no agendamento do usuário, informar se ele deseja efetuar pagamento neste momento ou posteriormente.
-    // Todo Add agendamento na tabela agendamentos com Uid do usuario e salaoUid
 }

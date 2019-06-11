@@ -22,7 +22,7 @@ class PerfilFragment : Fragment() {
 
     //User Info
     private val currentFirebaseUser = FirebaseAuth.getInstance().currentUser
-
+    //Database
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
@@ -64,7 +64,7 @@ class PerfilFragment : Fragment() {
             .add(estabelecimento)
             .addOnSuccessListener { documentReference ->
                 Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                toast("Profile Updated")
+                toast("data updated")
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)

@@ -58,11 +58,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView4"
+                    android:visibility="gone"
                     app:layout_constraintBaseline_toBaselineOf="@+id/txtNomeServicoCard"
                     app:layout_constraintStart_toEndOf="@+id/txtNomeServicoCard" android:layout_marginStart="8dp"/>
             <TextView
-                    android:text="0
-"
+
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtCod"

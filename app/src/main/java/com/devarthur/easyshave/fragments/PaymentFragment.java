@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.Toast;
 import br.com.uol.pslibs.checkout_in_app.PSCheckout;
 import br.com.uol.pslibs.checkout_in_app.transparent.listener.PSBilletListener;
@@ -53,8 +52,6 @@ public class PaymentFragment extends Fragment {
         initTransparent();
         configurePayment();
 
-        Log.d("pagseguro", "Seller: " + SELLER_EMAIL);
-        Log.d("pagseguro", "token: " + SELLER_TOKEN);
 
         return view;
     }
